@@ -1,0 +1,1367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <title>flex 整体演示</title>
+
+    <link rel="stylesheet" href="css/reset.css">
+
+    <style>
+
+        /*通用属性*/
+        hr{
+            border: dotted 14px #2db34a;
+        }
+        .height-400{
+            max-height: 400px;
+        }
+        .title{
+            margin: 30px;
+            padding: 20px;
+            border: dashed 3px gray;
+            color: #535a5d;
+            font-size: 14px;
+            line-height: 16px;
+        }
+        .title h1{
+            font-size: 16px;
+            color: red;
+        }
+        .container{
+            width: 650px;  /*刚好可以放下3个*/
+            min-height: 300px;
+
+            position: relative;
+            margin-top: 30px;
+            margin-bottom: 90px;
+            border: solid 1px #a4a9a8;
+
+            padding: 30px 0;
+        }
+        .container.nopadding{
+            padding: 0;
+        }
+        .container:before{
+            content: "flex container";
+            position: absolute;
+            left: -3px;
+            top:-10px;
+            color:white;
+            background-color: black;
+            border: solid 2px #0087cc;
+            border-radius: 3px;
+        }
+
+        .flex{
+            display: flex;
+        }
+        .container-desc{
+            position: absolute;
+            left: 123px;
+            top:-12px;
+            color:white;
+            background-color: black;
+            border-radius: 3px;
+        }
+        .container-remark{
+            position: absolute;
+            left: 103%;
+            /*transform: translateX(100%);*/
+            width: 300px;
+            padding: 20px;
+            top:-10px;
+            color:#79ff75;
+            background-color: black;
+            border-radius: 3px;
+        }
+
+        .container-remark .simple{
+
+            display: inline-block;
+            margin: 10px;
+
+            border: dashed 2px gray;
+            color: #fff;
+        }
+
+        /*添加 block 说明*/
+        .container .block:before{
+            content: "flex item";
+            position: absolute;
+            left: -3px;
+            top:-3px;
+            /*transform: translateX(-120%) translateY(-50%);*/
+            color:white;
+            background-color: black;
+            border-radius: 3px;
+        }
+
+        .container .width-50{
+            width: 50px;
+        }
+        .container .width-65{
+            width: 65px;
+        }
+        .container .width-70{
+            width: 70px;
+        }
+        .container .width-120{
+            width: 120px;
+        }
+        .container .width-200{
+            width: 200px;
+        }
+        .container .width-400{
+            width: 400px;
+        }
+        .container .height-50{
+            height: 50px;
+        }
+        .container .height-70{
+            height: 70px;
+        }
+        .container .height-100{
+            height: 100px;
+        }
+
+        .container .basis-150{
+            flex-basis: 150px;
+        }
+
+        /*当希望展示宽度的时候*/
+        .container .width-65.width-first:before{
+            content: "65px";
+        }
+        .container .width-70.width-first:before{
+            content: "70px";
+        }
+        .container .width-120.width-first:before{
+            content: "120px";
+        }
+        .container .width-200.width-first:before{
+            content: "200px";
+        }
+        .container .width-400.width-first:before{
+            content: "400px";
+        }
+        .container .basis-150.width-first:before{
+            content: "basis:150px";
+        }
+
+        .block{
+            position: relative;
+            margin: 20px;
+            text-align: center;
+        }
+        .block.nomargin{
+            margin: 0;
+        }
+        .container .block.autoheight{
+            height: auto;
+        }
+        .container .block.autowidth{
+            width: auto;
+        }
+        .container .block.nowidth{
+            width: 0px;
+        }
+        .container .block.allwidth{
+            width: 100%;
+        }
+        .block.small.autoheight{
+            height: auto;
+        }
+
+        .block.small.center{
+            align-self: center;
+        }
+
+        .direction-row{
+            flex-direction: row;
+        }
+        .direction-row-reverse{
+            flex-direction: row-reverse;
+        }
+        .direction-column{
+            flex-direction: column;
+        }
+        .direction-column-reverse{
+            flex-direction: column-reverse;
+        }
+
+        .wrap-nowrap{
+            flex-wrap: nowrap;
+        }
+        .wrap-wrap{
+            flex-wrap: wrap;
+        }
+        .wrap-reverse{
+            flex-wrap: wrap-reverse;
+        }
+        .flex-flow{
+            flex-flow: column wrap;
+        }
+
+        .flex-flow2{
+            flex-flow: column wrap-reverse;
+        }
+
+        .justify-flex-start{
+            justify-content: flex-start;
+        }
+        .justify-flex-end{
+            justify-content: flex-end;
+        }
+        .justify-center{
+            justify-content: center;
+        }
+        .justify-space-between{
+            justify-content: space-between;
+        }
+        .justify-space-around{
+            justify-content: space-around;
+        }
+
+        .align-items-flex-start{
+            align-items: flex-start;
+        }
+        .align-items-flex-end{
+            align-items: flex-end;
+        }
+        .align-items-center{
+            align-items: center;
+        }
+        .align-items-baseline{
+            align-items: baseline;
+        }
+        .align-items-stretch{
+            align-items: stretch;
+        }
+
+        .align-self-flex-start{
+            align-self: flex-start;
+        }
+        .align-self-flex-end{
+            align-self: flex-end;
+        }
+        .align-self-center{
+            align-self: center;
+        }
+        .align-self-baseline{
+            align-self: baseline;
+        }
+        .align-self-stretch{
+            align-self: stretch;
+        }
+
+
+        .align-content-flex-start{
+            align-content: flex-start;
+        }
+        .align-content-flex-end{
+            align-content: flex-end;
+        }
+        .align-content-center{
+            align-content: center;
+        }
+        .align-content-space-between{
+            align-content: space-between;
+        }
+        .align-content-space-around{
+            align-content: space-around;
+        }
+        .align-content-stretch{
+            align-content: stretch;
+        }
+
+        .order-1{
+            order: -1;
+        }
+        .order-2{
+            order: -2;
+        }
+        .order1{
+            order: 1;
+        }
+        .order2{
+            order: 2;
+        }
+        .order3{
+            order: 3;
+        }
+        .block.order-1:after{
+            content: 'order:-1';
+        }
+        .block.order-2:after{
+            content: 'order:-2';
+        }
+        .block.order1:after{
+            content: 'order:1';
+        }
+        .block.order2:after{
+            content: 'order:2';
+        }
+        .block.order3:after{
+            content: 'order:3';
+        }
+
+
+        .flex-grow-1{
+            flex-grow: 1;
+        }
+
+        .flex-grow-2{
+            flex-grow: 2;
+        }
+        .flex-grow-3{
+            flex-grow: 3;
+        }
+        .block.flex-grow-1:after{
+            content: 'flex-grow:1';
+        }
+        .block.flex-grow-2:after{
+            content: 'flex-grow:2';
+        }
+        .block.flex-grow-3:after{
+            content: 'flex-grow:3';
+        }
+
+        .flex-shrink-1{
+            flex-shrink: 1;
+        }
+        .flex-shrink-2{
+            flex-shrink: 2;
+        }
+        .flex-shrink-3{
+            flex-shrink: 3;
+        }
+        .block.flex-shrink-1:after{
+            content: 'flex-shrink:1';
+        }
+        .block.flex-shrink-2:after{
+            content: 'flex-shrink:2';
+        }
+        .block.flex-shrink-3:after{
+            content: 'flex-shrink:3';
+        }
+        .block.flex-auto{
+            flex:auto;
+        }
+        .block.flex-none{
+            flex:none;
+        }
+
+        /*定制属性*/
+
+        .block1{
+            width: 100px;
+            height: 100px;
+            background-color: #79ff75;
+
+            text-align: center;
+        }
+        .block1.small{
+            width: 70px;
+            height: 110px;
+        }
+        .block1:after{
+            content: "block1";
+
+            position: relative;
+            top:30px;
+            font-size: 8px;
+
+        }
+        .block2{
+            width: 150px;
+            height: 120px;
+            background-color: #019da7;
+            text-align: center;
+        }
+        .block2.small{
+            width: 60px;
+            height: 100px;
+        }
+        .block2:after{
+            content: "block2";
+            position: relative;
+            top:30px;
+            font-size: 16px;
+        }
+        .block3{
+            width: 200px;
+            height: 80px;
+            background-color: #a133ff;
+            text-align: center;
+        }
+        .block3.small{
+            width: 140px;
+            height: 130px;
+        }
+        .block3:after{
+            content: "block3";
+            position: relative;
+            top:30px;
+            font-size: 36px;
+        }
+        .block4{
+            width: 200px;
+            height: 130px;
+            background-color: #4444ff;
+            text-align: center;
+        }
+        .block4.small{
+            width: 70px;
+            height: 90px;
+        }
+        .block4:after{
+            content: "block4";
+            position: relative;
+            top:30px;
+            font-size: 22px;
+        }
+        .block5{
+            width: 200px;
+            height: 50px;
+            background-color: #12ff2a;
+            text-align: center;
+        }
+        .block5:after{
+            content: "block5";
+            position: relative;
+            top:30px;
+            font-size: 22px;
+        }
+        .block6{
+            width: 210px;
+            height: 60px;
+            background-color: #d75e60;
+            text-align: center;
+        }
+        .block6:after{
+            content: "block6";
+            position: relative;
+            top:30px;
+            font-size: 22px;
+        }
+        .block7{
+            width: 240px;
+            height: 70px;
+            background-color: #d72360;
+            text-align: center;
+        }
+        .block7:after{
+            content: "block7";
+            position: relative;
+            top:30px;
+            font-size: 22px;
+        }
+        .block8{
+            width: 120px;
+            height: 70px;
+            background-color: #d723af;
+            text-align: center;
+        }
+        .block8:after{
+            content: "block8";
+            position: relative;
+            top:30px;
+            font-size: 22px;
+        }
+        .block9{
+            width: 100px;
+            height: 60px;
+            background-color: #12ffff;
+            text-align: center;
+        }
+        .block9:after{
+            content: "block9";
+            position: relative;
+            top:30px;
+            font-size: 22px;
+        }
+        .block-no-width{
+            height: 60px;
+            background-color: #ff22dd;
+            text-align: center;
+        }
+        .block-no-width:after{
+            content: "i am block-no-width";
+            position: relative;
+            top:30px;
+            font-size: 22px;
+        }
+
+    </style>
+</head>
+<body>
+
+        <div class="title">
+            <h1>flex-direction</h1>
+            「flex-direction」属性可以用来设定伸缩容器的主轴的方向，这也决定了使用者代理配置伸缩项目的方向。 <br>
+            取值：	row | row-reverse | column | column-reverse <br>
+            初始：	row <br>
+            适用于：	伸缩容器 <br>
+
+            「row」<br>
+            伸缩容器的主轴与当前书写模式的行内轴（文字布局的主要方向）同向。主轴起点与主轴终点方向分别等同于当前书写模式的始与结方向。<br>
+            「row-reverse」<br>
+            除了主轴起点与主轴终点方向交换以外同「row」。<br>
+            「column」<br>
+            伸缩容器的主轴与当前书写模式的块轴（块布局的主要方向）同向。主轴起点与主轴终点方向分别等同于当前书写模式的前与后方向。<br>
+            「column-reverse」<br>
+            除了主轴起点与主轴终点方向交换以外同「column」。<br>
+        </div>
+
+        <div class="container flex">
+
+            <div class="container-desc">display:flex</div>
+
+            <div class="container-remark">不指定flex-direction默认的 row,伸缩容器的主轴与当前书写模式的行内轴（文字布局的主要方向）同向。在这里,主轴起点=>主轴终点 为 左=>右</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+        </div>
+
+        <div class="container flex direction-row">
+            <div class="container-desc">display:flex,flex-direction:row(default)</div>
+
+            <div class="container-remark">指定flex-direction=row,和上面意思是一样的</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+        </div>
+
+        <div class="container flex direction-row-reverse">
+            <div class="container-desc">display:flex,flex-direction:row-reverse</div>
+            <div class="container-remark">flex-direction = row-reverse,伸缩容器的主轴与当前书写模式的行内轴（文字布局的主要方向）反向。在这里,主轴起点=>主轴终点 为 右=>左</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+        </div>
+
+        <div class="container flex direction-column">
+            <div class="container-desc">display:flex,flex-direction:column</div>
+            <div class="container-remark">flex-direction = column,伸缩容器的主轴与当前书写模式的块轴（块布局的主要方向）同向。在这里,主轴起点=>主轴终点 为 上=>下。</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+        </div>
+
+        <div class="container flex  direction-column-reverse">
+            <div class="container-desc">display:flex,flex-direction:column-reverse</div>
+            <div class="container-remark">flex-direction = column,伸缩容器的主轴与当前书写模式的块轴（块布局的主要方向）反向。在这里,主轴起点=>主轴终点 为 下=>上。</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+        </div>
+
+        <hr>
+
+        <div class="title">
+            <h1>flex-wrap</h1>
+            取值：	nowrap | wrap | wrap-reverse <br>
+            初始：	nowrap <br>
+            适用于：	伸缩容器 <br>
+            「flex-wrap」属性控制伸缩容器是单行还是多行，也决定了侧轴方向 ― 新的一行的堆放方向。 <br>
+
+            「nowrap」<br>
+            伸缩容器为单行。侧轴起点方向等同于当前书写模式的起点或前／头在侧轴的那一边，而侧轴终点方向是侧轴起点的相反方向。<br>
+            「wrap」<br>
+            伸缩容器为多行。侧轴起点方向等同于当前书写模式的起点或前／头在侧轴的那一边，而侧轴终点方向是侧轴起点的相反方向。<br>
+            「wrap-reverse」<br>
+            除了侧轴起点与侧轴终点方向交换以外同「wrap」。
+
+        </div>
+
+        <div class="container flex wrap-nowrap">
+            <div class="container-desc">display:flex,flex-wrap:nowrap(default)</div>
+
+            <div class="container-remark">默认的 nowrap,会导致 item 必须在一行内排列,所以 item 原有的宽度会被等比例压缩</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+            <div class="block block4"></div>
+        </div>
+
+        <div class="container flex wrap-wrap">
+            <div class="container-desc"> display:flex,flex-wrap:wrap</div>
+
+            <div class="container-remark">使用 wrap,item 被允许在多行内,按照书写顺序排列,所以 item 大小不会被改变</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+            <div class="block block4"></div>
+        </div>
+
+        <div class="container flex wrap-reverse">
+            <div class="container-desc"> display:flex,flex-wrap:wrap-reverse</div>
+
+            <div class="container-remark">使用 wrap-reverse,item 被允许在多行内,按"反向的"照书写顺序排列,所以 item 大小不会被改变</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+            <div class="block block4"></div>
+        </div>
+
+        <hr>
+        <div class="title">
+            <h1>flex-flow</h1>
+            取值：	<‘flex-direction’> || <‘flex-wrap’>。 <br>
+
+            「flex-flow」属性是同时设定「flex-direction」与「flex-wrap」属性的缩写，两个属性决定了伸缩容器的主轴与侧轴。<br>
+
+        </div>
+
+        <div class="container flex flex-flow height-400">
+            <div class="container-desc"> display:flex,flex-flow: column wrap;</div>
+
+            <div class="container-remark">使用 flex-flow: column wrap; 1:主轴和侧轴交换(从上到下) 2:侧轴方向不变(从左向右)</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+            <div class="block block4"></div>
+        </div>
+
+
+        <div class="container flex flex-flow2 height-400">
+            <div class="container-desc"> display:flex,flex-flow: column wrap-reverse;</div>
+
+            <div class="container-remark">使用 flex-flow: column wrap-reverse; 1:主轴和侧轴交换(从上到下) 2:侧轴方向反向(从右向左)</div>
+
+            <div class="block block1"></div>
+            <div class="block block2"></div>
+            <div class="block block3"></div>
+            <div class="block block4"></div>
+        </div>
+
+
+        <hr>
+        <div class="title">
+            <h1>justify-content</h1>
+            取值：	flex-start | flex-end | center | space-between | space-around <br>
+            初始：	flex-start <br>
+            适用于：	伸缩容器 <br>
+
+            「justify-content」属性用于在主轴上对齐伸缩项目。<br>
+            这一行为会在所有可伸缩长度及所有自动边距均被解释后进行。<br>
+            当一行上的所有伸缩项目都不能伸缩或可伸缩但是已经达到其最大长度时，这一属性才会对多余的空间进行分配。<br>
+            当项目溢出某一行时，这一属性也会在项目的对齐上施加一些控制。<br>
+
+        </div>
+
+
+        <div class="container flex justify-flex-start">
+            <div class="container-desc"> display:flex,justify:flex-start</div>
+
+            <div class="container-remark">
+                flex-start <br>
+                伸缩项目向一行的起始位置靠齐。该行的第一个伸缩项目在主轴起点边的外边距与该行在主轴起点的边对齐，同时所有后续的伸缩项目与其前一个项目对齐。<br/>
+                <span class="simple">简单说:沿着主轴方向对齐,(主轴从左向右,那么从左向右对齐)</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+        </div>
+
+
+
+        <div class="container flex justify-flex-end">
+            <div class="container-desc"> display:flex,justify:flex-end</div>
+
+            <div class="container-remark">
+                flex-end <br>
+                伸缩项目向一行的结束位置靠齐。该行的最后一个伸缩项目在主轴终点边的外边距与该行在主轴终点的边对齐，同时所有前面的伸缩项目与其后一个项目对齐。<br/>
+                <span class="simple">简单说:沿着主轴相反方向对齐,(主轴从左向右,那么从右向左对齐)</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+        </div>
+
+        <div class="container flex justify-center">
+            <div class="container-desc"> display:flex,justify:center</div>
+
+            <div class="container-remark">
+                center <br>
+                伸缩项目向一行的中间位置靠齐。该行的伸缩项目将相互对齐并在行中居中对齐，同时第一个项目与该行在主轴起点的边的距离等同与最后一个项目与该行在主轴终点的边的距离（如果剩余空间是负数，则保持两端溢出的长度相等）。<br/>
+                <span class="simple">简单说:整体沿着主轴方向居中紧紧排列在一起,左右两边外边距相同</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+        </div>
+
+        <div class="container flex justify-space-between">
+            <div class="container-desc"> display:flex,justify:space-between</div>
+
+            <div class="container-remark">
+                space-between <br>
+                伸缩项目会平均地分布在行里。如果剩余空间是负数，或该行只有一个伸缩项目，则此值等效于「flex-start」。在其它情况下，第一个项目在主轴起点边的外边距会与该行在主轴起点的边对齐，同时最后一个项目在主轴终点边的外边距与该行在主轴终点的边对齐，而剩下的伸缩项目在确保两两之间的空白空间相等下平均分布。<br/>
+                <span class="simple">简单说:第一个伸缩项目贴着主轴起点,最后一个贴着终点,其他项目之间等距离排列</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+        </div>
+
+        <div class="container flex justify-space-around">
+            <div class="container-desc"> display:flex,justify:space-around</div>
+
+            <div class="container-remark">
+                space-around <br>
+                伸缩项目会平均地分布在行里，两端保留一半的空间。如果剩余空间是负数，或该行只有一个伸缩项目，则该值等效于「center」。在其它情况下，伸缩项目在确保两两之间的空白空间相等，同时第一个元素前的空间以及最后一个元素后的空间为其他空白空间的一半下平均分布。<br/>
+                <span class="simple">简单说:主轴两端距离为元素之间举例的一半,在主轴上均匀分布</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+        </div>
+
+
+        <hr>
+        <div class="title">
+            <h1>侧轴对齐 ―「align-items」(对容器)</h1>
+            取值：	flex-start | flex-end | center | baseline | stretch<br>
+            初始：	stretch <br>
+            适用于：	伸缩容器 <br>
+            <h1>侧轴对齐 ―「align-self」(对项目)</h1>
+            取值：	auto | flex-start | flex-end | center | baseline | stretch<br>
+            初始：	auto <br>
+            适用于：	flex items <br>
+
+            伸缩项目可以在伸缩容器的当前行的侧轴上进行对齐，这类似于「justify-content」属性，但是是另一个方向。<br>
+            「align-items」可以用来设置伸缩容器中包括匿名伸缩项目的所有项目的对齐方式。<br>
+            「align-self」则用来在单独的伸缩项目上覆写默认的对齐方式。（对于匿名伸缩项目，「align-self」的值永远与其关联的伸缩容器的「align-items」的值相同。)。<br>
+            若伸缩项目的任一个侧轴上的外边距为「auto」，则「align-self」没有效果。<br>
+            如果「align-self」的值为「auto」，则其计算值为元素的父元素的「align-items」值，如果该元素没有父元素，则计算值为「stretch」。<br>
+
+        </div>
+
+
+        <div class="container flex align-items-flex-start nopadding">
+            <div class="container-desc"> display:flex,align-items:flex-start</div>
+
+            <div class="container-remark">
+                flex-start <br>
+                伸缩项目在侧轴起点边的外边距紧靠住该行在侧轴起始的边。<br/>
+                <span class="simple">简单说:贴着侧轴的起始边</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+        </div>
+
+        <div class="container flex align-items-flex-end nopadding">
+            <div class="container-desc"> display:flex,align-items:flex-end</div>
+
+            <div class="container-remark">
+                flex-end <br>
+                伸缩项目在侧轴终点边的外边距靠住该行在侧轴终点的边。<br/>
+                <span class="simple">简单说:贴着侧轴的终止边</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+        </div>
+
+        <div class="container flex align-items-center nopadding">
+            <div class="container-desc"> display:flex,align-items:center</div>
+
+            <div class="container-remark">
+                center <br>
+                伸缩项目的外边距盒在该行的侧轴上居中放置。（如果伸缩行的尺寸小于伸缩项目，则伸缩项目会向两个方向溢出相同的量）。<br/>
+                <span class="simple">简单说:在侧轴方向上1/2处居中,上下边距相同</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+        </div>
+
+        <div class="container flex align-items-baseline nopadding">
+            <div class="container-desc"> display:flex,align-items:baseline</div>
+
+            <div class="container-remark">
+                baseline <br>
+                如果伸缩项目的行内轴与侧轴为同一条，则该值与「flex-start」等效。<br/>
+                其它情况下，该值将参与基线对齐。<br>
+                所有参与该对齐方式的伸缩项目将按下列方式排列：首先将这些伸缩项目的基线进行对齐，随后其中基线至侧轴起点边的外边距距离最长的那个项目将紧靠住该行在侧轴起点的边。<br/>
+                <span class="simple">简单说:针对文字基线对齐,然后贴着侧轴起点边摆放,直到最高的项目顶到边为止</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+        </div>
+
+        <div class="container flex align-items-stretch nopadding">
+            <div class="container-desc"> display:flex,align-items:stretch</div>
+
+            <div class="container-remark">
+                stretch <br>
+                如果「伸缩项目」的侧轴长度属性的值为「auto」，则此值会使项目的外边距盒的尺寸在遵照「min/max-width/height」属性的限制下尽可能接近所在行的尺寸。<br/>
+                <span class="simple">简单说:flex item 的 height 必须是 auto,然后会被拉伸到整个侧轴方向</span>
+            </div>
+
+            <div class="block block1 small nomargin autoheight"></div>
+            <div class="block block2 small nomargin autoheight"></div>
+            <div class="block block3 small nomargin autoheight"></div>
+            <div class="block block4 small nomargin autoheight"></div>
+        </div>
+
+        <div class="container flex align-items-stretch nopadding">
+            <div class="container-desc"> display:flex,align-items:stretch</div>
+
+            <div class="container-remark">
+                align-self <br>
+                align-self 用于对某个 flex item 设置其 align 方式,复写 container 的设置。<br/>
+                比如这里的 block2
+                <span class="simple">简单说:align-self 覆盖 align-items 的设置</span>
+            </div>
+
+            <div class="block block1 small nomargin autoheight"></div>
+            <div class="block block2 small nomargin center"></div>
+            <div class="block block3 small nomargin autoheight"></div>
+            <div class="block block4 small nomargin autoheight"></div>
+        </div>
+
+
+        <hr>
+        <div class="title">
+            <h1>堆栈伸缩行 ―「align-content」</h1>
+            取值：	flex-start | flex-end | center | space-between | space-around | stretch<br>
+            初始：	stretch <br>
+            适用于：	多行伸缩容器 <br>
+
+            当伸缩容器的侧轴还有多余空间时，「align-content」属性可以用来调准伸缩行在伸缩容器里的对齐方式，<br>
+            这与调准伸缩项目在主轴上对齐方式的「justify-content」属性类似。<br>
+            请注意本属性在只有一行的伸缩容器上没有效果
+
+        </div>
+
+
+        <div class="container flex nopadding align-content-flex-start wrap-wrap">
+            <div class="container-desc"> display:flex,align-content:flex-start,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                flex-start <br>
+                各行向伸缩容器的起点位置堆叠。伸缩容器中第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点的边，之后的每一行都紧靠住前面一行。<br/>
+                <span class="simple">简单说:向侧轴[起点]靠拢紧贴排列.(默认从上往下)</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+            <div class="block block5  nomargin"></div>
+            <div class="block block6  nomargin"></div>
+            <div class="block block7  nomargin"></div>
+            <div class="block block8  nomargin"></div>
+            <div class="block block9  nomargin"></div>
+        </div>
+
+        <div class="container flex nopadding align-content-flex-end wrap-wrap">
+            <div class="container-desc"> display:flex,align-content:flex-end,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                flex-end <br>
+                各行向伸缩容器的结束位置堆叠。伸缩容器中最后一行在侧轴终点的边会紧靠住该伸缩容器在侧轴终点的边，之前的每一行都紧靠住后面一行。<br/>
+                <span class="simple">简单说:向侧轴[终点]靠拢紧贴排列.(默认从下往上)</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+            <div class="block block5  nomargin"></div>
+            <div class="block block6  nomargin"></div>
+            <div class="block block7  nomargin"></div>
+            <div class="block block8  nomargin"></div>
+            <div class="block block9  nomargin"></div>
+        </div>
+
+        <div class="container flex nopadding align-content-center wrap-wrap">
+            <div class="container-desc"> display:flex,align-content:center,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                center <br>
+                各行向伸缩容器的中间位置堆叠。<br>
+                各行两两紧靠住同时在伸缩容器中居中对齐，保持伸缩容器在侧轴起点边的内容边和第一行之间的距离与该容器在侧轴终点边的内容边与第最后一行之间的距离相等。<br>
+                （如果剩下的空间是负数，则行的堆叠会向两个方向溢出的相等距离。）。<br/>
+                <span class="simple">简单说:向侧轴[中间]靠拢紧贴排列.上下留出等距离边距</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+            <div class="block block5  nomargin"></div>
+            <div class="block block6  nomargin"></div>
+            <div class="block block7  nomargin"></div>
+            <div class="block block8  nomargin"></div>
+            <div class="block block9  nomargin"></div>
+        </div>
+
+        <div class="container flex nopadding align-content-space-between wrap-wrap">
+            <div class="container-desc"> display:flex,align-content:space-between,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                space-between <br>
+                各行在伸缩容器中平均分布。<br>
+                如果剩余的空间是负数或伸缩容器中只有一行，该值等效于「flex-start」。<br>
+                在其它情况下，第一行在侧轴起点的边会紧靠住伸缩容器在侧轴起点边的内容边，最后一行在侧轴终点的边会紧靠住伸缩容器在侧轴终点的内容边，剩余的行在保持两两之间的空间相等的状况下排列。
+                <span class="simple">简单说:第一行贴着侧轴[起始边],最后一行贴着侧轴[终止边],其他行等间距排列</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+            <div class="block block5  nomargin"></div>
+            <div class="block block6  nomargin"></div>
+            <div class="block block7  nomargin"></div>
+            <div class="block block8  nomargin"></div>
+            <div class="block block9  nomargin"></div>
+        </div>
+
+        <div class="container flex nopadding align-content-space-around wrap-wrap">
+            <div class="container-desc"> display:flex,align-content:space-around,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                space-around <br>
+                各行在伸缩容器中平均分布，在两边各有一半的空间。<br>
+                如果剩余的空间是负数或伸缩容器中只有一行，该值等效于「center」。<br>
+                在其它情况下，各行会在保持两两之间的空间相等，同时第一行前面及最后一行后面的空间是其他空间的一半的状况下排列。
+                <span class="simple">简单说:各伸缩行间距相等,其中第一行距离侧轴[起始边]距离=1/2间距,最后一行距离侧轴[终止边]距离=1/2间距</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+            <div class="block block5  nomargin"></div>
+            <div class="block block6  nomargin"></div>
+            <div class="block block7  nomargin"></div>
+            <div class="block block8  nomargin"></div>
+            <div class="block block9  nomargin"></div>
+        </div>
+
+        <div class="container flex nopadding align-content-stretch wrap-wrap">
+            <div class="container-desc"> display:flex,align-content:stretch,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                stretch (demo1:后2行可伸缩:height:auto)<br>
+                各行将会伸展以占用剩余的空间。<br>
+                如果剩余的空间是负数，该值等效于「flex-start」。<br>
+                在其它情况下，剩余空间被所有行平分，扩大各行的侧轴尺寸。
+                <span class="simple">简单说:当行内元素高度 auto 时,该行可伸缩.stretch 会讲可伸缩的行在侧轴方向上延展,直到撑满侧轴方向</span>
+            </div>
+
+            <div class="block block1 small nomargin"></div>
+            <div class="block block2 small nomargin"></div>
+            <div class="block block3 small nomargin"></div>
+            <div class="block block4 small nomargin"></div>
+            <div class="block block5  nomargin"></div>
+            <div class="block block6  nomargin autoheight"></div>
+            <div class="block block7  nomargin autoheight"></div>
+            <div class="block block8  nomargin autoheight"></div>
+            <div class="block block9  nomargin autoheight"></div>
+        </div>
+
+        <div class="container flex nopadding align-content-stretch wrap-wrap">
+            <div class="container-desc"> display:flex,align-content:stretch,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                stretch(demo2:3行都可伸缩) <br>
+                <span class="simple">Question:不同行的高度是自己伸缩的,但是却不均等,这是怎么分的?</span>
+            </div>
+
+            <div class="block block1 small nomargin autoheight"></div>
+            <div class="block block2 small nomargin autoheight"></div>
+            <div class="block block3 small nomargin autoheight"></div>
+            <div class="block block4 small nomargin autoheight"></div>
+            <div class="block block5  nomargin autoheight"></div>
+            <div class="block block6  nomargin autoheight"></div>
+            <div class="block block7  nomargin autoheight"></div>
+            <div class="block block8  nomargin autoheight"></div>
+            <div class="block block9  nomargin autoheight"></div>
+        </div>
+
+
+        <hr>
+        <div class="title">
+            <h1>显示顺序 ―「order」属性</h1>
+            取值：	integer<br>
+            初始：	0 <br>
+            适用于：	伸缩项目,伸缩容器的绝对定位子元素 <br>
+
+            「order」属性透过将元素分到有序号的组以控制元素出现的顺序。 <br>
+
+            伸缩容器会从序号最小的组开始布局，在同一个组里的项目依在来源文件里的次序布局<br>
+            请注意负数是可以的,越小,优先级越高
+
+        </div>
+
+
+        <div class="container flex nopadding  wrap-wrap">
+            <div class="container-desc"> display:flex,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                使用 order 改变次序 <br>
+                越小的在前面。<br/>
+                <span class="simple">注意:Order 相=的话,还是以文档中出现的次序排列</span>
+            </div>
+
+            <div class="block block1  nomargin order1"></div>
+            <div class="block block2  nomargin order-1"></div>
+            <div class="block block3  nomargin order-2"></div>
+            <div class="block block4  nomargin order-1"></div>
+            <div class="block block5  nomargin order1"></div>
+            <div class="block block6  nomargin order-1"></div>
+            <div class="block block7  nomargin order2"></div>
+            <div class="block block8  nomargin order3"></div>
+            <div class="block block9  nomargin order2"></div>
+        </div>
+
+
+        <hr>
+        <div class="title">
+            <h1>伸缩设置 ―「flex」属性</h1>
+            取值：	none | [ <'flex-grow'> <'flex-shrink'>? || <'flex-basis'> ]<br>
+            初始：	「flex: 0 1 auto」。 <br>
+            适用于：	伸缩项目 <br>
+            <br>
+
+            「flex」属性可以用来指定可伸缩长度的部件：扩展比率、收缩比率，以及伸缩基准值。<br>
+            当一个元素是伸缩项目时，「flex」属性将代替主轴长度属性决定元素的主轴长度(比如默认情况下代替 width)。<br>
+            若元素不是伸缩项目，则「flex」属性没有效果。 <br>
+
+            <br>
+
+            <h1>伸缩比例 ―「flex-grow」属性</h1>
+            用来指定flex item 的扩展比率，也就是剩余空间是正值的时候,此伸缩项目相对于伸缩容器里其他伸缩项目能分配到空间比例。<br>
+            默认值为「1」<br>
+
+
+            <br>
+            <h1>收缩比例 ―「flex- shrink」属性</h1>
+            用来指定flex item 的收缩比率，也就是剩余空间是负值的时候此伸缩项目相对于伸缩容器里其他伸缩项目能收缩的空间比例。<br>
+            若省略了，则它会被设为「1」。在收缩的时候收缩比率会以伸缩基准值加权。<br>
+        </div>
+
+
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                flex-grow 定义各 flex item 占据的「剩余空间」宽度比例 <br>
+                剩余宽度=容器宽度 - flex item 已确定占据的宽度总和。<br/>
+                <span class="simple">注意: 剩余宽度= 650px -(100px + 150px + 200px)=200px, 200/3=66.7px.所以3个 block 每人多分到66.7px</span>
+            </div>
+
+            <div class="block block1  nomargin flex-grow-1"></div>
+            <div class="block block2  nomargin flex-grow-1"></div>
+            <div class="block block3  nomargin flex-grow-1"></div>
+
+        </div>
+
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                当存在剩余空间的时候,flex-grow 才有效<br>
+                下面看看 flex item width= 100% 的情况。<br/>
+                <span class="simple">注意:这时候3个 item 的宽度=100%,container 不存在剩余空间,所以 flex-grow 可分配为0.大家什么都分不到</span>
+            </div>
+
+            <div class="block block1 small nomargin flex-grow-1 allwidth"></div>
+            <div class="block block2 small nomargin flex-grow-2 allwidth"></div>
+            <div class="block block3 small nomargin flex-grow-3 allwidth"></div>
+
+        </div>
+
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                下面看看 flex item width= 0 的情况。<br/>
+                <span class="simple">注意:width=0,导致父容器所有宽度都是"剩余宽度",故可以用这个办法,来使用 flex-grow 直接分配父容器比例 <br>
+                但是,width=auto 却达不到这种效果,不知何故</span>
+            </div>
+
+            <div class="block block1 small nomargin flex-grow-1 nowidth"></div>
+            <div class="block block2 small nomargin flex-grow-2 nowidth"></div>
+            <div class="block block3 small nomargin flex-grow-3 nowidth"></div>
+
+        </div>
+
+        <div class="container flex nopadding wrap-wrap">
+            <div class="container-desc"> display:flex,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                当 item 宽度是100%的时候,我们开启 wrap 模式,允许换行<br>
+                <span class="simple">注意:因为每个 item 都独占一行,所以也不存在剩余宽度可以分配</span>
+            </div>
+
+            <div class="block block1 small nomargin flex-grow-1 allwidth"></div>
+            <div class="block block2 small nomargin flex-grow-2 allwidth"></div>
+            <div class="block block3 small nomargin flex-grow-3 allwidth"></div>
+
+        </div>
+
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                flex-shrink 定义「剩余空间」不足的时候,各元素收缩比例 <br>
+                 我们先让容器不可换行=nowrap<br>
+                <span class="simple">收缩比例计算: <br>
+                剩余宽度=650px - (200+200+400) = -150px <br>
+                    因为大家比例都是1,设收缩率=x1,有公式:200*x1+200*x1+400*x1 = 650 <br>
+                    => x1=650/800 =  0.8125 <br>
+                    所以: 收缩后: <br>
+                    width1 = 200*0.8125=162.5 <br>
+                    width2 = 200*0.8125=162.5 <br>
+                    width3 = 400*0.8125=325 <br>
+                </span>
+            </div>
+
+            <div class="block block3 nomargin flex-shrink-1 width-first width-200"></div>
+            <div class="block block4 nomargin flex-shrink-1 width-first width-200"></div>
+            <div class="block block5 nomargin flex-shrink-1 width-first width-400"></div>
+
+        </div>
+
+
+        <hr>
+        <div class="title">
+            <h1>伸缩基准值设置 ―「flex-basis」属性</h1>
+            取值：	<'width'><br>
+            初始：	auto <br>
+            适用于：	伸缩项目 <br>
+            <br>
+
+            「flex-basis」属性可以用来设置伸缩基准值。负长度不合法。
+
+            在横向书写模式中，「flex-basis」的值 =「width」<br>
+            若「flex-basis」的值是一个百分比，则此百分比由伸缩项目的包含块（也就是伸缩容器）解出. <br>
+            同样的，除非「box-sizing」指定了别的行为，「flex-basis」决定内容盒的尺寸。<br>
+
+            <br>
+        </div>
+
+
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                flex-basis 定义 flex item 的伸缩基准值,覆盖元素在主轴上的属性(默认是 width)<br>
+                剩余宽度=容器宽度 - 「flex item 的伸缩基准值」 的总和。<br/>
+                <span class="simple">收缩比例计算: <br>
+                剩余宽度=650px - (200+150+400) = -100px <br>
+                    因为大家比例都是1,设收缩率=x1,有公式:200*x1+150*x1+400*x1 = 650 <br>
+                    => x1=650/750 =  0.8666 <br>
+                    所以: 收缩后: <br>
+                    width1 = 200*0.8666=173 <br>
+                    width2 = 150*0.8666=130 <br>
+                    width3 = 400*0.8666=346 <br>
+                </span>
+            </div>
+
+
+            <div class="block block3 nomargin flex-shrink-1 width-first width-200"></div>
+            <div class="block block4 nomargin flex-shrink-1 width-first basis-150"></div>
+            <div class="block block5 nomargin flex-shrink-1 width-first width-400"></div>
+
+        </div>
+
+
+        <hr>
+        <!--flex 属性的几种常用简写-->
+        <div class="title">
+            <h1> 「flex:0 auto」=「flex:initial」=「flex:0 1 auto」</h1>
+            这也是 flex 属性的初始值<br>
+            效果:<br>
+            根据width／height属性决定元素的尺寸。（如果项目的主轴长度属性的计算值为auto，则会根据其内容来决定元素尺寸。）<br>
+            当剩余空间为正值时，伸缩项目无法伸缩，但当空间不足时，伸缩项目可收缩至其最小值。<br>
+            网页作者可以用对齐相关的属性以及margin属性的auto值控制伸缩项目沿着主轴的对齐方式。
+            <br>
+
+
+            <br>
+        </div>
+
+
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                flex 属性是默认值的情况<br>
+                1.flex 容器剩余空间>0的情况<br>
+                <span class="simple">
+
+                    可以看到,默认情况下,剩余空间不会被占据,每个 item 还是占据自己的宽度所指定的区域<br>
+                    注意一下,最后一个 item 的宽度没有指定,他就会按照自己的内容宽度来占据<br>
+                </span>
+            </div>
+
+
+            <div class="block block3 nomargin  width-first width-200"></div>
+            <div class="block block4 nomargin  width-first width-70"></div>
+            <div class="block block-no-width nomargin  "></div>
+
+        </div>
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                flex 属性是默认值的情况<br>
+                2.flex 容器剩余空间<0的情况<br>
+                <span class="simple">
+
+                    可以看到,默认情况下,剩余空间不足,每个 item 会按照相同的比例收缩自身<br>
+                    注意一下,收缩只是在主轴方向上,高度不变<br>
+                    200*scale+200*scale+400*scale = 650<br>
+                    scale = 650/800 = 0.8125<br>
+                    width1=width2=0.8125 * 200=162.5<br>
+                    width3=0.8125 * 400=325<br>
+                </span>
+            </div>
+
+
+            <div class="block block2 nomargin  width-first width-200"></div>
+            <div class="block block3 nomargin  width-first  width-200"></div>
+            <div class="block block4 nomargin  width-first  width-400"></div>
+
+        </div>
+
+
+        <div class="title">
+            <h1> 「flex:auto」=「flex:1 1 auto」</h1>
+            效果:<br>
+            根据width／height属性决定元素的尺寸。（如果项目的主轴长度属性的计算值为auto，则会根据其内容来决定元素尺寸。）<br>
+            当剩余空间为正值时，所有 flex:auto 的项目均分剩余空间 <br>
+            当剩余空间不足的时候,所有 flex_auto 的项目按相同比例收缩自己
+            <br>
+
+        </div>
+
+
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                「flex:auto」=「flex:1 1 auto」的情况<br>
+                1.flex 容器剩余空间>0<br>
+                <span class="simple">
+                    要注意,均分剩余空间,是按照剩余空间*比例,而不是按照自身比例,所以不是等比例伸缩(和收缩不同)<br>
+                    剩余空间=650 -200 -120-120 = 210<br>
+                    所以每个 item 分得:210/3=70px<br>
+                    每个 item 都伸展了70px<br>
+                </span>
+            </div>
+
+
+            <div class="block block2 nomargin  width-first width-200 flex-auto"></div>
+            <div class="block block3 nomargin  width-first  width-120 flex-auto"></div>
+            <div class="block block4 nomargin  width-first  width-120 flex-auto"></div>
+
+        </div>
+        <div class="title">
+            <h1> 「flex:none」=「flex:0 0 auto」</h1>
+            效果:<br>
+            根据width／height属性决定元素的尺寸。（如果项目的主轴长度属性的计算值为auto，则会根据其内容来决定元素尺寸。）<br>
+            无论是否还有剩余空间,都不进行伸缩<br>
+            <br>
+
+        </div>
+
+
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                「flex:none」=「flex:0 0 auto」的情况<br>
+                1.flex 容器剩余空间>0<br>
+                <span class="simple">
+
+                    因为不进行伸缩,所以多余的空间不会去填满<br>
+                </span>
+            </div>
+
+
+            <div class="block block2 nomargin  width-first width-200 flex-none"></div>
+            <div class="block block3 nomargin  width-first  width-120 flex-none"></div>
+            <div class="block block4 nomargin  width-first  width-120 flex-none"></div>
+
+        </div>
+
+
+        <div class="container flex nopadding">
+            <div class="container-desc"> display:flex,flex-wrap: nowrap</div>
+
+            <div class="container-remark">
+                「flex:none」=「flex:0 0 auto」的情况<br>
+                2.flex 容器剩余空间<0<br>
+                <span class="simple">
+
+                    因为不进行伸缩,所以超过的部分不会去收缩<br>
+                </span>
+            </div>
+
+
+            <div class="block block2 nomargin  width-first width-200 flex-none"></div>
+            <div class="block block3 nomargin  width-first width-400 flex-none"></div>
+            <div class="block block4 nomargin  width-first  width-120 flex-none"></div>
+
+        </div>
+
+        <div class="container flex nopadding wrap-wrap">
+            <div class="container-desc"> display:flex,flex-wrap: wrap</div>
+
+            <div class="container-remark">
+                「flex:none」=「flex:0 0 auto」的情况<br>
+                3.flex 容器剩余空间<0<br>
+                但是:容器的 flex-wrap:wrap<br>
+                <span class="simple">
+
+                    因为容器允许在侧轴方向换行,所以多余的部分会自动换行<br>
+                </span>
+            </div>
+
+
+            <div class="block block2 nomargin  width-first width-200 flex-none"></div>
+            <div class="block block3 nomargin  width-first width-400 flex-none"></div>
+            <div class="block block4 nomargin  width-first  width-120 flex-none"></div>
+
+        </div>
+
+</body>
+</html>

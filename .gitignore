@@ -1,0 +1,6 @@
+.idea
+node_modules
+junit-report
+coverage
+*.iml
+npm-debug.log
