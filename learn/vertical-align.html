@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>演示 vertical-align</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<style>
+    .container{
+        height: 500px;
+        background-color: #2db34a;
+        text-align: center;
+    }
+
+    .demo{
+        display: inline-block;
+        width: 200px;
+        height: 200px;
+        background-color: #0087cc;
+        text-align: center;
+    }
+
+    .container:after{
+        display: inline-block;
+        /*visibility: hidden;*/
+        content: "";
+        height: 100%;
+        vertical-align: middle;
+    }
+    .middle{
+        line-height: 200px;
+        vertical-align: middle;
+    }
+    .middle2{
+        vertical-align: middle;
+        position: relative;
+    }
+    .middle2:after{
+        display: inline-block;
+        content: "我是参照物,实际使用时不可见即可";
+        width: 10%;
+        background-color: red;
+        height: 100%;
+        vertical-align: middle;
+    }
+    .middle2 span{
+        width: 70%;
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
+
+
+<body>
+
+<div class="container">
+
+    <div class="demo middle">
+        Div 1 垂直居中.文字很少
+    </div>
+    <div class="demo middle2">
+        <span>Div 2 垂直居中.文字较多,这次不使用line-height居中,而是把文字包裹起来(居中元素不能独占一行,否则参照物会被挤下去)</span>
+
+    </div>
+
+</div>
+
+</body>
+</html>

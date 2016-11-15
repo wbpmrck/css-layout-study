@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示float效果</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+
+<style>
+    .demo{
+        border: solid 1px red;
+        margin: 20px;
+        overflow: auto;
+        padding: 20px;
+    }
+    span{
+        width: 200px;
+        height: 100px;
+        background-color: yellow;
+        border: 1px solid red;
+    }
+    .float>span{
+        float: left;
+        display: inline;
+    }
+    .clear{
+        clear: left;
+    }
+</style>
+
+<div class="demo">
+    span with out float:
+    <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+    <span>span4</span>
+</div>
+
+<div class="float demo">
+    span with float:
+    <div class="clear"></div>
+    <span>span1</span>
+    <span>span2</span>
+    <span>span3</span>
+    <span>span4</span>
+</div>
+
+<div class="float demo">
+    span with float,and elements size different
+    <div class="clear"></div>
+    <span>span1</span>
+    <span style="height: 200px;">span2</span>
+    <span>span3</span>
+    <span style="height: 220px;">span4</span>
+    <span>span5</span>
+    <span>span6</span>
+    <span>span7</span>
+    <span>span8</span>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>测试margin,padding对inline元素的效果</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<style>
+    #parent{
+        border-style: solid;
+        border-width: 1px;
+        background-color: yellow;
+        margin: 30px;
+        padding: 20px;
+    }
+    #child{
+        border-style: solid;
+        border-width: 1px;
+        background-color: red;
+        margin: 30px;
+        padding: 30px;
+    }
+</style>
+
+
+<body>
+
+<div id="parent">
+    #parent
+    <a id="child">我是inline,可以发现padding生效了,我的上下方红色扩充了30px</a>
+</div>
+
+</body>
+</html>

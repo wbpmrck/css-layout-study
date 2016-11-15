@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>演示 tooltip 的模拟</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<style>
+    p{
+        position: relative;
+        /*set to relative,because tooltip will use absolute*/
+    }
+
+    .tooltip{
+        visibility: hidden;
+        position: absolute;
+        top:20px;
+        border: solid 2px;
+        border-radius: 3px;
+        padding: 20px;
+    }
+    a:hover~.tooltip{
+        visibility:visible;
+    }
+
+
+</style>
+
+
+<body>
+
+
+<p>
+    <a href="http://www.baidu.com">hover me to see a tooltip!</a>
+    <span class="tooltip">i am a tooltip</span>
+</p>
+
+</body>
+</html>

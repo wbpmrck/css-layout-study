@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示 img元素的布局属性</title>
+</head>
+<body>
+
+<style>
+    div.demo{
+        word-wrap: break-word;
+        border:solid 1px red;
+        min-width: 500px;
+        margin: 10px;
+        box-sizing: border-box;
+    }
+    p.demo{
+        background-color: #aabbaa;
+        margin: 30px;
+    }
+
+    .d2 img{
+        display: block;
+    }
+
+</style>
+
+
+
+<div class="demo d1">
+
+    <p class="demo">default(inline img positioning)</p>
+    <div>
+        we are some  text before the image~
+        <img src="img/9.png" alt="picture not found">
+        we are some  text after the image~
+    </div>
+
+</div>
+
+
+<div class="demo d2">
+
+    <p class="demo">img{ display:block }</p>
+    <div>
+        we are some  text before the image~
+        <img src="img/9.png" alt="picture not found">
+        we are some  text after the image~
+    </div>
+
+</div>
+
+
+
+</body>
+
+
+
+</html>

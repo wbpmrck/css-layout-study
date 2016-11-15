@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试box-sizing的效果</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+
+
+<style>
+    div {
+        width: 200px;
+        height: 200px;
+        margin: 20px;
+        padding: 10px;
+        border: 1px solid #ff22dd;
+        background-color: yellow;
+    }
+
+    .content-box{
+        -webkit-box-sizing: content-box;
+        -moz-box-sizing: content-box;
+        box-sizing: content-box;
+    }
+    .padding-box{
+        -webkit-box-sizing: padding-box;
+        -moz-box-sizing: padding-box;
+        box-sizing: padding-box;
+    }
+    .border-box{
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+
+</style>
+
+<div class="content-box">
+    content-box
+</div>
+<div class="padding-box">
+    padding-box(不推荐使用,支持差,没有使用场景)
+</div>
+<div class="border-box">
+    border-box
+</div>
+
+</body>
+</html>

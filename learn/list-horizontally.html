@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示 水平布局list(ol,ul等)</title>
+</head>
+<body>
+
+<style>
+    div.demo{
+        word-wrap: break-word;
+        width: 30%;
+        height: 30%;
+        /*width: 25%;*/
+        /*height: 25%;*/
+        border:solid 1px red;
+        display: inline-block;
+        /*vertical-align: top;*/
+        margin: 10px;
+        box-sizing: border-box;
+    }
+
+    .d1 li{
+        display: inline-block;
+        margin: 0 10px;
+        border: solid 1px red;
+    }
+
+    .d2 li{
+        float: left;
+        border: solid 1px red;
+    }
+    .d3 li{
+        float: left;
+        margin: 0 20px;
+        border: solid 1px red;
+    }
+    .d4 li{
+        float: left;
+        margin: 0 20px;
+        border: solid 1px red;
+        list-style-type: none;
+    }
+</style>
+
+
+
+<div class="demo">
+
+    li {
+    display: inline-block;
+    margin: 0 10px;
+    }
+    <ul class="d1">
+
+        <li>Orange</li>
+        <li>Green</li>
+        <li>Blue</li>
+    </ul>
+
+
+</div>
+
+
+
+<div class="demo">
+
+    li {
+    float: left;
+    }
+    <ul class="d2">
+
+        <li>Orange</li>
+        <li>Green</li>
+        <li>Blue</li>
+    </ul>
+
+
+</div>
+
+
+<div class="demo">
+
+    li {
+    float: left;
+    margin: 0 20px;
+    }
+    <ul class="d3">
+
+        <li>Orange</li>
+        <li>Green</li>
+        <li>Blue</li>
+    </ul>
+
+
+</div>
+
+<div class="demo">
+
+    li {
+    float: left;
+    margin: 0 20px;
+    list-style-type: none;
+
+    }
+    <ul class="d4">
+
+        <li>Orange</li>
+        <li>Green</li>
+        <li>Blue</li>
+    </ul>
+
+
+</div>
+
+
+
+
+</body>
+
+
+
+</html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示 background 以及下面的子属性</title>
+</head>
+<body>
+
+<style>
+    div{
+        word-wrap: break-word;
+        width: 240px;
+        height: 240px;
+        border:solid 1px red;
+        float: left;
+        margin: 10px;
+    }
+</style>
+
+<!--backgound-color-->
+<div style="background-color: green" class="demo"></div>
+<div style="background-color: #ff22dd" class="demo"></div>
+
+<!--backgound-color 2-->
+<div style="background-color: rgba(0, 0, 0, .1)" class="demo"></div>
+<div style="background-color: rgba(0, 0, 0, .6)" class="demo"></div>
+
+
+
+<!--backgound-image -->
+<div style='background-image: url("img/back.png")' class="demo"></div>
+<div style='background-image: url("img/back.png") ; background-repeat: no-repeat;' class="demo"></div>
+<div style='background-image: url("img/back.png") ; background-repeat: repeat-x;' class="demo"></div>
+<div style='background-image: url("img/back.png") ; background-repeat: repeat-y;' class="demo"></div>
+
+
+<!--backgound-position -->
+<div style='background-image: url("img/back.png");background-position: top left' class="demo"></div>
+<div style='background-image: url("img/back.png");background-position: top center' class="demo"></div>
+<div style='background-image: url("img/back.png");background-position: top right' class="demo"></div>
+
+<div style='background-image: url("img/back.png");background-position: center left' class="demo"></div>
+<div style='background-image: url("img/back.png");background-position: center center' class="demo"></div>
+<div style='background-image: url("img/back.png");background-position: center right' class="demo"></div>
+
+<div style='background-image: url("img/back.png");background-position: bottom left' class="demo"></div>
+<div style='background-image: url("img/back.png");background-position: bottom center' class="demo"></div>
+<div style='background-image: url("img/back.png");background-position: bottom right' class="demo"></div>
+
+<div style='background-image: url("img/png2.png");background-origin:border-box;background-repeat: no-repeat;background-position: -20px -40px' class="demo"></div>
+<div style='background-image: url("img/png2.png");background-origin:border-box;background-repeat: no-repeat;background-position: -30px -10px' class="demo"></div>
+<div style='background-image: url("img/png2.png");background-origin:border-box;background-repeat: no-repeat;background-position: -10% -10px;' class="demo"></div>
+
+
+<!--backgound-attachment -->
+<div style='background-image: url("img/back.png");background-attachment: fixed' class="demo">(scroll page to see diff)</div>
+<div style='background-image: url("img/back.png");background-attachment: scroll' class="demo"></div>
+
+<script src="showContent.js"></script>
+</body>
+
+
+
+</html>

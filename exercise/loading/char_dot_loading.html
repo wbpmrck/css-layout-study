@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>字符打点等待效果技巧</title>
+
+    <style>
+        dot {
+            display: inline-block;
+            height: 1em; line-height: 1;
+            text-align: left;
+            vertical-align: -.25em;
+            overflow: hidden;
+        }
+        dot::before {
+            display: block;
+            content: '...\A..\A.';
+            white-space: pre-wrap;   /* 也可以是white-space: pre */
+            animation: dot 3s infinite step-start both;
+        }
+        @keyframes dot {
+            33% { transform: translateY(-2em); }
+            66% { transform: translateY(-1em); }
+        }
+    </style>
+</head>
+<body>
+    <div>
+        订单提交中<dot>...</dot>
+    </div>
+
+    <hr>
+        IE6-IE9完美自动向下兼容（静态3个点），IE10+就是动画。
+</body>
+</html>

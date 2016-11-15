@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示 内嵌自定义字体</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+
+<style>
+    @font-face
+    {
+        font-family: myFirstFontError;
+        src: url('http://www.w3school.com.cn/example/css3/Sansation_Light.ttf')
+        ,url('http://www.w3school.com.cn/example/css3/Sansation_Light.eot'); /* IE9+ */
+    }
+
+    @font-face
+    {
+        font-family: myFirstFont;
+        src: url('fonts/Sansation_Light.ttf')
+        ,url('fonts/Sansation_Light.eot'); /* IE9+ */
+    }
+
+    @font-face
+    {
+        font-family: myFirstFont;
+        src: url('fonts/Sansation_Bold.ttf')
+        ,url('fonts/Sansation_Bold.eot'); /* IE9+ */
+        font-weight:bold;
+    }
+
+    div
+    {
+        font-family:myFirstFont;
+    }
+    .error{
+        font-family:myFirstFontError;
+    }
+</style>
+
+<div>
+    With CSS3, websites can <b>finally</b> use fonts other than the pre-selected "web-safe" fonts.
+</div>
+
+<p><b>注释：</b>Internet Explorer 9+ 支持新的 @font-face 规则。Internet Explorer 8 以及更早的版本不支持新的 @font-face 规则。</p>
+
+<span class="error">this content's font will not load success,because the origin is not allowed</span>
+</body>
+</html>

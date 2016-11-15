@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示 background 在css3下新增的属性</title>
+</head>
+<body>
+
+<style>
+    div.demo{
+        word-wrap: break-word;
+        width: 300px;
+        height: 300px;
+        /*width: 25%;*/
+        /*height: 25%;*/
+        border:solid 1px red;
+        float: left;
+        margin: 10px;
+        box-sizing: border-box;
+    }
+</style>
+
+<!--backgound-color-->
+<div style="background-color: #466368;
+  background: -webkit-linear-gradient(#648880, #293f50);
+  background:    -moz-linear-gradient(#648880, #293f50);
+  background:         linear-gradient(#648880, #293f50);" class="demo"></div>
+
+<!--background size-->
+<div style='background-image: url("img/png2.png");background-size:63px 100px;background-repeat:no-repeat;' class="demo">background size</div>
+<div style='background-image: url("img/png2.png");background-size:50% 100%;background-repeat:no-repeat;' class="demo"></div>
+
+
+<!--background-origin 属性规定背景图片的定位区域。-->
+
+<div style='background-image: url("img/png2.png");background-repeat:no-repeat;
+padding: 3%;
+background-size:100% 100%;
+-webkit-background-origin:content-box; /* Safari */
+background-origin:content-box;' class="demo"></div>
+
+
+<!--background-clip 属性规定背景图片的显示区域(区域外的不显示)。-->
+<div style='background-image: url("img/png2.png");background-repeat:no-repeat;
+padding: 3%;
+border: 10px solid green;
+background-size:100% 100%;
+-webkit-background-origin:border-box; /* Safari */
+background-origin:border-box;
+background-clip: content-box;
+-webkit-background-clip: content-box;
+' class="demo"></div>
+
+<div style='background-image: url("img/png2.png");background-repeat:no-repeat;
+padding: 3%;
+border: 10px solid green;
+background-size:100% 100%;
+-webkit-background-origin:padding-box; /* Safari */
+background-origin:padding-box;
+background-clip: content-box;
+-webkit-background-clip: content-box;
+' class="demo"></div>
+
+<!--multiple background-->
+<div style='background-image: url("img/9.png"),url("img/8.png"),url("img/7.png");
+    background-position: 0 0pt, 45px 40px, 150px 90px;
+    background-repeat: no-repeat;
+    -moz-background-origin: content-box;
+    -webkit-background-origin: content-box;
+    -o-background-origin: content-box;
+    background-origin: content-box;
+ }' class="demo"></div>
+
+<!--background size-->
+<div style='background-image: url("img/png2.png");background-repeat:no-repeat;background-size: auto 75%;' class="demo"></div>
+
+<script src="showContent.js"></script>
+</body>
+
+
+
+</html>

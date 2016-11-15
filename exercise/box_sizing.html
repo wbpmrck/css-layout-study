@@ -1,0 +1,44 @@
+<html>
+<head>
+    <title>使用box-sizing实现width/height不受边距影响</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta content="width=device-width, initial-scale=1.0,minimum-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+</head>
+
+
+<body>
+
+<style>
+    .simple {
+        width: 500px;
+        background-color: aqua;
+        margin: 20px auto;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        border: solid red 1px;
+    }
+
+    .box {
+        width: 500px;
+        background-color: aqua;
+        margin: 20px auto;
+        padding: 50px;
+        border: solid blue 10px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+</style>
+
+<div class="simple">
+    这是一个div,使用 width=500;
+</div>
+<div class  ="box">
+    这是一个div,使用 width=500;还有50内边距和10的边框.但是使用了box-sizing,所以和上面看上去一样大
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-cn">
+<head>
+    <meta charset="UTF-8">
+    <title>演示 a标签 的使用</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+
+<style>
+    .custom1:link{
+        color: black;
+    }
+    .custom1:visited{
+        color: green;
+    }
+    .custom1:hover{
+        color: orangered;
+        text-decoration: none;
+    }
+    .custom1:active{
+        color: #0087cc;
+    }
+
+
+</style>
+
+
+<body>
+
+<p><a href="http://www.baidu.com">http://www.baidu.com(default style)</a></p>
+
+
+<a class="custom1" href="#mainContent">skip to main content</a>
+
+<p style="margin: 600px 0 600px 0;"><a class="custom2" name="mainContent">main content</a></p>
+
+</body>
+</html>
