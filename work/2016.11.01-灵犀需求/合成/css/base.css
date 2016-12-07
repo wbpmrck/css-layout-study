@@ -1,0 +1,43 @@
+/*抽象通用样式风格*/
+
+/*字体*/
+body{
+    font-family:
+    "Microsoft YaHei", "微软雅黑",
+    STXihei, "华文细黑",
+    serif;
+}
+/*可见性*/
+.invisible{
+    visibility: hidden;
+}
+.none{
+    display: none;
+}
+/*字体大小*/
+
+/*垂直居中*/
+.v-middle{
+    vertical-align: middle;
+}
+.v-middle-container:after{
+    content: "";
+    display: inline-block;
+    top:0px;
+    height: 100%;
+    vertical-align: middle;
+    width: 0px;
+    background-color: #fa6361;
+}
+
+/*点按效果*/
+.clickable:active{
+    position: relative;
+    top: 1px;
+}
+
+/*被包裹的图片*/
+.wrap-img{
+    width:100%;
+    height: auto;
+}

@@ -1,0 +1,58 @@
+
+body{
+    background-color: #eef2f6;
+}
+
+.list-item{
+    position: relative;
+    background-color: #ffffff;
+    /*min-height: 50px;*/
+    border-bottom: solid 1px #e6e9eb;
+    padding-top: 10px;
+    padding-bottom: 8px;
+    padding-left: 16px;
+    min-height: 32px;
+}
+
+.finished:after{
+    /*content: url("../image/ico_wancheng.png");*/
+    content: " ";
+    position: absolute;
+    background-image: url("../image/ico_wancheng.png");
+    background-size: contain;
+    width: 30px;
+    height: 30px;
+    right:15px;
+    top:50%;
+    transform: translateY(-50%);
+}
+
+.list-item .main.no-desc{
+    padding: 6px 0;
+}
+
+.list-item .main .title{
+    color: #51595e;
+    font-size: 16px;
+    line-height: 20px;
+}
+.list-item.finished .main .title{
+    color: #a4a9aa;
+}
+.list-item .main .score{
+    margin-left: 10px;
+    color: #fb6464;
+    font-size: 16px;
+    line-height: 20px;
+}
+.list-item.finished .main .score{
+    color: #faaeab;
+}
+.list-item .main .desc{
+    color: #a5a8a8;
+    font-size: 12px;
+    line-height: 16px;
+}
+.list-item.finished .main .desc{
+    color: #a4a9aa;
+}

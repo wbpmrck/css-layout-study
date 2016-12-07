@@ -1,6 +1,10 @@
 # css-layout-study
 study cases for css layout.
 
+# todo
+
+* display:inline-flex
+
 # demo page(order by alphabet asc):
 
 ## A

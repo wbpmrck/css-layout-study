@@ -1,0 +1,211 @@
+/*赚积分相关*/
+
+body{
+    background-color: #eef2f6;
+    width: 100%;
+}
+
+.middle-absolute-container{
+    position: relative;
+}
+.middle-absolute{
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+}
+.middle-horizontal{
+    left:50%;
+    transform: translateX(-50%);
+}
+
+/*标题*/
+.title{
+    font-size: 18px;
+    height: 50px;
+    background-color: #ffffff;
+    border-bottom: solid 1px #e6e9eb;
+    margin-bottom: 10px;
+}
+.title>img.prefix{
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+    line-height: 50px;
+}
+.title>span.content{
+    margin-left: 12px;
+    line-height: 50px;
+}
+.title>span.number{
+    margin-left: 8px;
+    color: #fa6361;
+    line-height: 50px;
+}
+/*每日任务*/
+.daily-task{
+    background-color: #ffffff;
+}
+.daily-task .sub-title{
+    position: relative;
+    padding-left: 16px;
+    padding-top: 16px;
+    padding-bottom: 25px;
+    line-height: 16px;
+}
+.daily-task .sub-title span{
+    vertical-align: top;
+}
+.daily-task .sub-title:before{
+    content: " ";
+    display: inline-block;
+    width: 3px;
+    background-color: #4699d6;
+    height: 16px;
+}
+
+.rewards{
+    text-align: center;
+    padding: 0 10px;
+    /*letter-spacing: -3px;*/
+    /*word-spacing: 0px;*/
+    font-size: 0;
+}
+.reward-item{
+    /*border: solid 1px red;*/
+    position: relative;
+    display: inline-block;
+    width: 16%;
+    text-align: center;
+}
+
+.reward-item.got:after{
+    content: " ";
+    position: absolute;
+    background-image: url("../image/ico_wancheng.png");
+    background-repeat: no-repeat;
+    background-size: contain;
+    width: 20px;
+    height: 20px;
+    right: -4px;
+    top: -10px;
+}
+.reward-item img{
+    width: 30px;
+    height: auto;
+}
+.reward-item .score{
+    color:#caa40e;
+    text-align: center;
+    font-size: 14px;
+    margin-top: 8px;
+}
+/*每日任务区域*/
+.task-list{
+    margin-top: 10px;
+}
+.task-item{
+    margin-left: 16px;
+    height: 50px;
+    border-bottom: solid 1px #e6e9eb;
+}
+.task-item .text .name{
+    font-size: 16px;
+}
+.task-item .text .desc{
+    color: #a4a9a8;
+    margin-top: 6px;
+    font-size: 12px;
+}
+.task-item .text .score2{
+    color:#f86662;
+    text-align: left;
+    font-size: 16px;
+    margin-left: 10px;
+}
+.task-item .btn{
+    background-color: #ff9700;
+    display: inline-block;
+    border-radius: 5px;
+    padding: 9px 9px;
+    color: #ffffff;
+    font-size: 16px;
+    right: 16px;
+}
+
+.task-item .btn .icon{
+    background-image: url("../image/ico_qiandao02.png");
+    display: inline-block;
+    background-repeat: no-repeat;
+    width: 18px;
+    height: 18px;
+    background-size: 18px 18px;
+}
+
+.task-item .btn.signed{
+    background-color:#e0e7ea;
+    color: #b6babe;
+}
+
+.task-item .btn.signed .icon {
+    background-image: url("../image/ico_qiandao01.png");
+}
+
+    /*下方菜单条目*/
+.menu-item{
+    position: relative;
+    height: 50px;
+    font-size: 16px;
+    background-color: #ffffff;
+    border-bottom: solid 1px #e6e9eb;
+}
+.menu-item>img.prefix{
+    width: 24px;
+    height: 24px;
+    margin-left: 16px;
+    line-height: 50px;
+}
+.menu-item>img.suffix{
+    display: inline-block;
+    width: 9px;
+    height: 16px;
+    position: absolute;
+    right:16px;
+    top:50%;
+    margin-top: -8px;
+}
+.menu-item>span.content{
+    margin-left: 12px;
+    line-height: 50px;
+}
+
+/*弹层*/
+
+body .mask{
+    position: absolute;
+    white-space: nowrap;
+    top:50%;
+    left:50%;
+    transform: translateX(-50%) translateY(-50%);
+    display: inline-block;
+    background-color:rgba(76,76,76,.9);
+    border-radius: 8px;
+    padding: 20px 40px;
+    font-size: 0px;
+    text-align: center;
+}
+body .mask span{
+    font-size: 16px;
+}
+body .mask .score2{
+    color:#d75e60;
+    margin-left: 5px;
+}
+body .mask .text{
+    color: #fff;
+    margin-left: 10px;
+
+}
+body .mask img{
+    width: 30px;
+    height: 30px;
+}
