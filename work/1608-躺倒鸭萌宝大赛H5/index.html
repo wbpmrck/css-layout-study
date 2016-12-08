@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>躺倒鸭</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+<div class="nav">
+	<ul class="flex flex-center">
+		<li class="flex-1 flex flex-center on">
+			<img src="image/nav1.png"/>
+		</li>
+		<li class="flex-1 flex flex-center">
+			<img src="image/nav2.png"/>
+		</li>
+		<li class="flex-1 flex flex-center">
+			<img src="image/nav3.png"/>
+		</li>
+		<li class="flex-1 flex flex-center">
+			<img src="image/nav4.png"/>
+		</li>
+	</ul>
+</div>
+<div class="view main">
+	<div class="core">
+		<img class="bg" src="image/main_bg.png"/>
+		<a class="button"></a>
+	</div>
+</div>
+<div class="view submit none">
+	<div class="core">
+		<img class="bg" src="image/common_bg.jpg"/>
+		<div class="subview form none">
+			<img class="auto" src="image/upload.png"/>
+			<input type="text" placeholder="请输入您的昵称"/>
+			<textarea placeholder="请输入照片名称并对照片进行描述"></textarea>
+			<input type="text" placeholder="请输入您的电话号码"/>
+			<div class="button">确认提交</div>
+		</div>
+		<div class="subview fail flex flex-center none">
+			<div class="core">
+				<img src="image/bt_close.png">
+				<img class="auto" src="image/alert1.png"/>
+				<span>嗨！baby!<br/>你的昵称未填写<br/>请返回填写哦</span>
+			</div>
+		</div>
+		<div class="subview success flex flex-center none">
+			<div class="core">
+				<img src="image/bt_close.png">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+				</div>
+				<img class="auto" src="image/success1.jpg"/>
+				<span>宝宝，你已报名成功啦<br/>编号为：xxxx<br/>请关注获奖名单哟</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="view poll none">
+	<div class="core">
+		<img class="bg" src="image/common_bg.jpg"/>
+		<div class="subview list none">
+			<img class="banner auto" src="image/poll_banner.png"/>
+			<div class="search flex flex-center">
+				<input class="flex-1" type="text" placeholder="填写编号或照片名称"/><a><img class="auto" src="image/poll_search_button.jpg"/></a>
+			</div>
+			<div class="order flex">
+				<a class="flex-1">最热</a><a class="flex-1">最新</a>
+			</div>
+			<ul class="floatfix">
+				<li>
+					<div class="core">
+						<div class="avatar">
+							<img class="auto" src="image/avatar.jpg"/>
+						</div>
+						<div class="info ellipsis">
+							<span>编号：</span>
+						</div>
+						<div class="info ellipsis">
+							<span>照片名称：</span>
+						</div>
+						<div class="button">投票</div>
+					</div>
+				</li>
+				<li>
+					<div class="core">
+						<div class="avatar">
+							<img class="auto" src="image/avatar.jpg"/>
+						</div>
+						<div class="info">
+							<span>编号：</span>
+						</div>
+						<div class="info">
+							<span>照片名称：</span>
+						</div>
+						<div class="button">投票</div>
+					</div>
+				</li>
+				<li>
+					<div class="core">
+						<div class="avatar">
+							<img class="auto" src="image/avatar.jpg"/>
+						</div>
+						<div class="info">
+							<span>编号：</span>
+						</div>
+						<div class="info">
+							<span>照片名称：</span>
+						</div>
+						<div class="button">投票</div>
+					</div>
+				</li>
+				<li>
+					<div class="core">
+						<div class="avatar">
+							<img class="auto" src="image/avatar.jpg"/>
+						</div>
+						<div class="info">
+							<span>编号：</span>
+						</div>
+						<div class="info">
+							<span>照片名称：</span>
+						</div>
+						<div class="button">投票</div>
+					</div>
+				</li>
+				<li>
+					<div class="core">
+						<div class="avatar">
+							<img class="auto" src="image/avatar.jpg"/>
+						</div>
+						<div class="info">
+							<span>编号：</span>
+						</div>
+						<div class="info">
+							<span>照片名称：</span>
+						</div>
+						<div class="button">投票</div>
+					</div>
+				</li>
+				<li>
+					<div class="core">
+						<div class="avatar">
+							<img class="auto" src="image/avatar.jpg"/>
+						</div>
+						<div class="info">
+							<span>编号：</span>
+						</div>
+						<div class="info">
+							<span>照片名称：</span>
+						</div>
+						<div class="button">投票</div>
+					</div>
+				</li>
+				<li>
+					<div class="core">
+						<div class="avatar">
+							<img class="auto" src="image/avatar.jpg"/>
+						</div>
+						<div class="info">
+							<span>编号：</span>
+						</div>
+						<div class="info">
+							<span>照片名称：</span>
+						</div>
+						<div class="button">投票</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+		<div class="subview vote flex flex-center none">
+			<div class="core">
+				<div class="pic">
+					<img class="auto" src="image/avatar.jpg"/>
+				</div>
+				<div class="info ellipsis">
+					<span>编号：</span><span>2015</span>
+					<br/>
+					<span>照片名称：</span><span>家有萌宝宝家有萌宝宝家有萌宝宝家有萌宝宝</span>
+					<br/>
+					<span>票数：</span><span>5689</span>
+				</div>
+				<div class="button">投票</div>
+			</div>
+		</div>
+		<div class="subview vote-success flex flex-center none">
+			<div class="core">
+				<img class="auto" src="image/vote1.png"/>
+				<span>宝宝，你已经投票成功<br/>关注鸭鸭推文<br/>记得查看获奖名单哟</span>
+			</div>
+		</div>
+		<div class="subview vote-fail flex flex-center none">
+			<div class="core">
+				<img class="auto" src="image/vote2.png"/>
+				<span>哎哟~网络不给力~<br/>宝宝可以返回查看哟</span>
+			</div>
+		</div>
+		<div class="subview vote-ed flex flex-center none">
+			<div class="core">
+				<img class="auto" src="image/vote3.png"/>
+				<span>宝宝<br/>你今天投过票了哟~<br/>明天再来吧~</span>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="view rank none">
+	<div class="banner">
+		<img class="auto" src="image/rank_banner.png"/>
+	</div>
+	<div class="header flex">
+		<div class="flex-1">排名</div>
+		<div class="flex-1">昵称</div>
+		<div class="flex-1">票数</div>
+	</div>
+	<ul>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+		<li class="flex">
+			<div class="flex-1">
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+					<div class="num">12</div>
+				</div>
+			</div>
+			<div class="flex-1">xxx</div>
+			<div class="flex-1">000</div>
+		</li>
+	</ul>
+</div>
+<div class="view about none">
+	<div class="core">
+		<img class="bg" src="image/common_bg.jpg"/>
+		<span class="button">了解活动规则》</span>
+		<div class="subview mine flex flex-center none">
+			<div class="core">
+				<div class="title">我上传的照片</div>
+				<div class="avatar">
+					<img class="auto" src="image/avatar.jpg"/>
+				</div>
+				<div class="info ellipsis">
+					<span>编号：</span><span>2015</span>
+					<br/>
+					<span>照片名称：</span><span>家有萌宝宝家有萌宝宝家有萌宝宝家有萌宝宝</span>
+				</div>
+				<div class="votes"><span>已经获得39879票</span></div>
+			</div>
+		</div>
+		<div class="subview empty flex flex-center none">
+			<div class="sign flex">
+				<div class="flex-1">
+					<img class="auto" src="image/duck.png"/>
+				</div>
+				<div class="flex-3"></div>
+			</div>
+			<div class="core">
+				<img class="auto" src="image/empty.png"/>
+				<span>宝宝，你还未上传过图片<br/>请至“报名”上传图片吧</span>
+			</div>
+		</div>
+		<div class="subview rule none">
+			<div class="title">
+				<img src="image/rule.png"/>
+			</div>
+			<div class="detail">
+				
+			</div>
+			<div class="title">
+				<img src="image/price.png"/>
+			</div>
+			<ul class="price">
+				<li>
+					<span class="num">1</span>
+					<span class="tit">一等奖（xx名）</span>
+					<img src="image/price3.jpg"/>
+				</li>
+				<li>
+					<span class="num">2</span>
+					<span class="tit">二等奖（xx名）</span>
+					<img src="image/price3.jpg"/>
+				</li>
+				<li>
+					<span class="num">3</span>
+					<span class="tit">三等奖（xx名）</span>
+					<img src="image/price3.jpg"/>
+				</li>
+			</ul>
+		</div>
+	</div>
+</div>
+<!-- 脚手架开始 -->
+<!-- 投入生产之前一定要拆除此脚手架 -->
+<div style="position:fixed;z-index:-9999; right:0; bottom: 0; width: 100%; height: 100%; opacity: 0.8"></div>
+<div class="select" style="position:fixed;z-index:9999; right:10px; bottom: 10px">
+    <select id="view_list" style="width:120px;height:30px;">
+        <option data-view="main">报名</option>
+        <option data-view="submit" data-subview="form">提交</option>
+        <option data-view="submit" data-subview="fail">提交-失败</option>
+        <option data-view="submit" data-subview="success">提交-成功</option>
+        <option data-view="poll" data-subview="list">投票列表</option>
+        <option data-view="poll" data-subview="vote">投票项</option>
+        <option data-view="poll" data-subview="vote-success">投票成功</option>
+        <option data-view="poll" data-subview="vote-fail">投票失败</option>
+        <option data-view="poll" data-subview="vote-ed">投票超过1次</option>
+        <option data-view="rank">排行</option>
+        <option data-view="about" data-subview="mine">我的</option>
+        <option data-view="about" data-subview="empty">我的-未上传</option>
+        <option data-view="about" data-subview="rule">我的-活动规则</option>
+    </select>
+</div>
+<script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded', bindSelect);
+
+    function bindSelect() {
+        var selectList = document.getElementById('view_list');
+        selectList.addEventListener('change', function(e) {
+            var selectedOption = this.selectedOptions[0];
+            var data = selectedOption.dataset;
+            var viewName = data.view;
+            var subViewName = data.subview;
+
+            optClass('.view','none',1);
+            optClass('.subview','none',1);
+            optClass('.' + viewName,'none',0);
+            optClass('.' + viewName + ' .' + subViewName,'none',0);
+        });
+    }
+
+    function optClass(elemClassSelector,className,operator) {
+        var elems=document.querySelectorAll(elemClassSelector);
+        var length=elems.length;
+        for(var i=0;i<length;i++){
+        	var e=elems[i];
+            if (operator===1&&!e.classList.contains(className)) {
+                e.classList.add(className);
+            }
+            if (operator===0&&e.classList.contains(className)) {
+                e.classList.remove(className);
+            }
+        };
+    };
+</script>
+<!-- 脚手架结束 -->
+</body>
+</html>

@@ -1,2 +1,3 @@
-# 说明
-* 按照 css 的单项属性,做 demo 来演示原理
+# What is 'learn'
+* use many show cases,to validate the css properties,and features.
+* examine how all these properties affects.

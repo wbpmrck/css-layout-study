@@ -1,0 +1,1125 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>酷音</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta charset="utf-8">
+	<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+		-webkit-user-select: none;
+		-webkit-tap-highlight-color: rgba(255,255,255,0);
+		-ms-touch-action: none;
+		-webkit-touch-callout: none;
+	}
+	html, body{
+		width: 100%;
+		height: 100%;
+		font-family: 'Noto Sans S Chinese';
+	}
+	ul, ol{
+		list-style: none;
+	}
+	input, textarea {
+		outline: none;
+    	-webkit-user-select: text;
+	}
+	.flex{
+		display: -moz-flex;
+		display: -webkit-flex;
+  		display: flex;
+  		justify-content: flex-start;
+  		-webkit-justify-content: flex-start;
+	}
+	.flex-column{
+		flex-direction: column;
+		-webkit-flex-direction: column;
+	}
+	.flex-center{
+		justify-content: center;
+  		-webkit-justify-content: center;
+  		align-items: center;
+  		-webkit-align-content: center;
+	}
+	.flex-wrap{
+		flex-wrap: wrap;
+  		-moz-flex-wrap: wrap;
+  		-webkit-flex-wrap: wrap;
+	}
+	.flex-1{
+		-moz-flex: 1; 
+    	-webkit-flex: 1; 
+    	flex: 1;
+	}
+	.flex-2{
+		-moz-flex: 2; 
+    	-webkit-flex: 2; 
+    	flex: 2;
+	}
+	.flex-3{
+		-moz-flex: 3; 
+    	-webkit-flex: 3; 
+    	flex: 3;
+	}
+	.none{
+		display: none;
+	}
+	.floatfix:after{
+		content:"";
+		display:block;
+		height:0;
+		visibility:hidden;
+		zoom: 1; 
+		clear:both;
+	}
+	.anm{
+		transition: all 0.3s ease;
+		-webkit-transition: all 0.3s ease;
+		-moz-transition: all 0.3s ease;
+	}
+	.placeholder{
+		background: rgba(0, 0, 0, 0.3);
+	}
+	.ellipsis{
+		overflow: hidden;
+		white-space: nowrap;
+		text-overflow: ellipsis;
+	}
+	.center{
+		text-align: center;
+	}
+	.dash{
+		width: 100%;
+		border-bottom: rgba(0, 0, 0, 0.2) dashed 1px;
+		margin-top: 10px;
+	}
+	.weaktxt{
+		font-size: 11px;
+		line-height: 15px;
+		color: #909090;
+	}
+	.normtxt{
+		font-size: 14px;
+		color: rgba(0, 0, 0, 0.9);
+		line-height: 24px;
+		padding-top: 16px;
+	}
+	.warntxt{
+		color: #FFAD00;
+	}
+	.view{
+		width: 100%;
+		max-width: 1080px;
+		min-width: 360px;
+		position: relative;
+		margin: 0 auto;
+	}
+	.main-button{
+		width: 224px;
+		height: 35px;
+		font-size: 18px;
+		line-height: 35px;
+		border-radius: 35px;
+		margin: 0 auto;
+		text-align: center;
+		color: #FFFFFF;
+		background: #37BF1F;
+		background: url("image/bg_main_button.png") repeat-x;
+	}
+	.sub-button{
+		font-size: 12px;
+		color: #09AD24;
+		display: inline-block;
+		margin: 16px;
+		text-decoration: underline;
+	}
+	/* 彩铃列表项 */
+	.ringtone{
+		position: relative;
+		margin-left: 18px;
+		width: auto;
+		height: 70px;
+		border-bottom: rgba(0, 0, 0, 0.1) 1px solid;
+	}
+	.ringtone .main{
+		margin-right: 132px;
+		width: auto;
+		height: 100%;
+		overflow: hidden;
+	}
+	.ringtone .title{
+		text-align: left;
+		width: 100%;
+		padding-top: 21px;
+		padding-bottom: 2px;
+		line-height: 16px;
+		height: 16px;
+		font-size: 16px;
+	}
+	.ringtone .title .icon{
+		margin-left: 2px;
+		margin-right: 2px;
+		width: 20px;
+		height: 14px;
+	}
+	.ringtone .info{
+		width: 100%;
+		padding-top: 5px;
+		padding-bottom: 15px;
+		height: 12px;
+		line-height: 12px;
+		font-size: 12px;
+		color: rgba(0, 0, 0, 0.5);
+	}
+	.ringtone .info .icon{
+		width: 16px;
+		height: 11px;
+	}
+	.ringtone .button-group{
+		width: 108px;
+		height: 100%;
+		position: absolute;
+		top: 0;
+		right: 1px;
+	}
+	.ringtone .button-group .button{
+		margin: 26px 12px 26px 0px;
+		padding-right: 4px;
+		border-radius: 2px;
+		line-height: 18px;
+		font-size: 11px;
+		text-align: right;
+		box-sizing: content-box;
+		border: rgba(0, 0, 0, 0.2) 1px solid;
+		color: rgba(0, 0, 0, 0.2);
+	}
+	.ringtone .button-group .button:nth-child(1){
+		background: url('image/icon_ring.png');
+	}
+	.ringtone .button-group .button:nth-child(2){
+		background: url('image/icon_down.png');
+	}
+	.ringtone .button-group .button:nth-child(3){
+		background: url('image/icon_set.png');
+		border-color: #45BF39;
+		color: #45BF39;
+	}
+	/* loading */
+	@-webkit-keyframes spin {
+		0% {-webkit-transform:rotate(0deg);}
+		50% {-webkit-transform:rotate(180deg);}
+		100% {-webkit-transform:rotate(360deg);}
+	}
+	.loading .loading-core{
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+	.loading .loading-core img{
+		width: 38px;
+		height: 38px;
+		-webkit-animation: spin 1s both linear infinite;
+	}
+	.loading .loading-core span{
+		font-size: 14px;
+		color: rgba(0, 0, 0, 0.6);
+		margin-top: 18px;
+	}
+	/* index and special */
+	.index .banner, .special .banner{
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+	.index .banner .placeholder, .special .banner .placeholder{
+		width: 100%;
+		padding-top: 44%;
+	}
+	.index .banner .content, .special .banner .content{
+		position: absolute;
+		top: 0;
+		width: 100%;
+	}
+	.index .banner img, .special .banner img{
+		width: 100%;
+	}
+	.index .caption, .special .caption{
+		width: auto;
+		height: 38px;
+		margin-left: 14px;
+		line-height: 38px;
+		font-size: 12px;
+		color: rgba(0, 0, 0, 0.57);
+		border-bottom: rgba(0, 0, 0, 0.1) 1px solid;
+	}
+	/* nav */
+	.index .nav{
+    	width: 100%;
+	}
+	.index .nav li{
+    	text-align: center;
+    	position: relative;
+    	min-width: 80px;
+    	font-size: 0;
+    	padding-left: 10px;
+    	padding-top: 14px;
+    	padding-bottom: 14px;
+	}
+	.index .nav li .icon{
+		display: inline-block;
+		width: 22px;
+		height: 22px;
+		overflow: hidden;
+	}
+	.index .nav li .icon img{
+		width: 100%;
+		height: 100%;
+	}
+	.index .nav li .label{
+		vertical-align: top;
+		display: inline-block;
+		width: 50px;
+		height: 22px;
+		line-height: 26px;
+		text-align: left;
+		left: 0;
+		font-size: 18px;
+		text-indent: 10px;
+		color: rgba(0, 0, 0, 0.9);
+	}
+	/* special */
+	.special .caption{
+		margin-top: 5px;
+	}
+	.special .ringlist{
+		margin-top: 2px;
+	}
+	/* category */
+	.category{
+		padding-top: 33px;
+	}
+	.category .nav{
+		padding-left: 10px;
+		padding-right: 10px;
+		justify-content: flex-start;
+		flex-wrap: wrap;
+	}
+	.category .nav li{
+		flex-grow: 0;
+		flex-basis: 25%;
+		padding-top: 0px;
+    	padding-bottom: 22px;
+		text-align: center;
+    	position: relative;
+    	min-width: 80px;
+    	font-size: 0;
+	}
+	.category .nav li .icon{
+		display: inline-block;
+		width: 51px;
+		height: 51px;
+	}
+	.category .nav li img{
+		width: 100%;
+		height: 100%;
+	}
+	.category .nav li .label{
+		width: 100%;
+		display: block;
+		text-indent: 0;
+		font-size: 15px;
+		line-height: 19px;
+		text-align: center;
+		margin-top: 5px;
+		color: rgba(0, 0, 0, 0.9);
+	}
+	/* search */
+	.search{
+		height: 100%;
+		overflow: auto;
+	}
+	.search .search-box{
+		padding-top: 12px;
+		position: relative;
+		text-align: center;
+	}
+	.search .search-box input{
+		border: none;
+		background: rgba(0, 0, 0, 0.08);
+		width: 89%;
+		height: 35px;
+		line-height: 35px;
+		font-size: 14px;
+		text-align: center;
+		border-radius: 35px;
+		outline: none;
+		padding-top: 3px;
+	}
+	.search .search-box input+img{
+		position: absolute;
+		width: 35px;
+		height: 35px;
+		left: 6%;
+		opacity: 0.3;
+		left: calc(50% - 120px);
+		padding-top: 2px;
+	}
+	.search .search-box img+img{
+		position: absolute;
+		width: 35px;
+		height: 35px;
+		right: 6%;
+		visibility: hidden;
+	}
+	.search .search-box .in{
+		text-align: left;
+		text-indent: 35px;
+	}
+	.search .search-box .in+img{
+		opacity: 0.6;
+		left: 5%;
+	}
+	.search .search-box input.content+img+img{
+		visibility: visible;
+	}
+	.search .caption{
+		height: 30px;
+		line-height: 30px;
+		font-size: 18px;
+		margin-top: 5px;
+		margin-bottom: 5px;
+		margin-left: 2px;
+		color: rgba(0, 0, 0, 0.57);
+	}
+	/*搜索标签*/
+	.search .tags{
+		width: 100%;
+		height: auto;
+		box-sizing: border-box;
+		padding-left: 14px;
+		padding-right: 14px;
+		display: block;
+		position: relative;
+	}
+	.search .tags li{
+		font-size: 12px;
+		line-height: 14px;
+		display: inline-block;
+		float: left;
+		padding: 5px 12px;
+		margin-bottom: 11px;
+		margin-right: 8px;
+		border-radius: 3px;
+		color: rgba(0, 0, 0, 0.57);
+		border: 1px #B6B4B5 solid;
+	}
+	.search .ringlist{
+		display: block;
+		position: relative;
+		margin-top: -3px;
+	}
+	/* 搜索结果为空 */
+	.search .empty-box{
+		position: absolute;
+		z-index: 1;
+		width: 100%;
+		left: 0;
+		top: 50%;
+		margin-top: -40px;
+		text-align: center;
+	}
+	.search .empty-box img{
+		width: 38px;
+		height: 38px;
+	}
+	.search .empty-box span{
+		display: block;
+		line-height: 30px;
+		height: 30px;
+		color: rgba(0, 0, 0, 0.4);
+	}
+	/* 铃声播放 */
+	.order .header{
+		position: relative;
+		width: 100%;
+		height: 110px;
+		background: #61b94a;
+		overflow: hidden;
+	}
+	.order .header .music{
+		position: relative;
+		margin-left: 21px;
+		width: auto;
+		height: 56px;
+		top: 50%;
+		margin-top: -28px;
+	}
+	.order .header .bg{
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		z-index: 0;
+	}
+	/* 播放按钮 */
+	.order .button{
+		position: absolute;
+		width: 56px;
+		height: 56px;
+		left: 0;
+		top: 0;
+	}
+	.order .button img{
+		width: 100%;
+		height: 100%;
+	}
+	/* 铃声信息 */
+	.order .info{
+		position: relative;
+		margin-left: 74px;
+		width: auto;
+		height: 100%;
+	}
+	.order .music .title{
+		display: block;
+		color: #FFFFFF;
+		height: 36px;
+		line-height: 36px;
+		font-size: 16px;
+	}
+	.order .music .album{
+		display: block;
+		color: #FFFFFF;
+		height: 12px;
+		line-height: 12px;
+		font-size: 12px;
+		opacity: 0.5;
+	}
+	/* 表单输入框 */
+	.order .input{
+		position: relative;
+		margin-left: 16px;
+		width: auto;
+		height: 53px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		justify-content: space-between;
+		-webkit-justify-content: flex-start;
+	}
+	.order .input .label, .order .input input{
+		display: inline-block;
+		height: 100%;
+		line-height: 53px;
+		font-size: 16px;
+		color: rgba(0, 0, 0, 0.9);
+	}
+	/* 标识 */
+	.order .input .label{
+		min-width: 36px;
+		white-space: nowrap;
+		padding-right: 16px;
+	}
+	/* 输入框 */
+	.order .input input{
+		background: none;
+		border: none;
+		outline: none;
+	}
+	.order .input .check, .order .input .addon{
+		justify-content: center;
+		align-items: center;
+		height: 100%;
+		margin-right: 16px;
+	}
+	/* 输入校验符 */
+	.order .input .check img{
+		width: 23px;
+		height: auto;
+	}
+	/* 图形验证码 */
+	.order .input .piccode img{
+		display: inline-block;
+		width: 80px;
+		height: auto;
+	}
+	.order .input .piccode span{
+		padding-left: 9px;
+		display: inline-block;
+		white-space: nowrap;
+		color: #09AD24;
+		text-decoration: underline;
+		vertical-align: bottom;
+	}
+	/* 短信验证码 */
+	.order .input .smscode span{
+		display: inline-block;
+		text-align: center;
+		white-space: nowrap;
+		background: #EAEAEA;
+		border-radius: 36px;
+		font-size: 14px;
+		padding: 8px 6px;
+		border: #BFBFBF 1px solid;
+	}
+	.order .input .smscode.waiting span{
+		color: #AAAAAA;
+	}
+	.order .confirm span{
+		font-size: 16px;
+		line-height: 30px;
+	}
+	.order .confirm .sub-button{
+		position: absolute;
+		bottom: 0;
+		right: -60px;
+		font-size: 12px;
+		margin: 0;
+	}
+	.order .success img, .order .fail img{
+		margin-top: 13px;
+		width: 38px;
+		height: 38px;
+	}
+	.order .success span, .order .fail span{
+		display: block;
+		text-align: center;
+		font-size: 16px;
+		line-height: 23px;
+		color: rgba(0, 0, 0, 0.4);
+		margin-top: 15px;
+	}
+	/* 问答页面 */
+	.faq{
+		padding: 0px 20px 20px 20px;
+		box-sizing: border-box;
+	}
+	.faq .question{
+		padding-top: 5px;
+		padding-bottom: 5px;
+	}
+	.faq .question span{
+		display: inline-block;
+		text-decoration: none;
+		border-bottom: 1px solid #909090;
+		line-height: 14px;
+	}
+	.faq .answer{
+		width: auto;
+		padding: 7px;
+		background: #F8F8F8;
+		border: 1px #BDBDBD solid;
+		border-radius: 5px;
+	}
+	.faq .weaktxt{
+		font-size: 16px;
+		line-height: 22px;
+	}
+	.faq .normtxt{
+		padding-top: 16px;
+		font-size: 16px;
+	}
+	/* 反馈界面 */
+	.feedback{
+		padding: 0 20px 0 20px;
+		box-sizing: border-box;
+	}
+	.feedback .caption{
+		line-height: 30px;
+		padding-top: 12px;
+	}
+	.feedback textarea, .feedback input{
+		width: 100%;
+		height: 135px;
+		font-size: 16px;
+		resize: none;
+		outline: none;
+		padding: 10px 8px;
+		border-radius: 5px;
+		box-sizing: border-box;
+		border: 1px #D3D3D3 solid;
+		/* margin-top: 2px; */
+	}
+	.feedback input{
+		height: 34px;
+		line-height: 34px;
+	}
+	.feedback .error{
+		margin-top: 5px;
+		font-size: 14px;
+		line-height: 18px;
+		color: #F2444B;
+	}
+	/* 弹出框 */
+	.modal .modal-core{
+		position: fixed;
+		left: 0;
+		top: 0;
+		z-index: 999;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.3);
+	}
+	.modal img{
+		display: block;
+		width: 40px;
+		height: 100%;
+		margin-top: 30px;
+	}
+	.modal .title{
+		display: inline-block;
+		font-size: 16px;
+		line-height: 20px;
+		color: rgba(0, 0, 0, 0.9);
+		text-align: center;
+		margin-top: 32px;
+	}
+	.modal .content{
+		margin-top: 14px;
+		font-size: 12px;
+		line-height: 18px;
+		color: #949494;
+	}
+	.modal .alert, .modal .confirm{
+		width: 82%;
+		max-width: 400px;
+		padding: 0;
+		background: #FFFFFF;
+		align-items: center;
+		box-sizing: border-box;
+	}
+	/*  */
+	.modal .alert .button-group{
+		padding: 30px 0;
+	}
+	.modal .alert.nopic img{
+		display: none;
+	}
+	/*  */
+	.modal .confirm .button-group{
+		border-top: rgba(0, 0, 0, 0.1) 1px solid;
+		width: 100%;
+		margin-top: 26px;
+	}
+	.modal .confirm .button{
+		width: 100%;
+		text-align: center;
+		font-size: 16px;
+		height: 42px;
+		line-height: 42px;
+		background: #FFFFFF;
+	}
+	.modal .confirm .button:active{
+		background: rgba(0, 0, 0, 0.01);
+	}
+	.modal .confirm .button:nth-child(2){
+		border-left: rgba(0, 0, 0, 0.1) 1px solid;
+		color: #09AD24;
+	}
+	</style>
+</head>
+<body>
+<div class="view modal none">
+	<div class="modal-core flex flex-center">
+		<div class="subview alert">
+			<div class="flex flex-center flex-column">
+				<img src="image/icon_positive.png"/>
+				<span class="title">感谢您的意见<br/>我们会尽快处理并反馈给您处理结果</span>
+				<div class="button-group">
+					<div class="main-button">返回</div>
+				</div>
+			</div>
+		</div>
+		<div class="subview confirm none">
+			<div class="flex flex-center flex-column">
+				<span class="title">确认要开通个性化彩铃服务吗？</span>
+				<span class="content">开通彩铃包月服务（<span class="warntxt">5元/月</span>）<br/>免费不限次数更换本专区彩铃</span>
+				<div class="button-group flex">
+					<div class="button">取消</div>
+					<div class="button">确认</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<div class="view loading none">
+	<div class="loading-core flex flex-center flex-column">
+		<img src="image/loading.png"/>
+		<span>正在加载</span>
+	</div>
+</div>
+<div class="view index">
+	<div class="banner">
+		<div class="placeholder"></div>
+		<div class="content">
+			<img src="image/banner.jpg">
+		</div>
+	</div>
+	<ul class="nav flex flex-wrap">
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_c1.png"></div>
+			<span class="label">排行</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_c2.png"></div>
+			<span class="label">分类</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_c3.png"></div>
+			<span class="label">搜索</span>
+		</li>
+	</ul>
+	<div style="height: 12px; background: #F2F2F2"></div>
+	<div class="caption">热门推荐</div>
+	<ul class="ringlist">
+		<li class="ringtone">
+			<div class="main">
+				<div class="title flex">
+					<span class="ellipsis">我在人民广场吃着炸鸡和鸡排和鸡腿</span>
+					<img class="icon" src="image/icon_new.png">
+					<img class="icon none" src="image/icon_hot.png">
+					<img class="icon" src="image/icon_play.gif">
+					<img class="icon none" src="image/icon_loading.gif">
+				</div>
+				<div class="info flex">
+					<img class="icon" src="image/icon_earphone.png">
+					<span class="ellipsis"><span>1236987</span><span></span>次 中国新歌声中国好声音</span></span>
+				</div>
+			</div>
+			<div class="flex button-group">
+				<div class="flex-1 button">彩铃</div>
+				<div class="flex-1 button none">下载</div>
+				<div class="flex-1 button">设为</div>
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="view special none">
+	<div class="banner">
+		<div class="placeholder"></div>
+		<div class="content">
+			<img src="image/banner.jpg">
+		</div>
+	</div>
+	<div class="caption">把悲伤留给自己</div>
+	<ul class="ringlist">
+		<li class="ringtone">
+			<div class="main">
+				<div class="title flex">
+					<span class="ellipsis">我在人民广场吃着炸鸡和鸡排和鸡腿</span>
+					<img class="icon" src="image/icon_new.png">
+					<img class="icon" src="image/icon_hot.png">
+					<img class="icon" src="image/icon_play.gif">
+					<img class="icon" src="image/icon_loading.gif">
+				</div>
+				<div class="info flex">
+					<img class="icon" src="image/icon_earphone.png">
+					<span class="ellipsis"><span>1236987</span><span></span>次 中国新歌声中国好声音</span></span>
+				</div>
+			</div>
+			<div class="flex button-group">
+				<div class="flex-1 button">彩铃</div>
+				<div class="flex-1 button none">下载</div>
+				<div class="flex-1 button">设为</div>
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="view album none">
+	<ul class="ringlist">
+		<li class="ringtone">
+			<div class="main">
+				<div class="title flex">
+					<span class="ellipsis">我在人民广场吃着炸鸡和鸡排和鸡腿</span>
+					<img class="icon" src="image/icon_new.png">
+					<img class="icon" src="image/icon_hot.png">
+					<img class="icon" src="image/icon_play.gif">
+					<img class="icon" src="image/icon_loading.gif">
+				</div>
+				<div class="info flex">
+					<img class="icon" src="image/icon_earphone.png">
+					<span class="ellipsis"><span>1236987</span><span></span>次 中国新歌声中国好声音</span></span>
+				</div>
+			</div>
+			<div class="flex button-group">
+				<div class="flex-1 button">彩铃</div>
+				<div class="flex-1 button none">下载</div>
+				<div class="flex-1 button">设为</div>
+			</div>
+		</li>
+	</ul>
+</div>
+<div class="view category none">
+	<ul class="nav flex flex-wrap">
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m1.png"></div>
+			<span class="label">短信</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m2.png"></div>
+			<span class="label">搞笑</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m3.png"></div>
+			<span class="label">经典</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m4.png"></div>
+			<span class="label">动漫游戏</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m5.png"></div>
+			<span class="label">网络神曲</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m6.png"></div>
+			<span class="label">流行前沿</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m7.png"></div>
+			<span class="label">情侣套餐</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m8.png"></div>
+			<span class="label">纯音乐</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m9.png"></div>
+			<span class="label">欧美日韩</span>
+		</li>
+		<li class="flex-1">
+			<div class="icon"><img src="image/icon_m10.png"></div>
+			<span class="label">经典老歌</span>
+		</li>
+	</ul>
+</div>
+<div class="view search none" onclick="">
+	<div class="search-box">
+		<input type="text" placeholder="搜索铃声名称、歌名、歌手" onclick="(function(cls){!cls.contains('in') && cls.add('in')})(this.classList)" oninput="(function(val, cls){ val&&cls.add('content'); !val&&cls.remove('content') })(this.value, this.classList);" onblur="(function(val, cls){!val&&cls.remove('in') })(this.value, this.classList);" />
+		<img class="anm" src="image/icon_search.png"/>
+		<img class="clear" src="image/icon_clear.png" onclick="var input = this.parentNode.querySelector('input'); input.value = ''; input.classList.remove('content'); input.classList.remove('in')" />
+	</div>
+	<div class="subview empty-box none">
+		<img src="image/icon_negative.png"/>
+		<span>抱歉，神马都没有搜索到</span>
+	</div>
+	<div class="subview tags-box none">
+		<ul class="tags floatfix">
+			<div class="caption">搜索热词</div>
+			<li>牛仔很忙</li>
+			<li>周杰伦</li>
+			<li>爱</li>
+			<li>中国新歌声</li>
+			<li>牛仔</li>
+			<li>杰伦</li>
+			<li>爱</li>
+			<li>新歌声</li>
+			<li>中国新歌声</li>
+			<li>杰伦</li>
+			<li>爱</li>
+			<li>新歌声</li>
+			<li>牛仔</li>
+			<li>爱</li>
+			<li>中国新歌声</li>
+			<li>牛仔</li>
+			<li>杰伦</li>
+			<li>爱</li>
+			<li>0445</li>
+		</ul>
+	</div>
+	<div class="subview ringlist-box">
+		<ul class="ringlist">
+			<li class="ringtone">
+				<div class="main">
+					<div class="title flex">
+						<span class="ellipsis">不再让你孤单</span>
+						<img class="icon" src="image/icon_new.png">
+						<img class="icon none" src="image/icon_hot.png">
+						<img class="icon" src="image/icon_play.gif">
+						<img class="icon none" src="image/icon_loading.gif">
+					</div>
+					<div class="info flex">
+						<img class="icon" src="image/icon_earphone.png">
+						<span class="ellipsis"><span>1236987</span><span></span>次 中国新歌声中国好声音</span></span>
+					</div>
+				</div>
+				<div class="flex button-group">
+					<div class="flex-1 button">彩铃</div>
+					<div class="flex-1 button none">下载</div>
+					<div class="flex-1 button">设为</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+<div class="view order none">
+	<div class="header">
+		<img class="bg" src="image/music_bg.jpg"/>
+		<div class="music ellipsis">
+			<div class="button">
+				<img src="image/icon_ring_play.png"/>
+			</div>
+			<div class="info">
+				<span class="title ellipsis">热情的沙漠</span>
+				<span class="album ellipsis"><span>123456次</span> <span>搞笑整人精选</span></span>	
+			</div>
+		</div>
+	</div>
+	<div class="subview form none">
+		<div class="input flex">
+			<span class="label">手机</span>
+			<div class="flex-1">
+				<input class="flex-1" type="text" placeholder="请输入手机号"/>
+			</div>
+			<div class="addon"></div>
+		</div>
+		<div class="input flex">
+			<span class="label"></span>
+			<div class="flex-1">
+				<input class="flex-1" type="text" placeholder="图形验证码"/>
+			</div>
+			<div class="check flex">
+				<img src="image/icon_no.png"/>
+			</div>
+			<div class="addon flex piccode">
+				<img src="image/piccode.jpg"/>
+				<span>换一张</span>
+			</div>
+		</div>
+		<div class="input flex">
+			<span class="label">验证</span>
+			<div class="flex-1">
+				<input type="text" placeholder="短信验证码"/>
+			</div>
+			<div class="check flex">
+				<img src="image/icon_yes.png"/>
+			</div>
+			<div class="addon flex smscode">
+				<span>获取短信验证</span>
+			</div>
+		</div>
+		<div style="text-align: center; margin-top: 11px">
+			<span class="weaktxt">未收到，请拨客服 <span class="warntxt">400-996-5050</span></span>
+		</div>
+		<div class="main-button">设为彩铃</div>
+	</div>
+	<div class="subview confirm">
+		<div class="flex flex-center flex-column" style="height: 160px">
+			<span>确定设置此铃声</span>
+			<span style="position: relative; display: inline-block">为 <span class="warntxt">18654123681</span> 的彩铃吗? <span class="sub-button">更换号码</span></span>
+		</div>
+		<div class="main-button">确认</div>
+	</div>
+	<div class="subview success none">
+		<div class="flex flex-center flex-column" style="height: 160px">
+			<img src="image/icon_positive2.png"/>
+			<span>恭喜您，彩铃设置成功<br/>24小时内生效，请耐心等待</span>
+		</div>
+		<div class="main-button">返回</div>
+	</div>
+	<div class="subview fail none">
+		<div class="flex flex-center flex-column" style="height: 160px">
+			<img src="image/icon_negative.png"/>
+			<span>抱歉，提交失败<br/>请稍后重试</span>
+		</div>
+		<div class="main-button">返回</div>
+	</div>
+	<div style="padding: 32px 32px 0 32px">
+		<p class="weaktxt" style="color: rgba(0, 0, 0, 0.9); font-size: 14px;margin-bottom: 8px">提示:</p>
+		<p class="weaktxt">*设置本首彩铃需要开通个性化彩铃服务（<span class="warntxt">5元/月</span>），开通后可以免费不限次数地更换所有彩铃</p>
+		<p class="weaktxt" style="margin-top: 10px">*个性化彩铃业务需要彩铃功能支持，如果你未开通我们将一并为您开通，资费由当地运营商收取</p>
+		<div class="dash"></div>
+		<div class="center">
+			<div class="sub-button">意见反馈</div>
+			<div class="sub-button">常见问题</div>
+		</div>
+	</div>
+</div>
+<div class="view feedback none">
+	<div class="caption">反馈意见</div>
+	<textarea placeholder="写下您的宝贵意见"></textarea>
+	<!-- <div class="error weaktxt">*格式不正确</div> -->
+	<div class="caption">联系方式</div>
+	<input type="text" placeholder="QQ/邮箱/手机号码"/>
+	<!-- <div class="error weaktxt">*格式不正确</div> -->
+	<div style="height: 30px"></div>
+	<div class="main-button">赏点意见</div>
+</div>
+<div class="view faq none">
+	<div class="normtxt">联系客服</div>
+	<div><span class="weaktxt">客服电话 <span class="warntxt">400-996-5050</span></span></div>
+	<div><span class="weaktxt">微信一对一客服，请关注公众号 <span class="warntxt">酷音</span></span></div>
+	<div class="normtxt" style="padding-top: 11px">常见问题</div>
+	<div class="question"><span class="weaktxt">Q1.什么是彩铃包月会员服务</span></div>
+	<div class="answer"><span class="weaktxt">彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务</span></div>
+	<div class="question"><span class="weaktxt">Q1.什么是彩铃包月会员服务</span></div>
+	<div class="answer"><span class="weaktxt">彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务</span></div>
+	<div class="question"><span class="weaktxt">Q1.什么是彩铃包月会员服务</span></div>
+	<div class="answer"><span class="weaktxt">彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务，彩铃的包月服务又名个性化彩铃服务</span></div>
+</div>
+<!-- 脚手架开始 -->
+<!-- 投入生产之前一定要拆除此脚手架 -->
+<style type="text/css">
+</style>
+<div style="position:fixed;z-index:-9999; right:0; bottom: 0; width: 100%; height: 100%; opacity: 0.8"><img id="base" style="float: left; width: 100%; height: auto" src="base/index_.png"/></div>
+<div class="select" style="position:fixed;z-index:9999; right:10px; bottom: 10px"><label for="checkme">隐藏蒙版</label>
+	<input type="checkbox" id="checkme" onclick="document.querySelector('#base').style.display=this.checked?'none':'block'">
+    <select id="view_list" style="width:120px;height:30px;">
+        <option data-view="index">首页</option>
+        <option data-view="loading">加载页</option>
+        <option data-view="modal" data-subview="confirm">弹框-确认</option>
+        <option data-view="modal" data-subview="alert">弹框-提示</option>
+        <option data-view="special">专题</option>
+        <option data-view="album">排行</option>
+        <option data-view="category">分类</option>
+        <option data-view="search" data-subview="tags-box">搜索</option>
+        <option data-view="search" data-subview="ringlist-box">搜索-有结果</option>
+        <option data-view="search" data-subview="empty-box">搜索-无结果</option>
+        <option data-view="order" data-subview="form">订购</option>
+        <option data-view="order" data-subview="confirm">订购-二次确认</option>
+        <option data-view="order" data-subview="success">订购-成功</option>
+        <option data-view="order" data-subview="fail">订购-失败</option>
+        <option data-view="feedback">意见反馈</option>
+        <option data-view="faq">帮助</option>
+    </select>
+</div>
+<script type="text/javascript">
+
+    document.addEventListener('DOMContentLoaded', bindSelect);
+
+    function bindSelect() {
+        var selectList = document.getElementById('view_list');
+        selectList.addEventListener('change', function(e) {
+            var selectedOption = this.selectedOptions[0];
+            var data = selectedOption.dataset;
+            var viewName = data.view;
+            var subViewName = data.subview;
+
+            optClass('.view','none',1);
+            optClass('.subview','none',1);
+            optClass('.' + viewName,'none',0);
+            optClass('.' + viewName + ' .' + subViewName,'none',0);
+
+            //
+            document.querySelector("#base").src = 'base/'+viewName+'_'+(subViewName||'')+'.png';
+        });
+    }
+
+    function optClass(elemClassSelector,className,operator) {
+        var elems=document.querySelectorAll(elemClassSelector);
+        var length=elems.length;
+        for(var i=0;i<length;i++){
+        	var e=elems[i];
+            if (operator===1&&!e.classList.contains(className)) {
+                e.classList.add(className);
+            }
+            if (operator===0&&e.classList.contains(className)) {
+                e.classList.remove(className);
+            }
+        };
+    };
+</script>
+<!-- 脚手架结束 -->
+</body>
+</html>

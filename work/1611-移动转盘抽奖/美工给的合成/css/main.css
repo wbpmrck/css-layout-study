@@ -1,0 +1,158 @@
+﻿@charset "utf-8";
+.bj {
+	width:100%;
+	margin:0 auto;
+	padding:0;
+}
+.bj01{
+	width:100%;
+	margin:0 auto;
+	}
+.bj01 img{
+	width:100%;
+	border:0;
+	display:block;
+	}
+.bi02 img{
+	width:290px;
+	height:290px;
+	border:0;
+	display:block;
+	}
+.bj02{
+	width:100%;
+	height:310px;
+	text-align:center;
+	background-image:url(../images/bj02.jpg);
+	background-size:100% 100%;
+	background-repeat:no-repeat;
+	background-position:center;
+	position: relative;
+}
+.bj02 img{
+	width: 290px;
+	height: auto;
+}
+.bj03{
+	width:100%;
+	color:#005637;
+	position:relative;
+	}
+.xian{
+	height:1px;
+	width:80%;
+	background-color:#009760;
+	margin:80px auto 20px;
+	} 
+.bj03 h1{
+	width:20%;
+	margin-left:30%;
+	text-align:center;
+	font-size:14px;
+	line-height:24px;
+	background-color:#00ca81;
+	position:absolute;
+	top:-12px;
+	}
+.bj03 p{
+	margin:0 auto 20px;
+	width:80%;
+	line-height:20px;
+	font-size:12px;
+	}
+.kd{
+	width:80%;
+	margin:0 auto;
+	}
+.srk input {
+	height: 32px;
+	background-color:#fff;
+	border: 1px solid #01b876;
+	font-size: 14px;
+	line-height: 30px;
+	padding-left: 5px;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	color:#738296;
+}
+.srk {
+	padding-top: 8px;
+	float: left;
+	width:98%;
+}
+.srk1 {
+	width: 100%;
+}
+.srk2 {
+	width: 50%;
+}
+.error {
+	float:right;
+	width: 50%;
+	font-size: 12px;
+	line-height: 16px;
+	color: #F00;
+}
+.hyyzm {
+	height: 32px;
+	border:1px solid #fff;
+	font-size: 14px;
+	line-height: 32px;
+	color: #fff;
+	float: right;
+	width: 40%;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	text-align:center;
+	text-decoration:none;
+}
+.error {
+	float: left;
+	width: 260px;
+	font-size: 12px;
+	line-height: 16px;
+	color: #F00;
+}
+.dy {
+	float:left;
+	font-size: 16px;
+	line-height: 40px;
+	color: #cb6e00;
+	background-color: #ffcb00;
+	text-align: center;
+	border-bottom: 2px solid #e6a200;
+	height: 40px;
+	width:40%;
+	-moz-border-radius: 50px;
+	-webkit-border-radius: 50px;
+	border-radius: 50px;
+	text-align:center;
+	text-decoration:none;
+	margin:5px 30%;
+}
+.button {
+	font-size: 20px;
+	line-height: 46px;
+	color: #fdedd9;
+	background-color: #df7b18;
+	text-align: center;
+	display:block;
+	height: 46px;
+	width: 50%;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	margin-top:33%;
+	left:25%;
+	margin-left:auto;
+	margin-right:auto;
+	text-decoration:none;
+}
+/*动画*/
+.anm{
+	transition: all 0.3s ease;
+	-webkit-transition: all 0.3s ease;
+	-moz-transition: all 0.3s ease;
+}

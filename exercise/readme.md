@@ -1,2 +1,3 @@
-# 说明
-* 用于进行一些特定题材的练习,比如垂直居中,一侧固定,一侧填充之类的单项技巧
+# What is 'exercise'
+* some cases between 'learn' and 'work'.
+* those cases who show full featured effect,should be here.

@@ -1,0 +1,542 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>招财铃</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+	<meta name="format-detection" content="telephone=no"/>
+	<meta charset="utf-8"/>
+	<style type="text/css">
+	*{
+		padding: 0;
+		margin: 0;
+	}
+	html, body{
+		width: 100%;
+		height: 100%;
+		background: #00CA81;
+	}
+	input{
+		outline: none;
+		border: none;
+	}
+	a{
+		text-decoration: none;
+	}
+	ul{
+		list-style: none;
+	}
+	.none{
+		display: none;
+	}
+	.auto{
+		width: 100%;
+		height: auto;
+	}
+	.fixed{
+		position: fixed;
+		z-index: 999;
+		width: 100%;
+		height: 100%;
+		left: 0;
+		top: 0;
+		background: rgba(0, 0, 0, 0.1);
+	}
+	.view{
+		position: relative;
+		margin: 0 auto;
+		width: 100%;
+		max-width: 500px;
+		min-width: 300px;
+		min-height: 100%;
+	}
+	.lottery{
+		position: relative;
+		/*?*/
+		font-size: 0;
+	}
+	.lottery .banner{
+		
+	}
+	.lottery .round{
+		position: absolute;
+		bottom: 4%;
+		width: 100%;
+		height: auto;
+		text-align: center;
+	}
+	.lottery .round .core{
+		position: relative;
+		width: 68.3%;
+		height: auto;
+		display: inline-block;
+	}
+	.lottery .round .core .button{
+		position: absolute;
+		left: 0;
+		top: 0;
+	}
+	/*表单-通用部分*/
+	.form{
+		width: 80%;
+		margin: 15px auto 15px auto;
+	}
+	.form .item{
+		position: relative;
+		margin-bottom: 10px;
+	}
+	.form .item .input{
+		display: inline-block;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.form .item .input input{
+		border-radius: 3px;
+		font-size: 16px;
+		line-height: 34px;
+		padding: 0 8px;
+		width: 100%;
+		box-sizing: border-box;
+	}
+	.form .item .addon{
+		position: absolute;
+		display: inline-block;
+		right: 0;
+		top: 0;
+	}
+	.form .item .desc{
+		color: #FF0000;
+		font-size: 12px;
+		line-height: 20px;
+		height: 20px;
+	}
+	.form>.button{
+		width: 40%;
+		font-size: 16px;
+		line-height: 40px;
+		background: #FFCB00;
+		color: #CB6E00;
+		border-radius: 50px;
+		border-bottom: 3px solid #E6A200;
+		margin: 0 auto;
+		text-align: center;
+	}
+	.form>.button.disabled{
+		color: #a9a9a9;
+		background-color: #CCCCCC;
+		border-color: #888888;
+	}
+	.form>.button:not(.disabled):active{
+		position:relative;
+		top: 2px;
+	}
+	/*表单-具体部分*/
+	.form .item .input-2{
+		padding-right: 130px;
+	}
+	.form .item .addon-2 .button{
+		display: inline-block;
+		line-height: 32px;
+		border: 1px solid #FFFFFF;
+		border-radius: 5px;
+		padding: 0 10px;
+		font-size: 14px;
+		color: #FFFFFF;
+		width: 100px;
+	}
+	.form .item .addon-2 .button.waiting{
+		color: #78F0C6;
+	}
+	/**/
+	.line{
+		width: 80%;
+		height: 1px;
+		background: #009760;
+		text-align: center;
+		margin: 0 auto;
+	}
+	.line span{
+		position: relative;
+		line-height: 20px;
+		top: -10px;
+		background: #00CA81;
+		padding: 0 20px;
+		font-size: 14px;
+		color: #005637;
+	}
+	/**/
+	.rules{
+		width: 80%;
+		margin: 10px auto 50px auto;
+		color: #005637;
+		font-size: 12px;
+		line-height: 20px;
+	}
+	/**/
+	@keyframe spin{
+		from{
+			-webkit-transform: rotate(0deg);
+		}
+		to{
+			-webkit-transform: rotate(360deg);
+		}
+	}
+	.spin{
+		-webkit-animation: spin 5s infinite;
+	}
+	/**/
+	.modal{
+		position: absolute;
+		padding: 0 10px;
+		width: 60%;
+		left: 50%;
+		top: 50%;
+		border-radius: 10px;
+		-webkit-transform: translate(-50%, -50%);
+		background: #FFFFFF;
+	}
+	.modal .close{
+		position: absolute;
+		width: 10%;
+		right: 0;
+		-webkit-transform: translateY(-70%);
+	}
+	.modal .pic{
+		position: relative;
+		margin: 20px auto;
+		width: 60%;
+		font-size: 0;
+		border-radius: 100%;
+		overflow: hidden;
+	}
+	.modal .prize, .modal .desc, .modal .button{
+		display: block;
+		font-size: 14px;
+		line-height: 18px;
+		text-align: center;
+		margin-bottom: 20px;
+	}
+	.modal .prize{
+		display: none;
+		color: #C77E00;
+	}
+	.modal .button{
+		display: none;
+		position: relative;
+		width: 80%;
+		border-radius: 5px;
+		margin: 20px auto;
+		font-size: 16px;
+		color: #FFFFFF;
+		line-height: 40px;
+		background: #DF7B18;
+		border-bottom: 3px solid #C1670E;
+	}
+	.modal .button:active{
+		top: 2px;
+	}
+	.modal.modal-prize .prize, .modal.modal-unqualified .button{
+		display: block;
+	}
+	.modal.model-prizeless .prize{
+		display: none;
+	}
+	</style>
+</head>
+<body>
+<div class="fixed none">
+	<div class="view">
+		<div class="modal modal-prizeless">
+			<div id="close" class="close">
+				<img class="auto" src="image/close.png"/>
+			</div>
+			<div class="pic">
+				<img class="prizepic auto" src="image/thanks.jpg"/>
+			</div>
+			<span class="prize">-</span>
+			<span class="desc">-</span>
+			<a href="http://m.10086.cn/migu/l/?s=152&p=175&c=5397&j=l&shareMobileNo=MTg3NTY1OTAzMzc"><div class="button">我要加入</div></a>
+		</div>
+	</div>
+</div>
+<div class="view">
+	<div class="lottery">
+		<a name="top" href="#top"></a>
+		<img class="banner auto" src="image/banner.png"/>
+		<div class="round">
+			<div class="core">
+				<img id="roller" class="auto" src="image/lt_round.png"/>
+				<a href="#form"><img class="button auto" src="image/lt_center.png"></a>
+			</div>
+		</div>
+	</div>
+	<div class="form">
+		<a name="form"></a>
+		<div class="item">
+			<div class="core">
+				<div class="input input-1">
+					<input id="phone" type="text" placeholder="手机号码"/>
+				</div>
+				<div class="addon addon-1">
+				</div>
+				<div id="phone-desc" class="desc"></div>
+			</div>
+		</div>
+		<div class="item">
+			<div class="core">
+				<div class="input input-2">
+					<input id="vcode" type="text" placeholder="验证码"/>
+				</div>
+				<div class="addon addon-2">
+					<div id="vcode-button" class="button" onclick="">免费获取验证码</div>
+				</div>
+				<div id="vcode-desc" class="desc"></div>
+			</div>
+		</div>
+		<div id="tryluck" class="button disabled" onclick="">抽奖</div>
+	</div>
+	<div class="line">
+		<span>活动规则</span>
+	</div>
+	<ul class="rules">
+		<li>1、本活动仅限包月订购的招财铃用户参与，每月都可享一次100%领奖的超级福利！</li>
+		<li>2、流量包、话费及现金红包实际到账信息，以10086下发短信为准；</li>
+		<li>3、流量仅限当月使用，剩余流量不延续至次月；</li>
+	</ul>
+</div>
+</body>
+<script type="text/javascript" src="js/zepto.min.js"></script>
+<script type="text/javascript">
+//大转盘
+var Roller = (function(){
+	// 默认配置
+	var _option = {
+		dom: null,
+		rounds: 0,
+		duration: 6000
+	};
+	// Roller类
+	var Roller = function(option){
+		this.option = Object.assign(_option, option)
+		this.dom = this.option.dom;
+		this.deg = 0;
+		this.init();
+	};
+	// 初始化
+	Roller.prototype.init = function(){
+		var is = this.isDomValid = this.dom && this.dom.nodeType && this.dom.nodeType == 1;
+		// dom不存在
+		!is && (console && console.error && console.error('指定的dom节点不存在'));
+		// dom存在：附加transition动画
+		is && (this.dom.style.webkitTransition = '-webkit-transform  '+(this.option.duration/1000)+'s ease-in-out');
+	};
+	// 转动到指定弧度
+	Roller.prototype.roll = function(deg, callback){
+		if( !this.isDomValid || this.isRolling) return;
+		var that = this, timer1 = setTimeout(function(){
+			clearTimeout(timer1);
+			// 转动开始
+			var rest = (360-that.deg%360);
+			var delta = rest+deg+that.option.rounds*360;
+			that.dom.style.webkitTransform = 'rotate('+(that.deg+delta)+'deg)';
+			that.isRolling = true;
+			var timer2 = setTimeout(function(){
+				clearTimeout(timer2);
+				// 转动结束
+				that.isRolling = false;
+				that.deg = that.deg+delta;
+				// 结束回调
+				callback && callback(that.deg);
+			}, that.option.duration);
+		}, 0);
+	};
+	// 导出构造器
+	var Constructor = function(option){
+		return new Roller(option);
+	};
+	return Constructor;
+})();
+var roller = new Roller({dom: document.getElementById('roller'), rounds: 1});
+//视图
+var View = {
+	showError: function(err){
+		alert(err);
+		return this;
+	},
+	showModal: function(type, option){
+		var _option = {
+			pic: 'image/thanks.jpg',
+			prize: '恭喜！',
+			desc: '-'
+		};
+		_option = $.extend(_option, option);
+		$modal = $('.fixed').removeClass('none').find('.modal');
+		$modal[0].className = 'modal';
+		$modal.addClass(type).find('.prizepic').attr('src', _option.pic).closest('.modal').find('.prize').html(_option.prize).closest('.modal').find('.desc').html(_option.desc);
+	},
+	closeModal: function(){
+		$('.fixed').addClass('none');
+	},
+	phoneError: function(is){
+		$('#phone-desc').html( is && '*请输入正确的手机号码' || '' );
+		return this;
+	},
+	vcodeError: function(is){
+		$('#vcode-desc').html( is && '*请输入4位数字验证码' || '' );
+		return this;
+	},
+	isVcodeWaiting: false,
+	vcodeButtonWaiting: function(time){
+		if(this.isVcodeWaiting)return this;
+		var that = this, text_waiting = '秒后重新获取', text_normal = '免费获取验证码', $dom = $('#vcode-button'), time = time, timer = setInterval(function(){
+			!that.isVcodeWaiting && (that.isVcodeWaiting = true);
+			time>0 && $dom.addClass('waiting').html(time+text_waiting) || (
+				clearInterval(timer),
+				$dom.removeClass('waiting').html(text_normal),
+				that.isVcodeWaiting = false
+			);
+			time--;
+		}, 1000);
+		return this;
+	},
+	tryLuckButtonDisabled: function(is){
+		is && $('#tryluck').addClass('disabled') || $('#tryluck').removeClass('disabled');
+		return this;
+	},
+	tryLuck: function(deg, callback){
+		roller.roll(deg, callback);
+		return this;
+	}
+};
+//模型
+var Model = {
+	prizes: {
+		//奖品配置
+		_data: {
+			'0': {name: '非招财铃用户', type: 'unqualified', spectrum: [0, 0], pic: 'image/unqualified.jpg', desc: '很抱歉！您当前不是招财铃用户，加入招财铃才有机会抽奖哦！'},
+			'4': {name: '蓝牙音箱', type: 'prize', spectrum: [0, 60], pic: 'image/btbass.jpg', desc: '恭喜您获得价值199元的蓝牙音箱一台，凭号码至营业厅即可领取！'},
+			'2': {name: '30M流量', type: 'prize', spectrum: [60, 120], pic: 'image/gprs.jpg', desc: '恭喜您获得30M流量，系统将在24小时内统一为您充值到账，请注意查收！'},
+			'6': {name: '谢谢参与', type: 'prizeless', spectrum: [120, 180], pic: 'image/thanks.jpg', desc: '很抱歉，您与大奖只差一步，持续代言，下月还有机会哦！'},
+			'1': {name: '10M流量', type: 'prize', spectrum: [180, 240], pic: 'image/gprs.jpg', desc: '恭喜您获得10M流量，系统将在24小时内统一为您充值到账，请注意查收！'},
+			'5': {name: '苹果ipad', type: 'prize', spectrum: [240, 300], pic: 'image/ipad.jpg', desc: '恭喜您获得苹果ipad一台，凭号码至营业厅即可领取！'},
+			'3': {name: '70M流量', type: 'prize', spectrum: [300, 360], pic: 'image/gprs.jpg', desc: '恭喜您获得70M流量，系统将在24小时内统一为您充值到账，请注意查收！'}
+		},
+		toss: function(prize){
+			var safe = 10;
+			return {
+				deg: (prize == '0' && 360) || this._data[prize]['spectrum'][0]+safe+Math.random()*(this._data[prize]['spectrum'][1]-this._data[prize]['spectrum'][0]-safe-safe),
+				detail: this._data[prize]
+			};
+		}
+	},
+	HTTP: function(url, success, data, error, type){
+		var that = this;
+		$.ajax({
+			type: type || 'GET',
+			url: url,
+			success: function(rsp){
+				that.isHTTPValid(rsp) && success(rsp) || !that.isHTTPValid(rsp) && error(1, rsp.returnDesc || '网络数据错误' );
+			},
+			data: data || {},
+			error: function(){
+				error(0, '网络请求失败')
+			}
+		})
+	},
+	isHTTPValid: function(rsp){
+		return rsp && rsp.returnCode && rsp.returnCode == '0000';
+	},
+	getHTTPVcode: function(success, error){
+		var that = this;
+		this.HTTP('getValidateCode', function(rsp){
+			success && success(rsp);
+		},
+		{phoneNo: that.getPhone()},
+		function(code, msg){
+			error && error(code, msg);
+		});
+	},
+	checkHTTPVcode: function(success, error){
+		var that = this;
+		this.HTTP('draw', function(rsp){
+			success && success(rsp);
+		},
+		{phoneNo: that.getPhone(), validateCode: that.getVcode()},
+		function(code, msg){
+			error && error(code, msg);
+		});
+	},
+	getPhone: function(){
+		return $('#phone').val();
+	},
+	getVcode: function(){
+		return $('#vcode').val();
+	},
+	isPhoneValid: function(){
+		return (/^0?1[3|4|5|8][0-9]\d{8}$/).test( this.getPhone() );
+	},
+	isVcodeValid: function(){
+		var c = this.getVcode();
+		return c.length == 4 && /^\d+$/.test(c);
+	},
+	getVcode: function(){
+		return $('#vcode').val();
+	}
+};
+Object.freeze && Object.freeze(Model);
+//控制器
+var App = {
+	init: function(M, V){
+		//关闭弹层
+		$(document).on('click', '#close', function(){
+			V.closeModal();
+		});
+		//手机号输入验证
+		$('.form').on('input', '#phone', function(){
+			M.getPhone().length<11 && V.phoneError(false).tryLuckButtonDisabled(true)
+			||
+			M.getPhone().length==11 && M.isPhoneValid() && V.phoneError(false).tryLuckButtonDisabled(false)
+			||
+			M.getPhone().length>=11 && !M.isPhoneValid() && V.phoneError(true).tryLuckButtonDisabled(true)
+		});
+		//获取短信验证码
+		$('.form').on('click', '#vcode-button', function(){
+			M.isPhoneValid() && !V.isVcodeWaiting && (
+				V.vcodeButtonWaiting(60),
+				M.getHTTPVcode(new Function, function(code, msg){
+					V.showError(msg);
+				})
+			) || !M.isPhoneValid() && V.phoneError(true);
+		});
+		//验证码输入验证
+		$('.form').on('input', '#vcode', function(){
+			M.getVcode().length<4 && V.vcodeError(false)
+			||
+			M.getVcode().length==4 && M.isVcodeValid() && V.vcodeError(false)
+			||
+			M.getVcode().length>=4 && !M.isVcodeValid() && V.vcodeError(true)
+		});
+		//抽奖
+		$(document).on('click', '#tryluck', function(){
+			M.isPhoneValid() && M.isVcodeValid() && M.checkHTTPVcode(function(rsp){
+				//奖品
+				var prize = Model.prizes.toss( rsp.data.id );
+				//开始抽奖
+				$("a[href='#top']").trigger('click');
+				V.tryLuck(prize.deg, function(){
+					V.showModal('modal-'+prize.detail.type, {
+						pic: prize.detail.pic,
+						prize: prize.detail.prize,
+						desc: prize.detail.desc
+					})
+				});
+			}, function(code, msg){
+				//抽奖失败
+				V.showError(msg);
+			}) || !M.isPhoneValid() && V.phoneError(true) || !M.isVcodeValid() && V.vcodeError(true);
+		});
+	}
+};
+//
+App.init(Model, View);
+</script>
+</html>
