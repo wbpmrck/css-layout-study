@@ -3,9 +3,11 @@ study cases for css layout.
 
 # todo
 
-* display:inline-flex
+* transform
+* transition
+* animation
 
-# demo page(order by alphabet asc):
+# demo page(order by alphabet):
 
 ## A
 * anchor : https://wbpmrck.github.io/css-layout-study/learn/anchor.html
@@ -46,6 +48,7 @@ study cases for css layout.
 * text-shadow: https://wbpmrck.github.io/css-layout-study/learn/text-shadow.html
 * text-transform: https://wbpmrck.github.io/css-layout-study/learn/text-transform.html
 * tooltip: https://wbpmrck.github.io/css-layout-study/learn/tooltip.html
+* transform: https://wbpmrck.github.io/css-layout-study/learn/transform.html
 
 
 ## V

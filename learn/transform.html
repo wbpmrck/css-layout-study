@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示如何使用容器来包含float元素</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<style>
+    .case{
+        display: inline-block;
+        position: relative;
+
+        width: 100px;
+        height: 100px;
+        margin: 15px 20px 15px 20px;
+
+        background-color: #00CA81;
+        border-radius: 4px;
+
+        text-align: center;
+        line-height: 100px;
+    }
+
+
+    /*动画效果，演示单个属性*/
+    .animate-container {
+        cursor: pointer;
+    }
+
+
+
+</style>
+
+<div class="demo-group">
+    <span class="top-tag">2D transform</span>
+
+
+    <div class="demo">
+        <span class="top-tag">rotate</span>
+        <div class="remark">
+            rotate(angle)	定义 2D 旋转，在参数中规定角度。 <br />
+            <p class="notice">注意，360是一圈</p>
+        </div>
+
+        <style>
+
+            /*rotate(10deg)*/
+            .rotate-10 {
+                animation: rotate-10 2s linear infinite;
+            }
+            @keyframes rotate-10 {
+                0% {
+                    transform: rotate(0deg);
+                }
+                70% {
+                    transform: rotate(10deg);
+                }
+            }
+            /*rotate(-10deg)*/
+            .rotate-_10 {
+                animation: rotate-_10 2s linear infinite;
+            }
+            @keyframes rotate-_10 {
+                0% {
+                    transform: rotate(0deg);
+                }
+                70% {
+                    transform: rotate(-10deg);
+                }
+            }
+            /*rotate(360deg)*/
+            .rotate-360 {
+                animation: rotate-360 2s linear infinite;
+            }
+            @keyframes rotate-360 {
+                0% {
+                    transform: rotate(0deg);
+                }
+                70% {
+                    transform: rotate(360deg);
+                }
+            }
+        </style>
+
+        <div class="case rotate-10 animate-container" style="transform: rotate(10deg)">box1<span class="corner-tag">rotate(10deg)</span></div>
+        <div class="case rotate-_10 animate-container" style="transform: rotate(-10deg)">box2<span class="corner-tag">rotate(-10deg)</span></div>
+        <div class="case rotate-360 animate-container" style="transform: rotate(360deg)">box3<span class="corner-tag">rotate(360deg)</span></div>
+
+
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">scale</span>
+        <div class="remark">
+            scale(x,y)	定义 2D 缩放转换。 <br />
+            scaleX(x)	通过设置 X 轴的值来定义缩放转换。 <br />
+            scaleY(y)	通过设置 Y 轴的值来定义缩放转换。 <br />
+        </div>
+
+
+        <style>
+
+            /*scale(0.75,0.5)*/
+            .scale-75-5 {
+                animation: scale-75-5 2s linear infinite;
+            }
+            @keyframes scale-75-5 {
+                0% {
+                    transform: scale(1);
+                }
+                70% {
+                    transform: scale(0.75,0.5);
+                }
+            }
+
+            /*scale(1.25)*/
+            .scale-125 {
+                animation: scale-125 2s linear infinite;
+            }
+            @keyframes scale-125 {
+                0% {
+                    transform: scale(1);
+                }
+                70% {
+                    transform: scale(1.25);
+                }
+            }
+
+            /*scaleX(.75)*/
+            .scaleX-75 {
+                animation: scaleX-75 2s linear infinite;
+            }
+            @keyframes scaleX-75 {
+                0% {
+                    transform: scale(1);
+                }
+                70% {
+                    transform: scaleX(.75);
+                }
+            }
+            /*scaleY(.75)*/
+            .scaleY-75 {
+                animation: scaleY-75 2s linear infinite;
+            }
+            @keyframes scaleY-75 {
+                0% {
+                    transform: scale(1);
+                }
+                70% {
+                    transform: scaleY(.75);
+                }
+            }
+        </style>
+
+        <div class="case animate-container scale-75-5" style="transform: scale(0.75,0.5)">box1<span class="corner-tag">scale(0.75,0.5)</span></div>
+        <div class="case animate-container scale-125" style="transform: scale(1.25)">box2<span class="corner-tag">scale(1.25)</span></div>
+        <div class="case animate-container scaleX-75" style="transform: scaleX(.75)">box3<span class="corner-tag">scaleX(.75)</span></div>
+        <div class="case animate-container scaleY-75" style="transform: scaleY(.75)">box4<span class="corner-tag">scaleY(.75)</span></div>
+
+
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">translate,translateX,translateY</span>
+        <div class="remark">
+            translateX(x)	定义转换，只是用 X 轴的值。 <br/>
+            translateY(y)	定义转换，只是用 Y 轴的值。 <br/>
+            translate(x,y)	定义 2D 转换。<br/>
+            <p class="notice">注意，translate里使用%的话，计算参照该DOM节点自身的width/height属性</p>
+            <p class="notice">利用这一点，可以方便的实现一些效果，比如垂直居中</p>
+        </div>
+
+
+        <style>
+
+            .translate-10-20 {
+                animation: translate-10-20 2s linear infinite;
+            }
+            @keyframes translate-10-20 {
+                0% {
+                    -webkit-transform: translate(0px, 0px);
+                    -moz-transform: translate(0px, 0px);
+                    -ms-transform: translate(0px, 0px);
+                    -o-transform: translate(0px, 0px);
+                    transform: translate(0px, 0px);
+                    translate(0px,0px)
+                }
+                70% {
+                    -webkit-transform: translate(-10px,-20%);
+                    -moz-transform: translate(-10px,-20%);
+                    -ms-transform: translate(-10px,-20%);
+                    -o-transform: translate(-10px,-20%);
+                    transform: translate(-10px,-20%);
+                    translate(-10px,-20%)
+                }
+                100%{
+
+                    -webkit-transform: translate(-10px,-20%);
+                    -moz-transform: translate(-10px,-20%);
+                    -ms-transform: translate(-10px,-20%);
+                    -o-transform: translate(-10px,-20%);
+                    transform: translate(-10px,-20%);
+                translate(-10px,-20%)
+                }
+            }
+
+            /*translateX-10*/
+            .translateX-10 {
+                animation: translateX-10 2s linear infinite;
+            }
+            @keyframes translateX-10 {
+                0% {
+                    transform: translateX(0px);
+                }
+                70% {
+                    -webkit-transform: translateX(10px);
+                    -moz-transform: translateX(10px);
+                    -ms-transform: translateX(10px);
+                    -o-transform: translateX(10px);
+                    transform: translateX(10px);
+                }
+                100% {
+
+                    -webkit-transform: translateX(10px);
+                    -moz-transform: translateX(10px);
+                    -ms-transform: translateX(10px);
+                    -o-transform: translateX(10px);
+                    transform: translateX(10px);
+                }
+            }
+
+            /*translateY-10*/
+            .translateY-10 {
+                animation: translateY-10 2s linear infinite;
+            }
+            @keyframes translateY-10 {
+                0% {
+                    -webkit-transform: translateY(0px);
+                    -moz-transform: translateY(0px);
+                    -ms-transform: translateY(0px);
+                    -o-transform: translateY(0px);
+                    transform: translateY(0px);
+                }
+                70% {
+                    -webkit-transform: translateY(10px);
+                    -moz-transform: translateY(10px);
+                    -ms-transform: translateY(10px);
+                    -o-transform: translateY(10px);
+                    transform: translateY(10px);
+                }
+                100% {
+
+                    -webkit-transform: translateY(10px);
+                    -moz-transform: translateY(10px);
+                    -ms-transform: translateY(10px);
+                    -o-transform: translateY(10px);
+                    transform: translateY(10px);
+                }
+            }
+
+        </style>
+
+        <div class="case animate-container translate-10-20">box1<span class="corner-tag">translate(-10px,-20%)</span></div>
+        <div class="case animate-container translateX-10" style="transform: translateX(10px)">box2<span class="corner-tag">translateX(10px)</span></div>
+        <div class="case animate-container translateY-10" style="transform: translateY(10px)">box3<span class="corner-tag">translateY(10px)</span></div>
+
+
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">skew,skewX,skewY</span>
+        <div class="remark">
+            skew(x-angle,y-angle)	定义沿着 X 和 Y 轴的 2D 倾斜转换。 <br/>
+            skewX(angle)	定义沿着 X 轴的 2D 倾斜转换。 <br/>
+            skewY(angle)	定义沿着 Y 轴的 2D 倾斜转换。<br/>
+        </div>
+
+        <div class="case" style="transform: skew(10deg,40deg)">box1<span class="corner-tag">skew(10deg,40deg)</span></div>
+        <div class="case" style="transform: skewX(10deg)">box1<span class="corner-tag">skewX(10deg)</span></div>
+        <div class="case" style="transform: skewX(20deg)">box1<span class="corner-tag">skewX(20deg)</span></div>
+        <div class="case" style="transform: skewX(30deg)">box1<span class="corner-tag">skewX(30deg)</span></div>
+        <div class="case" style="transform: skewY(10deg)">box1<span class="corner-tag">skewY(10deg)</span></div>
+        <div class="case" style="transform: skewY(20deg)">box1<span class="corner-tag">skewY(20deg)</span></div>
+        <div class="case" style="transform: skewY(30deg)">box1<span class="corner-tag">skewY(30deg)</span></div>
+
+
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">transform-origin</span>
+        <div class="remark">
+            设置旋转元素的基点位置。 <br/>
+            transform-origin: x-axis y-axis z-axis。 <br/>
+            x-axis 定义视图被置于 X 轴的何处。可能的值：left，center，right，length，% <br/>
+            y-axis 定义视图被置于 Y 轴的何处。可能的值：top，center，bottom，length，% <br/>
+            z-axis 定义视图被置于 Z 轴的何处。可能的值：length <br/>
+            <p class="notice">默认的基点在元素正中心</p>
+        </div>
+
+        <div class="case" style="transform-origin:0 0; transform: rotate(15deg)">box1<span class="corner-tag">transform-origin:0 0; transform: rotate(15deg)</span></div>
+        <div class="case" style="transform-origin:top right; transform: rotate(25deg)">box1<span class="corner-tag">transform-origin:top right; transform: rotate(25deg)</span></div>
+        <div class="case" style="transform-origin:100% 100%; transform: scale(1.2)">box1<span class="corner-tag">transform-origin:100% 100%; transform: scale(1.2)</span></div>
+
+
+    </div>
+</div>
+
+</body>
+</html>
