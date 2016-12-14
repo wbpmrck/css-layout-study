@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示如何使用容器来包含float元素</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+
+<style>
+    /*案例容器*/
+    .demo{
+        position: relative;
+        width: 50%;
+        padding: 20px;
+        border: dashed 5px black;
+        border-radius: 3px;
+
+        margin-bottom: 40px;
+    }
+    .parent{
+        position: relative;
+        border: solid 1px #0096FF;
+        background-color: #0096FF;
+    }
+    /*盒子阴影*/
+    .box-shadow{
+        box-shadow: 11px 11px 11px 3px grey;
+    }
+    /*元素的说明小标签*/
+    .tag{
+        position: absolute;
+        top:-10px;
+        right:-15px;
+
+        color: #ff9700;
+        background-color: #1B1B1B;
+        border: solid 2px black;
+        border-radius: 3px;
+    }
+    .parent div{
+        position: relative;
+        background-color: #2db34a;
+        border: solid 1px #2db34a;
+        margin: 20px;
+        width: 100px;
+        height: 100px;
+    }
+    .float{
+        float: left;
+    }
+
+    /*清除浮动*/
+
+    .clear-fix:before,.clear-fix:after{
+        content: "";
+        display: table;
+    }
+    .clear-fix:after{
+        clear: both;
+    }
+    .clear-fix{
+        *zoom:1;
+    }
+
+    /*案例描述部分*/
+
+    .remark{
+        position: absolute;
+        left: 105%;
+        width: 300px;
+        padding: 20px;
+        top:0px;
+        color:#79ff75;
+        background-color: black;
+        border-radius: 3px;
+    }
+</style>
+
+<div class="demo clear-fix">
+    <div class="remark">
+        场景1:当子元素为float的时候，父元素如果不做任何设置，则无法包含内部的3个子元素.此时parent高度是0，看上去像一条线
+    </div>
+
+    <div id="parent1" class="parent container"><span class="tag">parent</span>
+        <div class="float"><span class="tag">float</span></div>
+        <div class="float"><span class="tag">float</span></div>
+        <div class="float"><span class="tag">float</span></div>
+    </div>
+</div>
+
+
+<div class="demo clear-fix">
+    <div class="remark">
+        场景2:采用overflow:auto来处理，对absolute定位的角标，效果不理想。包括带阴影的div,也会有滚动条
+    </div>
+
+    <div id="parent2" class="parent container" style="overflow: auto"><span class="tag">parent,overflow: auto</span>
+        <div class="float box-shadow"><span class="tag">float .box-shadow</span></div>
+        <div class="float box-shadow"><span class="tag">float .box-shadow</span></div>
+        <div class="float box-shadow"><span class="tag">float .box-shadow</span></div>
+    </div>
+</div>
+
+
+
+<div class="demo clear-fix">
+    <div class="remark">
+        场景3:采用clear-fix技术来处理，效果比较好。<br/>
+        注意:clear-fix会占用parent的before,after伪元素，这是唯一的弊端
+
+    </div>
+
+    <div id="parent3" class="parent container clear-fix"><span class="tag">parent,clear-fix</span>
+        <div class="float box-shadow"><span class="tag">float .box-shadow</span></div>
+        <div class="float box-shadow"><span class="tag">float .box-shadow</span></div>
+        <div class="float box-shadow"><span class="tag">float .box-shadow</span></div>
+    </div>
+</div>
+
+
+</body>
+</html>

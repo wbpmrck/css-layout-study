@@ -18,6 +18,9 @@ study cases for css layout.
 * box-shadow: https://wbpmrck.github.io/css-layout-study/learn/box-shadow.html
 * box-sizing: https://wbpmrck.github.io/css-layout-study/learn/box-sizing.html
 
+## C
+* "clear-fix"(float) : https://wbpmrck.github.io/css-layout-study/learn/float-containing.html
+
 ## F
 * flex layout basics : https://wbpmrck.github.io/css-layout-study/learn/flex.html
 * float: https://wbpmrck.github.io/css-layout-study/learn/float.html
