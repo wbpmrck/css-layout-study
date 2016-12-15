@@ -278,14 +278,101 @@
             skewY(angle)	定义沿着 Y 轴的 2D 倾斜转换。<br/>
         </div>
 
-        <div class="case" style="transform: skew(10deg,40deg)">box1<span class="corner-tag">skew(10deg,40deg)</span></div>
-        <div class="case" style="transform: skewX(10deg)">box1<span class="corner-tag">skewX(10deg)</span></div>
-        <div class="case" style="transform: skewX(20deg)">box1<span class="corner-tag">skewX(20deg)</span></div>
-        <div class="case" style="transform: skewX(30deg)">box1<span class="corner-tag">skewX(30deg)</span></div>
-        <div class="case" style="transform: skewY(10deg)">box1<span class="corner-tag">skewY(10deg)</span></div>
-        <div class="case" style="transform: skewY(20deg)">box1<span class="corner-tag">skewY(20deg)</span></div>
-        <div class="case" style="transform: skewY(30deg)">box1<span class="corner-tag">skewY(30deg)</span></div>
+        <style>
 
+            /*skew-10-30*/
+            .skew-10-30 {
+                animation: skew-10-30 2s linear infinite;
+            }
+            @keyframes skew-10-30 {
+                0% {
+                    -webkit-transform: skew(0deg, 0deg);
+                    -moz-transform: skew(0deg, 0deg);
+                    -ms-transform: skew(0deg, 0deg);
+                    -o-transform: skew(0deg, 0deg);
+                    transform: skew(0deg, 0deg);
+                }
+                70% {
+                    -webkit-transform: skew(10deg, 30deg);
+                    -moz-transform: skew(10deg, 30deg);
+                    -ms-transform: skew(10deg, 30deg);
+                    -o-transform: skew(10deg, 30deg);
+                    transform: skew(10deg, 30deg);
+
+                }
+                100% {
+                    -webkit-transform: skew(10deg, 30deg);
+                    -moz-transform: skew(10deg, 30deg);
+                    -ms-transform: skew(10deg, 30deg);
+                    -o-transform: skew(10deg, 30deg);
+                    transform: skew(10deg, 30deg);
+                }
+            }
+
+            /*skewX-30*/
+            .skewX-30 {
+                animation: skewX-30 2s linear infinite;
+            }
+            @keyframes skewX-30 {
+                0% {
+                    -webkit-transform: skewX(0deg);
+                    -moz-transform: skewX(0deg);
+                    -ms-transform: skewX(0deg);
+                    -o-transform: skewX(0deg);
+                    transform: skewX(0deg);
+                }
+                70% {
+                    -webkit-transform: skewX(30deg);
+                    -moz-transform: skewX(30deg);
+                    -ms-transform: skewX(30deg);
+                    -o-transform: skewX(30deg);
+                    transform: skewX(30deg);
+                }
+                100% {
+                    -webkit-transform: skewX(30deg);
+                    -moz-transform: skewX(30deg);
+                    -ms-transform: skewX(30deg);
+                    -o-transform: skewX(30deg);
+                    transform: skewX(30deg);
+
+                }
+            }
+
+            /*skewY-30*/
+            .skewY-30 {
+                animation: skewY-30 2s linear infinite;
+            }
+            @keyframes skewY-30 {
+                0% {
+                    -webkit-transform: skewY(0deg);
+                    -moz-transform: skewY(0deg);
+                    -ms-transform: skewY(0deg);
+                    -o-transform: skewY(0deg);
+                    transform: skewY(0deg);
+                }
+                70% {
+                    -webkit-transform: skewY(30deg);
+                    -moz-transform: skewY(30deg);
+                    -ms-transform: skewY(30deg);
+                    -o-transform: skewY(30deg);
+                    transform: skewY(30deg);
+                }
+                100% {
+                    -webkit-transform: skewY(30deg);
+                    -moz-transform: skewY(30deg);
+                    -ms-transform: skewY(30deg);
+                    -o-transform: skewY(30deg);
+                    transform: skewY(30deg);
+
+                }
+            }
+
+        </style>
+
+
+        <div class="case animate-container skewX-30" style="transform: skewX(30deg)">box1<span class="corner-tag">skewX(30deg)</span></div>
+        <div class="case animate-container skewY-30" style="transform: skewY(30deg)">box1<span class="corner-tag">skewY(30deg)</span></div>
+        <div class="case animate-container skew-10-30" style="transform: skew(10deg,30deg)">box1<span class="corner-tag">skew(10deg,30deg)</span></div>
 
     </div>
 
@@ -298,11 +385,46 @@
             y-axis 定义视图被置于 Y 轴的何处。可能的值：top，center，bottom，length，% <br/>
             z-axis 定义视图被置于 Z 轴的何处。可能的值：length <br/>
             <p class="notice">默认的基点在元素正中心</p>
+            <p class="notice">基点对于rotate,意味着旋转的固定点</p>
+            <p class="notice">基点对于scale,意味着放大时，位置不变的那个点</p>
         </div>
 
-        <div class="case" style="transform-origin:0 0; transform: rotate(15deg)">box1<span class="corner-tag">transform-origin:0 0; transform: rotate(15deg)</span></div>
-        <div class="case" style="transform-origin:top right; transform: rotate(25deg)">box1<span class="corner-tag">transform-origin:top right; transform: rotate(25deg)</span></div>
-        <div class="case" style="transform-origin:100% 100%; transform: scale(1.2)">box1<span class="corner-tag">transform-origin:100% 100%; transform: scale(1.2)</span></div>
+        <style>
+            /*rotate-15*/
+            .rotate-15 {
+                animation: rotate-15 2s linear infinite;
+            }
+            @keyframes rotate-15 {
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    -moz-transform: rotate(0deg);
+                    -ms-transform: rotate(0deg);
+                    -o-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                }
+                70% {
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    transform: rotate(15deg);
+                }
+                100% {
+                    -webkit-transform: rotate(15deg);
+                    -moz-transform: rotate(15deg);
+                    -ms-transform: rotate(15deg);
+                    -o-transform: rotate(15deg);
+                    transform: rotate(15deg);
+
+                }
+            }
+
+        </style>
+
+        <div class="case animate-container rotate-15" style="transform-origin:0 0; transform: rotate(15deg)">box1<span class="corner-tag">transform-origin:0 0; transform: rotate(15deg)</span></div>
+        <div class="case animate-container rotate-15" style="transform-origin:top right; transform: rotate(15deg)">box1<span class="corner-tag">transform-origin:top right; transform: rotate(15deg)</span></div>
+        <div class="case animate-container scale-125" style="transform-origin:100% 100%; transform: scale(1.25)">box1<span class="corner-tag">transform-origin:100% 100%; transform: scale(1.25)</span></div>
+        <div class="case animate-container scale-125" style="transform-origin:0% 100%; transform: scale(1.25)">box1<span class="corner-tag">transform-origin:100% 100%; transform: scale(1.25)</span></div>
 
 
     </div>
