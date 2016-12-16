@@ -48,7 +48,8 @@ study cases for css layout.
 * text-shadow: https://wbpmrck.github.io/css-layout-study/learn/text-shadow.html
 * text-transform: https://wbpmrck.github.io/css-layout-study/learn/text-transform.html
 * tooltip: https://wbpmrck.github.io/css-layout-study/learn/tooltip.html
-* transform: https://wbpmrck.github.io/css-layout-study/learn/transform.html
+* transform(2D): https://wbpmrck.github.io/css-layout-study/learn/transform.html
+* transform(3D): https://wbpmrck.github.io/css-layout-study/learn/transform-3d.html
 
 
 ## V

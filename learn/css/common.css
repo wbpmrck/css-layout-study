@@ -54,6 +54,8 @@
     position: absolute;
     left: 105%;
     width: 50%;
+    max-height: 90%;
+    overflow: scroll;
     padding: 20px;
     top:-10px;
     color:#79ff75;
@@ -66,4 +68,18 @@
     font-style: italic;
 
     margin-top: 5px;
+}
+
+
+/*清除浮动*/
+
+.clear-fix:before,.clear-fix:after{
+    content: "";
+    display: table;
+}
+.clear-fix:after{
+    clear: both;
+}
+.clear-fix{
+    *zoom:1;
 }

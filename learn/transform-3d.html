@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示：transform和3D变换</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<style>
+    .empty-box{
+        position: relative;
+        display: inline-block;
+
+        background-color: #6B6B6B;
+    }
+    .case{
+        display: inline-block;
+        position: relative;
+
+        width: 100px;
+        height: 100px;
+        margin: 15px 20px 15px 20px;
+
+        background-color: #00CA81;
+        border-radius: 4px;
+
+        text-align: center;
+        line-height: 100px;
+    }
+    .case.X2{
+        width: 200px;
+        height: 200px;
+    }
+
+
+    /*动画效果，演示单个属性*/
+    .animate-container {
+        cursor: pointer;
+    }
+
+    /*perspective*/
+
+    .perspective-80{
+        perspective: 80px;
+        -moz-perspective: 80px;
+        -webkit-perspective: 80px;
+    }
+    .perspective-200{
+        perspective: 200px;
+        -moz-perspective: 200px;
+        -webkit-perspective: 200px;
+    }
+    .perspective-400{
+        perspective: 400px;
+        -moz-perspective: 400px;
+        -webkit-perspective: 400px;
+    }
+
+    .perspective-origin-0-0{
+        perspective-origin: 0 0;
+        -webkit-perspective-origin: 0 0;
+        -moz-perspective-origin: 0 0;
+    }
+
+    .perspective-origin-50-0{
+        perspective-origin: 50% 0;
+        -webkit-perspective-origin: 50%  0;
+        -moz-perspective-origin: 50%  0;
+    }
+    .perspective-origin-left-bottom{
+        perspective-origin: left bottom;
+        -webkit-perspective-origin: left bottom;
+        -moz-perspective-origin: left bottom;
+    }
+
+
+</style>
+
+<style>
+    .rotateX-60 {
+        animation: rotateX-60 8s linear infinite;
+    }
+    @keyframes rotateX-60 {
+        0% {
+            transform: rotateX(0deg);
+        }
+        70% {
+            transform: rotateX(60deg);
+        }
+        100% {
+            transform: rotateX(60deg);
+        }
+    }
+    .rotateX-90 {
+        animation: rotateX-90 8s linear infinite;
+    }
+    @keyframes rotateX-90 {
+        0% {
+            transform: rotateX(0deg);
+        }
+        70% {
+            transform: rotateX(90deg);
+        }
+        100% {
+            transform: rotateX(90deg);
+        }
+    }
+    .rotateX-180 {
+        animation: rotateX-180 8s linear infinite;
+    }
+    @keyframes rotateX-180 {
+        0% {
+            transform: rotateX(0deg);
+        }
+        70% {
+            transform: rotateX(180deg);
+        }
+        100% {
+            transform: rotateX(180deg);
+        }
+    }
+
+    .rotateX-360 {
+        animation: rotateX-360 8s linear infinite;
+    }
+    @keyframes rotateX-360 {
+        0% {
+            transform: rotateX(0deg);
+        }
+        70% {
+            transform: rotateX(360deg);
+        }
+        100% {
+            transform: rotateX(360deg);
+        }
+    }
+
+    .rotateY-60 {
+        animation: rotateY-60 8s linear infinite;
+    }
+    @keyframes rotateY-60 {
+        0% {
+            transform: rotateY(0deg);
+        }
+        70% {
+            transform: rotateY(60deg);
+        }
+        100% {
+            transform: rotateY(60deg);
+        }
+    }
+</style>
+
+
+<style>
+
+    .pers-200 {
+        perspective: 200px;
+        -moz-perspective: 200px;
+        -webkit-perspective: 200px;
+    }
+    .pers-100 {
+        perspective: 100px;
+        -moz-perspective: 100px;
+        -webkit-perspective: 100px;
+    }
+    .pers-50 {
+        perspective: 50px;
+        -moz-perspective: 50px;
+        -webkit-perspective: 50px;
+    }
+
+
+
+    .static-rotateX-30{
+        -webkit-transform: rotateX(30deg);
+        -moz-transform: rotateX(30deg);
+        -ms-transform: rotateX(30deg);
+        -o-transform: rotateX(30deg);
+        transform: rotateX(30deg);
+    }
+
+</style>
+
+
+<style>
+
+    .pers-origin-left-bottom {
+        perspective-origin: left bottom;
+        -moz-perspective-origin: left bottom;
+        -webkit-perspective-origin: left bottom;
+    }
+    .pers-origin-0-0 {
+        perspective-origin: 0 0;
+        -moz-perspective-origin: 0 0;
+        -webkit-perspective-origin: 0 0;
+    }
+    .pers-origin-100-100 {
+        perspective-origin: 100% 100%;
+        -moz-perspective-origin: 100% 100%;
+        -webkit-perspective-origin: 100% 100%;
+    }
+
+</style>
+<div class="demo-group clear-fix">
+    <span class="top-tag">3D transform前置知识:perspective 和 perspective-origin</span>
+
+
+    <div class="demo">
+        <span class="top-tag">perspective</span>
+        <div class="remark">
+            perspective 属性定义 3D 元素距视图的距离，以像素计。该属性允许您改变查看 3D 元素的视图。 <br/>
+            当为元素定义 perspective 属性时，其子元素会获得透视效果，而不是元素本身。<br/>
+            注释：perspective 属性只影响 3D 转换元素。<br/>
+
+            <p class="notice">注意：</p>
+            <p class="notice">1：perspective 如果设置在transform元素的父元素上，对所有子元素都生效</p>
+            <p class="notice">2：perspective 越小，理解为观察者离3D物体(屏幕平面)越近。(看第2个方块，想象1个门板放下来，离近看就像一条路)</p>
+            <p class="notice">3：看到box3,box4,同样的rotateY,以及parent的perspective,但是box展现旋转量不同，这是因为perspective-origin不同</p>
+        </div>
+
+
+        <div class="empty-box">
+            <span class="corner-tag">no perspective</span>
+            <div class="case rotateX-60 animate-container">box1<span class="corner-tag">rotateX(60deg)</span></div>
+        </div>
+        <div class="empty-box perspective-80">
+            <span class="corner-tag">perspective:80</span>
+            <div class="case rotateX-60 animate-container" >box2<span class="corner-tag">rotateX(60deg)</span></div>
+            <div class="case rotateY-60 animate-container" >box3<span class="corner-tag">rotateY(60deg)</span></div>
+        </div>
+        <div class="empty-box perspective-80">
+            <span class="corner-tag">perspective:80</span>
+            <div class="case rotateY-60 animate-container" >box4<span class="corner-tag">rotateY(60deg)</span></div>
+        </div>
+        <div class="empty-box perspective-400">
+            <span class="corner-tag">perspective:400</span>
+            <div class="case rotateX-60 animate-container" >box5<span class="corner-tag">rotateX(60deg)</span></div>
+        </div>
+
+    </div>
+
+
+    <div class="demo">
+        <span class="top-tag">perspective 直接设置到3D旋转对象</span>
+        <div class="remark">
+            这里的perspective 都是直接设置到旋转元素本身，而不是父元素。 <br/>
+
+            <p class="notice">小结：</p>
+            <p class="notice">perspective 对元素自身无效果</p>
+            <p class="notice">perspective 设置给元素本身，对元素并不起作用，但是元素的子元素会得到透视效果(远近观察效果)</p>
+        </div>
+
+
+
+        <div class="empty-box">
+            <div class="case rotateY-60 animate-container" >box1<span class="corner-tag">rotateY(60deg)</span></div>
+            <div class="case perspective-80 rotateY-60 animate-container" >box2<span class="corner-tag">rotateY(60deg) perspective:80</span></div>
+        </div>
+        <div class="empty-box">
+            <div class="case rotateY-60 animate-container" >box3<span class="corner-tag">rotateY(60deg)</span></div>
+            <div class="case perspective-200 rotateY-60 animate-container" >box4<span class="corner-tag">rotateY(60deg) perspective:200</span></div>
+        </div>
+
+    </div>
+
+
+
+    <div class="demo">
+        <span class="top-tag">静态演示：perspective</span>
+        <div class="remark">
+            本例中，元素保持不动，观察不同的 perspective属性，体会一下<br/>
+
+            <p class="notice">可以看出：</p>
+            <p class="notice">perspective 相当于在与屏幕垂直的z轴上，移动观察者(摄像机)远近</p>
+        </div>
+
+        <div class="empty-box pers-200">
+            <span class="corner-tag">perspective:200</span>
+            <div class="case static-rotateX-30">box1<span class="corner-tag">rotateX(30deg)</span></div>
+        </div>
+
+        <div class="empty-box pers-100">
+            <span class="corner-tag">perspective:100</span>
+            <div class="case static-rotateX-30">box2<span class="corner-tag">rotateX(30deg)</span></div>
+        </div>
+
+
+        <div class="empty-box pers-50">
+            <span class="corner-tag">perspective:50</span>
+            <div class="case static-rotateX-30">box3<span class="corner-tag">rotateX(30deg)</span></div>
+        </div>
+
+    </div>
+
+
+
+    <div class="demo">
+        <span class="top-tag">perspective-origin:x-axis y-axis;</span>
+        <div class="remark">
+            perspective-origin 属性定义 3D 元素所基于的 X 轴和 Y 轴 <br/>
+            <p class="notice">该属性必须与 perspective 属性一同使用，而且只影响 3D 转换元素</p><br/>
+            x-axis:默认值：50%,可能的值：left,center,right,length,%<br/>
+            y-axis:默认值：50%,可能的值：top,center,bottom,length,%<br/>
+
+        </div>
+
+
+        <div class="empty-box perspective-200 perspective-origin-0-0">
+            <span class="corner-tag">perspective:200,perspective-origin:0 0</span>
+            <div class="case rotateX-60 animate-container" >box1<span class="corner-tag">rotateX(60deg)</span></div>
+            <div class="case rotateY-60 animate-container" >box2<span class="corner-tag">rotateY(60deg)</span></div>
+        </div>
+
+        <div class="empty-box perspective-200 perspective-origin-50-0">
+            <span class="corner-tag">perspective:200,perspective-origin:50% 0</span>
+            <div class="case rotateX-60 animate-container" >box3<span class="corner-tag">rotateX(60deg)</span></div>
+            <div class="case rotateY-60 animate-container" >box4<span class="corner-tag">rotateY(60deg)</span></div>
+        </div>
+
+        <div class="empty-box perspective-200 perspective-origin-left-bottom">
+            <span class="corner-tag">perspective:200,perspective-origin:left bottom</span>
+            <div class="case rotateX-60 animate-container" >box5<span class="corner-tag">rotateX(60deg)</span></div>
+            <div class="case rotateY-60 animate-container" >box6<span class="corner-tag">rotateY(60deg)</span></div>
+        </div>
+
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">静态演示：perspective-origin</span>
+        <div class="remark">
+            本例中，元素保持不动，观察不同的 perspective-origin 属性，体会一下<br/>
+
+            <p class="notice">可以看出：</p>
+            <p class="notice">perspective-origin 相当于在屏幕上，移动观察者(摄像机)位置</p>
+            <p class="notice">0,0对应左上角，100% 100%对应右下角</p>
+        </div>
+
+
+        <div class="empty-box pers-100 pers-origin-left-bottom">
+            <span class="corner-tag">perspective-origin: left bottom</span>
+            <div class="case X2 static-rotateX-30">box1<span class="corner-tag">rotateX(30deg)</span></div>
+        </div>
+
+        <div class="empty-box pers-100 pers-origin-0-0">
+            <span class="corner-tag">perspective-origin: 0 0</span>
+            <div class="case X2 static-rotateX-30">box2<span class="corner-tag">rotateX(30deg)</span></div>
+        </div>
+
+
+        <div class="empty-box pers-100 pers-origin-100-100">
+            <span class="corner-tag">perspective-origin: 100% 100%</span>
+            <div class="case X2 static-rotateX-30">box3<span class="corner-tag">rotateX(30deg)</span></div>
+        </div>
+
+    </div>
+
+</div>
+<div class="demo-group clear-fix">
+    <span class="top-tag">3D transform属性-rotate</span>
+
+    <div class="demo">
+        <span class="top-tag">rotateX(angle)</span>
+        <div class="remark">
+            定义沿 X 轴的 3D 旋转。<br/>
+
+            <p class="notice">小结：</p>
+            <p class="notice">rotateX 对物体沿水平(X)轴进行旋转</p>
+            <p class="notice">X轴的位置就在元素的中央部分</p>
+        </div>
+
+        <div class="empty-box perspective-200">
+            <span class="corner-tag">perspective:200</span>
+            <div class="case rotateX-60 animate-container" >box1<span class="corner-tag">rotateX(60deg)</span></div>
+        </div>
+        <div class="empty-box perspective-200">
+            <span class="corner-tag">perspective:200</span>
+            <div class="case rotateX-90 animate-container" >box1<span class="corner-tag">rotateX(90deg)</span></div>
+        </div>
+
+        <div class="empty-box perspective-200">
+            <span class="corner-tag">perspective:200</span>
+            <div class="case rotateX-180 animate-container" >box2<span class="corner-tag">rotateX(180deg)</span></div>
+        </div>
+        <div class="empty-box perspective-200">
+            <span class="corner-tag">perspective:200</span>
+            <div class="case rotateX-360 animate-container" >box2<span class="corner-tag">rotateX(360deg)</span></div>
+        </div>
+
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
