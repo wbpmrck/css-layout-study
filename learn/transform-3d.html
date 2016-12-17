@@ -722,6 +722,20 @@
 
 </style>
 
+<style>
+    .flat{
+        transform-style: flat;
+    }
+    .preserve{
+        transform-style:preserve-3d;
+    }
+    .backface-hidden{
+        -webkit-backface-visibility: hidden;
+        -moz-backface-visibility: hidden;
+        -ms-backface-visibility: hidden;
+        backface-visibility: hidden;
+    }
+</style>
 <div class="demo-group clear-fix">
     <span class="top-tag">3D transform前置知识:perspective 和 perspective-origin</span>
 
@@ -1219,6 +1233,77 @@
             <div class="case expand translate3d-50-70-100 animate-container" >box1<span class="top-inner-tag">translate3d(50,70,100),rotateX(30deg)</span></div>
         </div>
 
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">transform style=flat|preserve-3d;</span>
+        <div class="remark">
+            定义子元素是否保留自己的3D空间。<br/>
+            flat:	子元素将不保留其 3D 位置。<br/>
+            preserve-3d:	子元素将保留其 3D 位置。<br/>
+            <p class="notice">说明：</p>
+            <p class="notice">1：box1 外面元素在3D变换，设置preserve-3d,他的子元素也有自己的3D空间，可以看到旋转过程中尖角出现</p>
+            <p class="notice">2：box2 外面元素在3D变换，设置flat,他的子元素没有自己的3D空间，可以看到旋转过程中，始终投影到父亲的x,y平面</p>
+        </div>
+
+
+        <div class="empty-box perspective-200 preserve rotateY-180">
+            <span class="corner-tag">perspective:200,transform-style=preserve-3d,rotateY-360</span>
+
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+
+
+            <div class="case expand rotate3d-1-1-0 animate-container" >box1<span class="top-inner-tag">rotate3d(1,1,0, 360deg)</span></div>
+        </div>
+
+        <div class="empty-box perspective-200 flat rotateY-180">
+            <span class="corner-tag">perspective:200,transform-style=flat,rotateY-360</span>
+
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+
+
+            <div class="case expand rotate3d-1-1-0 animate-container" >box2<span class="top-inner-tag">rotate3d(1,1,0, 360deg)</span></div>
+        </div>
+
+
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">Backface Visibility =visible|hidden;</span>
+        <div class="remark">
+            定义子元素的背面是否可见。<br/>
+            <p class="notice">说明：</p>
+            <p class="notice">1：box1 转到背面的时候就看不见了，因为设置了Backface Visibility =hidden </p>
+            <p class="notice">2：box2 转到背面仍然可见，因为设置了Backface Visibility =visible </p>
+        </div>
+
+
+        <div class="empty-box perspective-200">
+            <span class="corner-tag">perspective:200</span>
+
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+
+
+            <div class="case expand rotate3d-1-1-0 animate-container backface-hidden" >box1<span class="top-inner-tag">rotate3d(1,1,0, 360deg),backface=hidden</span></div>
+        </div>
+
+
+        <div class="empty-box perspective-200">
+            <span class="corner-tag">perspective:200</span>
+
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+
+
+            <div class="case expand rotate3d-1-1-0 animate-container" >box2<span class="top-inner-tag">rotate3d(1,1,0, 360deg),backface=visible</span></div>
+        </div>
 
 
     </div>
