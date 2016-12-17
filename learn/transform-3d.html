@@ -81,6 +81,27 @@
         -moz-perspective-origin: left bottom;
     }
 
+    /*pers-200*/
+    .pers-ani-200 {
+        animation: pers-ani-200 8s linear infinite;
+    }
+    @keyframes pers-ani-200 {
+        0% {
+            perspective: 500px;
+            -moz-perspective: 500px;
+            -webkit-perspective: 500px;
+        }
+        70% {
+            perspective: 200px;
+            -moz-perspective: 200px;
+            -webkit-perspective: 200px;
+        }
+        100% {
+            perspective: 200px;
+            -moz-perspective: 200px;
+            -webkit-perspective: 200px;
+        }
+    }
 
 </style>
 
@@ -441,28 +462,88 @@
     }
     @keyframes scaleZ-all-1-5 {
         0% {
-            -webkit-transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(30deg);
-            -moz-transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(30deg);
-            -ms-transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(30deg);
-            -o-transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(30deg);
-            transform: scaleX(1) scaleY(1) scaleZ(1) rotateX(30deg);
+            -webkit-transform: scale3d(1,1,1) rotateX(30deg);
+            -moz-transform: scale3d(1,1,1) rotateX(30deg);
+            -ms-transform: scale3d(1,1,1) rotateX(30deg);
+            -o-transform: scale3d(1,1,1) rotateX(30deg);
+            transform: scale3d(1,1,1) rotateX(30deg);
         }
         70% {
-            -webkit-transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
-            -moz-transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
-            -ms-transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
-            -o-transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
-            transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
+            -webkit-transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
+            -moz-transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
+            -ms-transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
+            -o-transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
+            transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
         }
         100% {
-            -webkit-transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
-            -moz-transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
-            -ms-transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
-            -o-transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
-            transform: scaleX(1.5) scaleY(1.5) scaleZ(1.5) rotateX(30deg);
-
+            -webkit-transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
+            -moz-transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
+            -ms-transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
+            -o-transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
+            transform: scale3d(1.5,1.5,1.5) rotateX(30deg);
         }
     }
+
+    .translateZ-50{
+        -webkit-transform: translateZ(50px) rotateX(30deg);
+        -moz-transform: translateZ(50px) rotateX(30deg);
+        -ms-transform: translateZ(50px) rotateX(30deg);
+        -o-transform: translateZ(50px) rotateX(30deg);
+        transform: translateZ(50px) rotateX(30deg);
+    }
+    .translateZ-100{
+        -webkit-transform: translateZ(100px) rotateX(30deg);
+        -moz-transform: translateZ(100px) rotateX(30deg);
+        -ms-transform: translateZ(100px) rotateX(30deg);
+        -o-transform: translateZ(100px) rotateX(30deg);
+        transform: translateZ(100px) rotateX(30deg);
+    }
+
+    .translateZ-200{
+        -webkit-transform: translateZ(200px) rotateX(30deg);
+        -moz-transform: translateZ(200px) rotateX(30deg);
+        -ms-transform: translateZ(200px) rotateX(30deg);
+        -o-transform: translateZ(200px) rotateX(30deg);
+        transform: translateZ(200px) rotateX(30deg);
+    }
+
+    .translateZ-400{
+        -webkit-transform: translateZ(400px) rotateX(30deg);
+        -moz-transform: translateZ(400px) rotateX(30deg);
+        -ms-transform: translateZ(400px) rotateX(30deg);
+        -o-transform: translateZ(400px) rotateX(30deg);
+        transform: translateZ(400px) rotateX(30deg);
+    }
+
+    /*translate3d-50-70-100*/
+    .translate3d-50-70-100 {
+        animation: translate3d-50-70-100 8s linear infinite;
+    }
+    @keyframes translate3d-50-70-100 {
+        0% {
+            -webkit-transform: translate3d(0px, 0px, 0px) rotateX(30deg);
+            -moz-transform: translate3d(0px, 0px, 0px) rotateX(30deg);
+            -ms-transform: translate3d(0px, 0px, 0px) rotateX(30deg);
+            -o-transform: translate3d(0px, 0px, 0px) rotateX(30deg);
+            transform: translate3d(0px, 0px, 0px) rotateX(30deg);
+        }
+        70% {
+            -webkit-transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+            -moz-transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+            -ms-transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+            -o-transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+            transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+        }
+        100% {
+            -webkit-transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+            -moz-transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+            -ms-transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+            -o-transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+            transform: translate3d(50px, 70px, 100px) rotateX(30deg);
+        }
+    }
+
+
 </style>
 
 <style>
@@ -1017,7 +1098,7 @@
 
 
 <div class="demo-group clear-fix">
-    <span class="top-tag">3D transform属性-scaleZ</span>
+    <span class="top-tag">3D transform</span>
 
     <div class="demo">
         <span class="top-tag">scaleZ(percentage)</span>
@@ -1029,6 +1110,7 @@
             <p class="notice">只有scaleZ属于3维上的</p>
             <p class="notice">观察：</p>
             <p class="notice">scaleZ的变化很小(block3)，这里我们让block旋转30度，以便产生z轴上的内容，让scaleZ可以观察到</p>
+            <p class="notice">scale3d:其实就是同时进行x,y,z上的缩放</p>
         </div>
 
         <div class="empty-box perspective-200">
@@ -1064,8 +1146,80 @@
             <div class="z-axis"></div>
             <span class="corner-tag">perspective:200</span>
 
-            <div class="case expand scaleZ-all-1-5 animate-container" >box4<span class="top-inner-tag">scaleX,Y,Z(1.5),rotateX(30deg)</span></div>
+            <div class="case expand scaleZ-all-1-5 animate-container" >box4<span class="top-inner-tag">scale3d(1.5,1.5,1.5),rotateX(30deg)</span></div>
         </div>
+
+    </div>
+
+
+    <div class="demo">
+        <span class="top-tag">translateZ(length)</span>
+        <div class="remark">
+            定义沿 z 轴的 translate(位移)。<br/>
+
+            <p class="notice">注意：</p>
+            <p class="notice">因为是设置物体在z轴的位置，而perspective恰好表示观察者距离屏幕的距离：</p>
+            <p class="notice">本例中，perspective 从500渐变到200(从z轴远处靠近屏幕)：</p>
+            <p class="notice">1.当translateZ < perspective 时，物体可见，且此2值越接近，物体看上去越大</p>
+            <p class="notice">2.当translateZ > perspective 时，物体(box3,box4)不可见(因为跑到后面去了)</p>
+        </div>
+
+        <div class="empty-box pers-ani-200">
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+            <span class="corner-tag">perspective:200</span>
+
+            <div class="case expand translateZ-50 animate-container" >box1<span class="top-inner-tag">translateZ(50),rotateX(30deg)</span></div>
+        </div>
+
+        <div class="empty-box pers-ani-200">
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+            <span class="corner-tag">perspective:200</span>
+
+            <div class="case expand translateZ-100 animate-container" >box2<span class="top-inner-tag">translateZ(100),rotateX(30deg)</span></div>
+        </div>
+        <div class="empty-box pers-ani-200">
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+            <span class="corner-tag">perspective:200</span>
+
+            <div class="case expand translateZ-200 animate-container" >box3<span class="top-inner-tag">translateZ(200),rotateX(30deg)</span></div>
+        </div>
+
+        <div class="empty-box pers-ani-200">
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+            <span class="corner-tag">perspective:200</span>
+
+            <div class="case expand translateZ-400 animate-container" >box4<span class="top-inner-tag">translateZ(400),rotateX(30deg)</span></div>
+        </div>
+
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">translate3d(x,y,z)</span>
+        <div class="remark">
+            定义沿 x,y,z 3轴的 translate(位移)。<br/>
+
+            <p class="notice">说明：</p>
+            <p class="notice">理解了translateZ,其实这个方法就是一个语法糖，没啥特殊的</p>
+        </div>
+
+        <div class="empty-box pers-200">
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+            <span class="corner-tag">perspective:200</span>
+
+            <div class="case expand translate3d-50-70-100 animate-container" >box1<span class="top-inner-tag">translate3d(50,70,100),rotateX(30deg)</span></div>
+        </div>
+
+
 
     </div>
 
