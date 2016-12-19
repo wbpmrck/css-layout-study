@@ -36,7 +36,7 @@
         width: 200px;
         height: 200px;
     }
-    .case.expand{
+    .expand{
         margin: 50px;
     }
 
@@ -736,6 +736,62 @@
         backface-visibility: hidden;
     }
 </style>
+
+
+
+<style>
+    .cube{
+        height: 100px;
+        position: relative;
+        width: 100px;
+        /*transform: translateZ(-100px);*/
+        transform-style: preserve-3d;
+    }
+    .side {
+        background: rgba(45, 179, 74, .3);
+        border: 2px solid #2db34a;
+        height: 96px;
+        width: 96px;
+        position: absolute;
+
+        color: #a133ff;
+        text-align: center;
+        font-size: 20px;
+        font-weight: bold;
+        line-height: 100px;
+        vertical-align: middle;
+
+    }
+    /*把div默认的平面当做正面*/
+    .front {
+        /*transform: translateZ(100px);*/
+    }
+    /*背面离观察者远离100像素(透入屏幕内)(因为立方体边长100px)，旋转180度(反面)*/
+    .back {
+        /*transform: rotateX(180deg) translateZ(-50px);*/
+        transform: translate3d(0px,0px,-100px) rotateX(180deg);
+    }
+    /*左面，向左偏移50px,向屏幕内远离50px(rotate的中心默认是元素的中间)*/
+    .left {
+        transform: translate3d(-50px,0px,-50px) rotateY(-90deg);
+    }
+    /*右面，向右偏移50px,向屏幕内远离50px(rotate的中心默认是元素的中间)*/
+    .right {
+        transform: translate3d(50px,0px,-50px)  rotateY(90deg);
+    }
+    /*上面，向上偏移50px,旋转90度，向屏幕内远离50px*/
+    .top {
+        transform: translate3d(0px,-50px,-50px)  rotateX(90deg);
+    }
+    /*上面，向下偏移50px,旋转90度，向屏幕内远离50px*/
+    .bottom {
+        transform: translate3d(0px,50px,-50px)  rotateX(-90deg);
+    }
+
+</style>
+
+
+
 <div class="demo-group clear-fix">
     <span class="top-tag">3D transform前置知识:perspective 和 perspective-origin</span>
 
@@ -1221,7 +1277,8 @@
             定义沿 x,y,z 3轴的 translate(位移)。<br/>
 
             <p class="notice">说明：</p>
-            <p class="notice">理解了translateZ,其实这个方法就是一个语法糖，没啥特殊的</p>
+            <p class="notice">这个不仅仅是一个语法糖，当translate,rotate混合使用的时候，声明translateX,translateY的顺序会影响最后的结果</p>
+            <p class="notice">这种情况下，使用translate3d，一次性指定物体在所有方向上的位移，更不容易出错</p>
         </div>
 
         <div class="empty-box pers-200">
@@ -1247,7 +1304,7 @@
         </div>
 
 
-        <div class="empty-box perspective-200 preserve rotateY-180">
+        <div class="empty-box perspective-200 preserve rotateY-360">
             <span class="corner-tag">perspective:200,transform-style=preserve-3d,rotateY-360</span>
 
             <div class="x-axis"></div>
@@ -1258,7 +1315,7 @@
             <div class="case expand rotate3d-1-1-0 animate-container" >box1<span class="top-inner-tag">rotate3d(1,1,0, 360deg)</span></div>
         </div>
 
-        <div class="empty-box perspective-200 flat rotateY-180">
+        <div class="empty-box perspective-200 flat rotateY-360">
             <span class="corner-tag">perspective:200,transform-style=flat,rotateY-360</span>
 
             <div class="x-axis"></div>
@@ -1279,6 +1336,8 @@
             <p class="notice">说明：</p>
             <p class="notice">1：box1 转到背面的时候就看不见了，因为设置了Backface Visibility =hidden </p>
             <p class="notice">2：box2 转到背面仍然可见，因为设置了Backface Visibility =visible </p>
+            <p class="notice">3：cube1 设置背面不可见，可以看到转动过程中只能看到当前面</p>
+            <p class="notice">4：cube2 设置背面可见，可以看到转动过程中所有面都是可见的</p>
         </div>
 
 
@@ -1288,6 +1347,7 @@
             <div class="x-axis"></div>
             <div class="y-axis"></div>
             <div class="z-axis"></div>
+            <div class="axis-1-1-0"></div>
 
 
             <div class="case expand rotate3d-1-1-0 animate-container backface-hidden" >box1<span class="top-inner-tag">rotate3d(1,1,0, 360deg),backface=hidden</span></div>
@@ -1300,10 +1360,57 @@
             <div class="x-axis"></div>
             <div class="y-axis"></div>
             <div class="z-axis"></div>
+            <div class="axis-1-1-0"></div>
 
 
             <div class="case expand rotate3d-1-1-0 animate-container" >box2<span class="top-inner-tag">rotate3d(1,1,0, 360deg),backface=visible</span></div>
         </div>
+
+
+        <div class="empty-box perspective-400">
+            <span class="corner-tag">perspective:400,backface-visibility: hidden</span>
+
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+            <div class="axis-1-1-0"></div>
+
+
+            <div class="cube rotate3d-1-1-0 expand">
+                <div class="side backface-hidden front">front</div>
+                <div class="side backface-hidden back">back</div>
+                <div class="side backface-hidden left">left</div>
+                <div class="side backface-hidden right">right</div>
+                <div class="side backface-hidden top">top</div>
+                <div class="side backface-hidden bottom">bottom</div>
+            </div>
+
+        </div>
+
+
+        <div class="empty-box perspective-400">
+            <span class="corner-tag">perspective:400,backface-visibility: hidden</span>
+
+            <div class="x-axis"></div>
+            <div class="y-axis"></div>
+            <div class="z-axis"></div>
+            <div class="axis-1-1-0"></div>
+
+
+            <div class="cube rotate3d-1-1-0 expand">
+            <!--<div class="cube expand">-->
+                <div class="side  front">front</div>
+                <div class="side  back">back</div>
+                <div class="side  left">left</div>
+                <div class="side  right">right</div>
+                <div class="side  top">top</div>
+                <div class="side  bottom">bottom</div>
+            </div>
+
+        </div>
+
+
+
 
 
     </div>
