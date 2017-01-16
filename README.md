@@ -50,6 +50,7 @@ study cases for css layout.
 * tooltip: https://wbpmrck.github.io/css-layout-study/learn/tooltip.html
 * transform(2D): https://wbpmrck.github.io/css-layout-study/learn/transform.html
 * transform(3D): https://wbpmrck.github.io/css-layout-study/learn/transform-3d.html
+* transition: https://wbpmrck.github.io/css-layout-study/learn/transition.html
 
 
 ## V

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示：transition</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/common.css">
+</head>
+<body>
+
+<style>
+    .empty-box{
+        position: relative;
+        display: inline-block;
+        margin: 20px;
+
+        background-color: #6B6B6B;
+    }
+
+    .case{
+        display: inline-block;
+        position: relative;
+        opacity: 0.7;
+
+        width: 100px;
+        height: 100px;
+        margin: 15px 20px 15px 20px;
+
+        background-color: #00CA81;
+        border-radius: 4px;
+
+        text-align: center;
+        line-height: 100px;
+    }
+    .case.X2{
+        width: 200px;
+        height: 200px;
+    }
+    .expand{
+        margin: 50px;
+    }
+
+    .transition-background{
+        -webkit-transition-property: background;
+        -moz-transition-property: background;
+        -ms-transition-property: background;
+        -o-transition-property: background;
+        transition-property: background;
+    }
+    .transition-border{
+        -webkit-transition-property: border-radius;
+        -moz-transition-property: border-radius;
+        -ms-transition-property: border-radius;
+        -o-transition-property: border-radius;
+        transition-property: border-radius;
+    }
+    .duration-1{
+        -webkit-transition-duration: 1s;
+        -moz-transition-duration: 1s;
+        -ms-transition-duration: 1s;
+        -o-transition-duration: 1s;
+        transition-duration: 1s;
+    }
+    .timing-func-linear{
+        -webkit-transition-timing-function: linear;
+        -moz-transition-timing-function: linear;
+        -ms-transition-timing-function: linear;
+        -o-transition-timing-function: linear;
+        transition-timing-function: linear;
+    }
+    .change-background-blue:hover{
+        background-color: blue;
+    }
+    .change-border:hover{
+        border-radius: 25%;
+    }
+
+
+</style>
+
+
+<div class="demo-group clear-fix">
+    <span class="top-tag">transition</span>
+
+    <div class="demo">
+        <span class="top-tag">transition-property</span>
+        <div class="remark">
+            transition 属性定义元素属性的改变方式。他由几个子属性构成: <br/>
+            transition-property	规定设置过渡效果的 CSS 属性的名称。<br/>
+            transition-duration	规定完成过渡效果需要多少秒或毫秒。<br/>
+            transition-timing-function	规定速度效果的速度曲线。<br/>
+            transition-delay	定义过渡效果何时开始。
+
+            <p class="notice">注意：</p>
+            <p class="notice">1：transition生效，要求元素的state(状态)必须发生变化</p>
+            <p class="notice">2：常见的方式是利用:hover,:active,:focus等伪类来触发transition</p>
+            <p class="notice">3：也可以通过切换元素的class来触发</p>
+        </div>
+
+
+        <div class="empty-box">
+            <span class="corner-tag">background</span>
+            <div class="case transition-background duration-1 timing-func-linear change-background-blue">
+                hover me
+                <span class="top-inner-tag">1s linear</span>
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">border radius</span>
+            <div class="case transition-border duration-1 timing-func-linear change-border">
+                hover me
+                <span class="top-inner-tag">1s linear</span>
+            </div>
+        </div>
+
+    </div>
+
+
+</div>
+
+</body>
+</html>
