@@ -54,12 +54,61 @@
         -o-transition-property: border-radius;
         transition-property: border-radius;
     }
+    .transition-width{
+        -webkit-transition-property: width;
+        -moz-transition-property: width;
+        -ms-transition-property: width;
+        -o-transition-property: width;
+        transition-property: width;
+    }
+    .transition-height{
+        -webkit-transition-property: height;
+        -moz-transition-property: height;
+        -ms-transition-property: height;
+        -o-transition-property: height;
+        transition-property: height;
+    }
     .duration-1{
         -webkit-transition-duration: 1s;
         -moz-transition-duration: 1s;
         -ms-transition-duration: 1s;
         -o-transition-duration: 1s;
         transition-duration: 1s;
+    }
+    .duration-05{
+        -webkit-transition-duration: .5s;
+        -moz-transition-duration: .5s;
+        -ms-transition-duration: .5s;
+        -o-transition-duration: .5s;
+        transition-duration: .5s;
+    }
+    .duration-3{
+        -webkit-transition-duration: 3s;
+        -moz-transition-duration: 3s;
+        -ms-transition-duration: 3s;
+        -o-transition-duration: 3s;
+        transition-duration: 3s;
+    }
+    .delay-1{
+        -webkit-transition-delay: 1s;
+        -moz-transition-delay: 1s;
+        -ms-transition-delay: 1s;
+        -o-transition-delay: 1s;
+        transition-delay: 1s;
+    }
+    .delay-3{
+        -webkit-transition-delay: 3s;
+        -moz-transition-delay: 3s;
+        -ms-transition-delay: 3s;
+        -o-transition-delay: 3s;
+        transition-delay: 3s;
+    }
+    .delay-05{
+        -webkit-transition-delay: .5s;
+        -moz-transition-delay: .5s;
+        -ms-transition-delay: .5s;
+        -o-transition-delay: .5s;
+        transition-delay: .5s;
     }
     .timing-func-linear{
         -webkit-transition-timing-function: linear;
@@ -68,11 +117,38 @@
         -o-transition-timing-function: linear;
         transition-timing-function: linear;
     }
+    .timing-func-ease-in{
+        -webkit-transition-timing-function: ease-in;
+        -moz-transition-timing-function: ease-in;
+        -ms-transition-timing-function: ease-in;
+        -o-transition-timing-function: ease-in;
+        transition-timing-function: ease-in;
+    }
+    .timing-func-ease-in-out{
+        -webkit-transition-timing-function: ease-in-out;
+        -moz-transition-timing-function: ease-in-out;
+        -ms-transition-timing-function: ease-in-out;
+        -o-transition-timing-function: ease-in-out;
+        transition-timing-function: ease-in-out;
+    }
+    .timing-func-cube-1{
+        -webkit-transition-timing-function: cubic-bezier(.09,.99,.34,.91);
+        -moz-transition-timing-function: cubic-bezier(.09,.99,.34,.91);
+        -ms-transition-timing-function: cubic-bezier(.09,.99,.34,.91);
+        -o-transition-timing-function: cubic-bezier(.09,.99,.34,.91);
+        transition-timing-function: cubic-bezier(.09,.99,.34,.91);
+    }
     .change-background-blue:hover{
         background-color: blue;
     }
     .change-border:hover{
         border-radius: 25%;
+    }
+    .change-width:hover{
+        width:120%;
+    }
+    .change-height:hover{
+        height:30px;
     }
 
 
@@ -102,20 +178,129 @@
             <span class="corner-tag">background</span>
             <div class="case transition-background duration-1 timing-func-linear change-background-blue">
                 hover me
-                <span class="top-inner-tag">1s linear</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
         <div class="empty-box">
             <span class="corner-tag">border radius</span>
             <div class="case transition-border duration-1 timing-func-linear change-border">
                 hover me
-                <span class="top-inner-tag">1s linear</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">width</span>
+            <div class="case transition-width duration-1 timing-func-linear change-width">
+                hover me
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
 
     </div>
 
 
+    <div class="demo">
+        <span class="top-tag">transition-duration</span>
+        <div class="remark">
+            通过不同的duration，控制属性变化的快慢 <br/>
+        </div>
+
+
+        <div class="empty-box">
+            <span class="corner-tag">1s</span>
+            <div class="case transition-background duration-1 timing-func-linear change-background-blue">
+                hover me
+                <!--<span class="top-inner-tag">hover me</span>-->
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">0.5s</span>
+            <div class="case transition-background duration-05 timing-func-linear change-background-blue">
+                hover me
+                <!--<span class="top-inner-tag">hover me</span>-->
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">3s</span>
+            <div class="case transition-background duration-3 timing-func-linear change-background-blue">
+                hover me
+                <!--<span class="top-inner-tag">hover me</span>-->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">transition-timing-function</span>
+        <div class="remark">
+            通过不同的 transition-timing-function，控制属性变化的速率、方式,常见有以下几种: <br/>
+            linear	规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）。<br/>
+            ease	规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。<br/>
+            ease-in	规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）。<br/>
+            ease-out	规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）。<br/>
+            ease-in-out	规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。<br/>
+            cubic-bezier(n,n,n,n)	在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。
+
+
+            <p class="notice">更多的cubic参数，可以在这个网站获取: <a href="http://cubic-bezier.com/" target="_blank">http://cubic-bezier.com/</a> </p>
+        </div>
+        
+
+
+        <div class="empty-box">
+            <span class="corner-tag">linear</span>
+            <div class="case transition-height duration-1 timing-func-linear change-height">
+                hover me
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">ease-in</span>
+            <div class="case transition-height duration-1 timing-func-ease-in change-height">
+                hover me
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">ease-in-out</span>
+            <div class="case transition-height duration-1 timing-func-ease-in-out change-height">
+                hover me
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">cubic-bezier(.09,.99,.34,.91)</span>
+            <div class="case transition-height duration-1 timing-func-cube-1 change-height">
+                hover me
+            </div>
+        </div>
+    </div>
+
+
+    <div class="demo">
+        <span class="top-tag">transition-delay</span>
+        <div class="remark">
+            规定过渡效果何时开始 <br/>
+            transition-delay 值以秒或毫秒计。 <br/>
+        </div>
+
+
+        <div class="empty-box">
+            <span class="corner-tag">1s</span>
+            <div class="case transition-background duration-1 delay-1 timing-func-linear change-background-blue">
+                hover me
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">0.5s</span>
+            <div class="case transition-background duration-1 delay-05 timing-func-linear change-background-blue">
+                hover me
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">3s</span>
+            <div class="case transition-background duration-1 delay-3 timing-func-linear change-background-blue">
+                hover me
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>
