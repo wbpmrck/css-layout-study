@@ -3,15 +3,16 @@ study cases for css layout.
 
 # todo
 
-* transform
-* transition
+* canvas
 * animation
+* ...
 
 # demo page(order by alphabet):
 
 ## A
 * anchor : https://wbpmrck.github.io/css-layout-study/learn/anchor.html
 * audio : https://wbpmrck.github.io/css-layout-study/learn/audio.html
+* animation : https://wbpmrck.github.io/css-layout-study/learn/animation.html
 
 ## B
 * background : https://wbpmrck.github.io/css-layout-study/learn/background.html
