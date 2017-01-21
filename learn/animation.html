@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>演示：transition</title>
+    <title>演示：animation</title>
     <link rel="stylesheet" href="css/reset.css">
     <link rel="stylesheet" href="css/common.css">
 </head>
@@ -12,6 +12,8 @@
     .empty-box{
         position: relative;
         display: inline-block;
+
+        width: 90%;
         margin: 20px;
 
         background-color: #6B6B6B;
@@ -20,7 +22,6 @@
     .case{
         display: inline-block;
         position: relative;
-        opacity: 0.7;
 
         width: 100px;
         height: 100px;
@@ -30,185 +31,281 @@
         border-radius: 4px;
 
         text-align: center;
-        line-height: 100px;
+        vertical-align: middle;
+        /*line-height: 100px;*/
     }
-    .case.X2{
+    .case.wide{
         width: 200px;
-        height: 200px;
     }
-    .expand{
-        margin: 50px;
-    }
-
-    .transition-background{
-        -webkit-transition-property: background;
-        -moz-transition-property: background;
-        -ms-transition-property: background;
-        -o-transition-property: background;
-        transition-property: background;
-    }
-    .transition-border{
-        -webkit-transition-property: border-radius;
-        -moz-transition-property: border-radius;
-        -ms-transition-property: border-radius;
-        -o-transition-property: border-radius;
-        transition-property: border-radius;
-    }
-    .transition-width{
-        -webkit-transition-property: width;
-        -moz-transition-property: width;
-        -ms-transition-property: width;
-        -o-transition-property: width;
-        transition-property: width;
-    }
-    .transition-height{
-        -webkit-transition-property: height;
-        -moz-transition-property: height;
-        -ms-transition-property: height;
-        -o-transition-property: height;
-        transition-property: height;
-    }
-    .duration-1{
-        -webkit-transition-duration: 1s;
-        -moz-transition-duration: 1s;
-        -ms-transition-duration: 1s;
-        -o-transition-duration: 1s;
-        transition-duration: 1s;
-    }
-    .duration-05{
-        -webkit-transition-duration: .5s;
-        -moz-transition-duration: .5s;
-        -ms-transition-duration: .5s;
-        -o-transition-duration: .5s;
-        transition-duration: .5s;
-    }
-    .duration-3{
-        -webkit-transition-duration: 3s;
-        -moz-transition-duration: 3s;
-        -ms-transition-duration: 3s;
-        -o-transition-duration: 3s;
-        transition-duration: 3s;
-    }
-    .delay-1{
-        -webkit-transition-delay: 1s;
-        -moz-transition-delay: 1s;
-        -ms-transition-delay: 1s;
-        -o-transition-delay: 1s;
-        transition-delay: 1s;
-    }
-    .delay-3{
-        -webkit-transition-delay: 3s;
-        -moz-transition-delay: 3s;
-        -ms-transition-delay: 3s;
-        -o-transition-delay: 3s;
-        transition-delay: 3s;
-    }
-    .delay-05{
-        -webkit-transition-delay: .5s;
-        -moz-transition-delay: .5s;
-        -ms-transition-delay: .5s;
-        -o-transition-delay: .5s;
-        transition-delay: .5s;
-    }
-    .timing-func-linear{
-        -webkit-transition-timing-function: linear;
-        -moz-transition-timing-function: linear;
-        -ms-transition-timing-function: linear;
-        -o-transition-timing-function: linear;
-        transition-timing-function: linear;
-    }
-    .timing-func-ease-in{
-        -webkit-transition-timing-function: ease-in;
-        -moz-transition-timing-function: ease-in;
-        -ms-transition-timing-function: ease-in;
-        -o-transition-timing-function: ease-in;
-        transition-timing-function: ease-in;
-    }
-    .timing-func-ease-in-out{
-        -webkit-transition-timing-function: ease-in-out;
-        -moz-transition-timing-function: ease-in-out;
-        -ms-transition-timing-function: ease-in-out;
-        -o-transition-timing-function: ease-in-out;
-        transition-timing-function: ease-in-out;
-    }
-    .timing-func-cube-1{
-        -webkit-transition-timing-function: cubic-bezier(.09,.99,.34,.91);
-        -moz-transition-timing-function: cubic-bezier(.09,.99,.34,.91);
-        -ms-transition-timing-function: cubic-bezier(.09,.99,.34,.91);
-        -o-transition-timing-function: cubic-bezier(.09,.99,.34,.91);
-        transition-timing-function: cubic-bezier(.09,.99,.34,.91);
-    }
-    .change-background-blue:hover{
-        background-color: blue;
-    }
-    .change-border:hover{
-        border-radius: 25%;
-    }
-    .change-width:hover{
-        width:120%;
-    }
-    .change-height:hover{
-        height:30px;
-    }
-    .change-font:hover{
-        font-size:10px;
+    .case span{
+        vertical-align: middle;
     }
 
-    .multy-transition-1{
-        -webkit-transition: border-radius 1s linear, background-color 1s linear ;
-        -moz-transition: border-radius 1s linear, background-color 1s linear ;
-        -ms-transition: border-radius 1s linear, background-color 1s linear ;
-        -o-transition: border-radius 1s linear, background-color 1s linear ;
-        transition: border-radius 1s linear, background-color 1s linear ;
+    .click-pause:active{
+        animation-play-state: paused;
     }
-    .multy-transition-2{
-        -webkit-transition: background-color 1s linear, font-size 1s linear ;
-        -moz-transition: background-color 1s linear, font-size 1s linear ;
-        -ms-transition: background-color 1s linear, font-size 1s linear ;
-        -o-transition: background-color 1s linear, font-size 1s linear ;
-        transition: background-color 1s linear, font-size 1s linear ;
+
+    /*ani-left-2*/
+    .ani-left-2 {
+        animation: ani-left-2 2s linear;
     }
+    .ani-left-2-ease-in {
+        animation: ani-left-2 4s ease-in ;
+    }
+    .ani-left-2-ease-out {
+        animation: ani-left-2 4s ease-out ;
+    }
+    .ani-left-2-ease-in-out {
+        animation: ani-left-2 4s ease-in-out ;
+    }
+    .ani-left-2-bezier {
+        animation: ani-left-2 4s cubic-bezier(.17,1.82,.47,-0.59) ;
+    }
+
+    .count-infinite{
+        animation-iteration-count: infinite;
+    }
+    .count-1{
+        animation-iteration-count: 1;
+    }
+    .count-2{
+        animation-iteration-count: 2;
+    }
+    .ani-direction-reverse{
+        animation-direction: reverse;
+    }
+    .ani-direction-alternate{
+        animation-direction: alternate;
+    }
+    .ani-direction-alternate-reverse{
+        animation-direction: alternate-reverse;
+    }
+    @keyframes ani-left-2 {
+        0% {
+            left:0px;
+        }
+        70% {
+            left:60%
+        }
+        100% {
+            left:60%
+        }
+    }
+
+    @-moz-keyframes ani-left-2 {
+        0% {
+            left:0px;
+        }
+        70% {
+            left:60%
+        }
+        100% {
+            left:60%
+        }
+    }
+
+    @-webkit-keyframes ani-left-2 {
+        0% {
+            left:0px;
+        }
+        70% {
+            left:60%
+        }
+        100% {
+            left:60%
+        }
+    }
+
+
+
+    /*anim-left*/
+    .ani-left {
+        animation: anim-left 2s linear infinite;
+    }
+    @keyframes anim-left {
+        0% {
+            left:0px;
+        }
+        70% {
+            left:30%
+        }
+        100% {
+            left:80%
+        }
+    }
+
+    @-moz-keyframes anim-left {
+        0% {
+            left:0px;
+        }
+        70% {
+            left:30%
+        }
+        100% {
+            left:80%
+        }
+    }
+
+    @-webkit-keyframes anim-left {
+        0% {
+            left:0px;
+        }
+        70% {
+            left:30%
+        }
+        100% {
+            left:80%
+        }
+    }
+
+
+
+
+
+    /*ani-background*/
+    .ani-background {
+        animation: ani-background 2s linear infinite;
+    }
+    @keyframes ani-background {
+        0% {
+            background-color: #a133ff;
+        }
+        70% {
+            background-color: #0a6cd6;
+        }
+        100% {
+            background-color: #d72360;
+        }
+    }ke
+
+    @-moz-keyframes ani-background {
+        0% {
+            background-color: #a133ff;
+        }
+        70% {
+            background-color: #0a6cd6;
+        }
+        100% {
+            background-color: #d72360;
+        }
+    }
+
+    @-webkit-keyframes ani-background {
+        0% {
+            background-color: #a133ff;
+        }
+        70% {
+            background-color: #0a6cd6;
+        }
+        100% {
+            background-color: #d72360;
+        }
+    }
+
+    /*ani-multy-prop*/
+    .ani-multy-prop {
+        animation: ani-multy-prop 2s linear infinite;
+    }
+    @keyframes ani-multy-prop {
+        0% {
+            left: 0px;
+            background-color: #000;
+        }
+        70% {
+            left: 20%;
+            background-color: #0ff;
+        }
+        100% {
+            left:80%;
+            background-color: #cd0a0a;
+        }
+    }
+
+    @-moz-keyframes ani-multy-prop {
+        0% {
+            left: 0px;
+            background-color: #000;
+        }
+        70% {
+            left: 20%;
+            background-color: #0ff;
+        }
+        100% {
+            left:80%;
+            background-color: #cd0a0a;
+        }
+    }
+
+    @-webkit-keyframes ani-multy-prop {
+        0% {
+            left: 0px;
+            background-color: #000;
+        }
+        70% {
+            left: 20%;
+            background-color: #0ff;
+        }
+        100% {
+            left:80%;
+            background-color: #cd0a0a;
+        }
+    }
+
+
 
 </style>
 
 
 <div class="demo-group clear-fix">
-    <span class="top-tag">transition</span>
+    <span class="top-tag">keyframe(关键帧):animation的重要组成</span>
 
     <div class="demo">
-        <span class="top-tag">transition-property</span>
+        <span class="top-tag">keyframe定义</span>
         <div class="remark">
-            transition 属性定义元素属性的改变方式。他由几个子属性构成: <br/>
-            transition-property	规定设置过渡效果的 CSS 属性的名称。<br/>
-            transition-duration	规定完成过渡效果需要多少秒或毫秒。<br/>
-            transition-timing-function	规定速度效果的速度曲线。<br/>
-            transition-delay	定义过渡效果何时开始。
+            keyframe语法: <br/>
+            @keyframe 名称 {<br/>
+            0% {...}<br/>
+            10% {...}<br/>
+            50% {...}<br/>
+            ...<br/>
+            }
 
             <p class="notice">注意：</p>
-            <p class="notice">1：transition生效，要求元素的state(状态)必须发生变化</p>
-            <p class="notice">2：常见的方式是利用:hover,:active,:focus等伪类来触发transition</p>
-            <p class="notice">3：也可以通过切换元素的class来触发</p>
+            <p class="notice">1：如果不需要定义详细的关键帧，可以直接用from {} to{}代替N%</p>
+            <p class="notice">2：0% 如果省略，则:</p>
+            <p class="notice">3：100% 如果省略，则:</p>
+            <p class="notice">4：需要加厂商前缀: -webkit-,-o-,-ms-,-moz-</p>
         </div>
 
 
         <div class="empty-box">
-            <span class="corner-tag">background</span>
-            <div class="case transition-background duration-1 timing-func-linear change-background-blue">
-                hover me
+            <span class="corner-tag">使用N%的方式定义多个阶段</span>
+            <div class="case wide ani-background">
+                <span>background:{0% 紫色, 70% 蓝色, 100% 红色}</span>
+
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+
+        <div class="empty-box">
+            <span class="corner-tag">使用N%的方式定义多个阶段</span>
+            <div class="case ani-left">
+                <span>left:{0% 0px, 70% 30%, 100% 80%}</span>
+
                 <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
         <div class="empty-box">
-            <span class="corner-tag">border radius</span>
-            <div class="case transition-border duration-1 timing-func-linear change-border">
-                hover me
+            <span class="corner-tag">使用from,to方式定义多个阶段</span>
+            <div class="case ani-left-2">
+                <span>from: 0px, to 80%</span>
                 <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
         <div class="empty-box">
-            <span class="corner-tag">width</span>
-            <div class="case transition-width duration-1 timing-func-linear change-width">
-                hover me
+            <span class="corner-tag">一个keyframe可以定义多个属性</span>
+            <div class="case ani-multy-prop">
+                <span>background + left</span>
                 <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
@@ -216,129 +313,193 @@
     </div>
 
 
+</div>
+
+
+<div class="demo-group clear-fix">
+    <span class="top-tag">Animation:定义动画</span>
+
     <div class="demo">
-        <span class="top-tag">transition-duration</span>
+        <span class="top-tag">animation:name duration timing-function delay iteration-count direction;</span>
         <div class="remark">
-            通过不同的duration，控制属性变化的快慢 <br/>
+            animation-name	规定需要绑定到选择器的 keyframe 名称。 <br/>
+            animation-duration	规定完成动画所花费的时间，以秒或毫秒计。<br/>
+            animation-timing-function	规定动画的速度曲线。<br/>
+            animation-delay	规定在动画开始之前的延迟。<br/>
+            animation-iteration-count	规定动画应该播放的次数。<br/>
+            animation-direction	规定是否应该轮流反向播放动画。<br/>
+
+            <p class="notice">注意：</p>
+            <p class="notice">1：一般都使用简写方式</p>
+            <p class="notice">2：这里着重演示一下timing-function,iteration-count和direction</p>
         </div>
 
 
         <div class="empty-box">
-            <span class="corner-tag">1s</span>
-            <div class="case transition-background duration-1 timing-func-linear change-background-blue">
-                hover me
-                <!--<span class="top-inner-tag">hover me</span>-->
-            </div>
-        </div>
-        <div class="empty-box">
-            <span class="corner-tag">0.5s</span>
-            <div class="case transition-background duration-05 timing-func-linear change-background-blue">
-                hover me
-                <!--<span class="top-inner-tag">hover me</span>-->
-            </div>
-        </div>
-        <div class="empty-box">
-            <span class="corner-tag">3s</span>
-            <div class="case transition-background duration-3 timing-func-linear change-background-blue">
-                hover me
-                <!--<span class="top-inner-tag">hover me</span>-->
+            <span class="corner-tag">通过简写快速定义动画</span>
+            <div class="case wide ani-background">
+                <span>animation: ani-background 2s linear infinite;</span>
+
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
 
     </div>
 
     <div class="demo">
-        <span class="top-tag">transition-timing-function</span>
+        <span class="top-tag">timing-function:定义动画数值变化速率</span>
         <div class="remark">
-            通过不同的 transition-timing-function，控制属性变化的速率、方式,常见有以下几种: <br/>
-            linear	规定以相同速度开始至结束的过渡效果（等于 cubic-bezier(0,0,1,1)）。<br/>
-            ease	规定慢速开始，然后变快，然后慢速结束的过渡效果（cubic-bezier(0.25,0.1,0.25,1)）。<br/>
-            ease-in	规定以慢速开始的过渡效果（等于 cubic-bezier(0.42,0,1,1)）。<br/>
-            ease-out	规定以慢速结束的过渡效果（等于 cubic-bezier(0,0,0.58,1)）。<br/>
-            ease-in-out	规定以慢速开始和结束的过渡效果（等于 cubic-bezier(0.42,0,0.58,1)）。<br/>
-            cubic-bezier(n,n,n,n)	在 cubic-bezier 函数中定义自己的值。可能的值是 0 至 1 之间的数值。
+            有很多内置的function可以供选择。 <br/>
+            linear	动画从头到尾的速度是相同的。	<br/>
+            ease	默认。动画以低速开始，然后加快，在结束前变慢。	<br/>
+            ease-in	动画以低速开始。	<br/>
+            ease-out	动画以低速结束。	<br/>
+            ease-in-out	动画以低速开始和结束。	<br/>
+            cubic-bezier(n,n,n,n)	在 cubic-bezier 函数中自己的值。可能的值是从 0 到 1 的数值。<br/>
+            也可以通过 <a href="http://cubic-bezier.com/" target="_blank">http://cubic-bezier.com/</a>来生成贝塞尔曲线参数 <br/>
 
-
-            <p class="notice">更多的cubic参数，可以在这个网站获取: <a href="http://cubic-bezier.com/" target="_blank">http://cubic-bezier.com/</a> </p>
+            <p class="notice">注意：</p>
+            <p class="notice">1：timing-function和keyframe里的不同阶段属性定义，是协同工作的</p>
+            <p class="notice">2：有些效果只通过timing-func是无法完成的，比如bounce效果，得配合keyframe的参数定义</p>
         </div>
-        
 
 
-        <div class="empty-box">
-            <span class="corner-tag">linear</span>
-            <div class="case transition-height duration-1 timing-func-linear change-height">
-                hover me
-            </div>
-        </div>
         <div class="empty-box">
             <span class="corner-tag">ease-in</span>
-            <div class="case transition-height duration-1 timing-func-ease-in change-height">
-                hover me
+            <div class="case wide ani-left-2-ease-in count-infinite">
+                <span>ease-in</span>
+
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+
+        <div class="empty-box">
+            <span class="corner-tag">ease-out</span>
+            <div class="case wide ani-left-2-ease-out count-infinite">
+                <span>ease-out</span>
+
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
         <div class="empty-box">
             <span class="corner-tag">ease-in-out</span>
-            <div class="case transition-height duration-1 timing-func-ease-in-out change-height">
-                hover me
+            <div class="case wide ani-left-2-ease-in-out count-infinite">
+                <span>ease-in-out</span>
+
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+
+        <div class="empty-box">
+            <span class="corner-tag">cubic-bezier</span>
+            <div class="case wide ani-left-2-bezier count-infinite">
+                <span>cubic-bezier(.17,1.82,.47,-0.59)</span>
+
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+
+    </div>
+
+    <div class="demo">
+        <span class="top-tag">animation-iteration-count:定义动画播放次数</span>
+        <div class="remark">
+            默认1。 <br/>
+            infinite 无限循环。	<br/>
+            n	循环n次<br/>
+        </div>
+
+
+        <div class="empty-box">
+            <span class="corner-tag">once</span>
+            <div class="case wide ani-left-2-ease-in count-1">
+                <span>animation-iteration-count:1</span>
+
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+
+        <div class="empty-box">
+            <span class="corner-tag">loop 2 times</span>
+            <div class="case wide ani-left-2-ease-out count-2">
+                <span>animation-iteration-count:2</span>
+
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
         <div class="empty-box">
-            <span class="corner-tag">cubic-bezier(.09,.99,.34,.91)</span>
-            <div class="case transition-height duration-1 timing-func-cube-1 change-height">
-                hover me
+            <span class="corner-tag">infinite</span>
+            <div class="case wide ani-left-2-ease-in-out count-infinite">
+                <span>animation-iteration-count:infinite</span>
+
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
     </div>
 
 
     <div class="demo">
-        <span class="top-tag">transition-delay</span>
+        <span class="top-tag">animation-direction:定义播放动画的方式(正向、反向、轮流)</span>
         <div class="remark">
-            规定过渡效果何时开始 <br/>
-            transition-delay 值以秒或毫秒计。 <br/>
+            normal	默认值。动画应该正常播放。 <br/>
+            alternate	动画会在奇数次数（1、3、5 等等）正常播放，而在偶数次数（2、4、6 等等）向后播放。<br/>
+            reverse	动画反向播放。<br/>
+            alternate-reverse	综合了alternate和reverse。<br/>
+            <p class="notice">注意：</p>
+            <p class="notice">1：iteration-count 必须大于1，这个属性才有效果</p>
         </div>
 
 
         <div class="empty-box">
-            <span class="corner-tag">1s</span>
-            <div class="case transition-background duration-1 delay-1 timing-func-linear change-background-blue">
-                hover me
+            <span class="corner-tag">normal</span>
+            <div class="case wide ani-left-2-ease-in count-infinite">
+                <span>animation-direction:normal</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
+
         <div class="empty-box">
-            <span class="corner-tag">0.5s</span>
-            <div class="case transition-background duration-1 delay-05 timing-func-linear change-background-blue">
-                hover me
+            <span class="corner-tag">reverse</span>
+            <div class="case wide ani-left-2-ease-in count-infinite ani-direction-reverse">
+                <span>animation-direction:reverse</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
+
         <div class="empty-box">
-            <span class="corner-tag">3s</span>
-            <div class="case transition-background duration-1 delay-3 timing-func-linear change-background-blue">
-                hover me
+            <span class="corner-tag">alternate</span>
+            <div class="case wide ani-left-2-ease-in count-infinite ani-direction-alternate">
+                <span>animation-direction:alternate</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
+
+        <div class="empty-box">
+            <span class="corner-tag">alternate-reverse</span>
+            <div class="case wide ani-left-2-ease-in count-infinite ani-direction-alternate-reverse">
+                <span>animation-direction:alternate-reverse</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+
     </div>
 
 
-
     <div class="demo">
-        <span class="top-tag">同时设置多个transition</span>
+        <span class="top-tag">animation-play-state:规定动画正在运行还是暂停</span>
         <div class="remark">
-            单个 transition 简写: <br/>
-            transition: (property) (duration) (timing func) (delay)<br/>
-            多个 transition 简写: <br/>
-            transition: (transition 1...),(transition 2...)<br/>
+            paused	规定动画已暂停。 <br/>
+            running	规定动画正在播放。<br/>
+            <p class="notice">注意：</p>
+            <p class="notice">1：可以通过切换这个状态，来实现在css层面暂停、继续动画的效果</p>
         </div>
+
+
         <div class="empty-box">
-            <span class="corner-tag">背景色+边框圆角</span>
-            <div class="case multy-transition-1 change-background-blue change-border">
-                hover me
-            </div>
-        </div>
-        <div class="empty-box">
-            <span class="corner-tag">背景色+字体</span>
-            <div class="case multy-transition-2 change-background-blue change-font">
-                hover me
+            <span class="corner-tag">normal</span>
+            <div class="case wide ani-left-2-ease-in count-infinite click-pause">
+                <span>click me to pause</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
 
