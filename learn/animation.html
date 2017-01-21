@@ -45,6 +45,30 @@
         animation-play-state: paused;
     }
 
+    div.fill-mode-none{
+        -webkit-animation-fill-mode: none;
+        -moz-animation-fill-mode: none;
+        -o-animation-fill-mode: none;
+        animation-fill-mode: none;
+    }
+    div.fill-mode-forward{
+        -webkit-animation-fill-mode: forwards;
+        -moz-animation-fill-mode: forwards;
+        -o-animation-fill-mode: forwards;
+        animation-fill-mode: forwards;
+    }
+    div.fill-mode-backward{
+        -webkit-animation-fill-mode: backwards;
+        -moz-animation-fill-mode: backwards;
+        -o-animation-fill-mode: backwards;
+        animation-fill-mode: backwards;
+    }
+    div.fill-mode-both{
+        -webkit-animation-fill-mode: both;
+        -moz-animation-fill-mode: both;
+        -o-animation-fill-mode: both;
+        animation-fill-mode: both;
+    }
     /*ani-left-2*/
     .ani-left-2 {
         animation: ani-left-2 2s linear;
@@ -71,6 +95,10 @@
     .count-2{
         animation-iteration-count: 2;
     }
+
+    .delay-1{
+        animation-delay: 2s;
+    }
     .ani-direction-reverse{
         animation-direction: reverse;
     }
@@ -82,37 +110,37 @@
     }
     @keyframes ani-left-2 {
         0% {
-            left:0px;
+            left:30px;
         }
         70% {
-            left:60%
+            left:80%
         }
         100% {
-            left:60%
+            left:80%
         }
     }
 
     @-moz-keyframes ani-left-2 {
         0% {
-            left:0px;
+            left:30px;
         }
         70% {
-            left:60%
+            left:80%
         }
         100% {
-            left:60%
+            left:80%
         }
     }
 
     @-webkit-keyframes ani-left-2 {
         0% {
-            left:0px;
+            left:30px;
         }
         70% {
-            left:60%
+            left:80%
         }
         100% {
-            left:60%
+            left:80%
         }
     }
 
@@ -320,7 +348,7 @@
     <span class="top-tag">Animation:定义动画</span>
 
     <div class="demo">
-        <span class="top-tag">animation:name duration timing-function delay iteration-count direction;</span>
+        <span class="top-tag">animation:name duration timing-function delay iteration-count direction fill-mode play-state;</span>
         <div class="remark">
             animation-name	规定需要绑定到选择器的 keyframe 名称。 <br/>
             animation-duration	规定完成动画所花费的时间，以秒或毫秒计。<br/>
@@ -499,6 +527,47 @@
             <span class="corner-tag">normal</span>
             <div class="case wide ani-left-2-ease-in count-infinite click-pause">
                 <span>click me to pause</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+
+    </div>
+
+
+    <div class="demo">
+        <span class="top-tag">animation-fill-mode:规定动画在播放之前或之后，其动画效果是否可见</span>
+        <div class="remark">
+            none	不改变默认行为。 <br/>
+            forwards	当动画完成后，保持最后一个属性值（在最后一个关键帧中定义）。<br/>
+            backwards	在 animation-delay 所指定的一段时间内，在动画显示之前，应用开始属性值（在第一个关键帧中定义）。<br/>
+            both	向前和向后填充模式都被应用。<br/>
+            <p class="notice">注意：</p>
+            <p class="notice">1：这个属性需要加厂商前缀</p>
+            <p class="notice">2：默认情况下，动画播放完，元素样式会还原</p>
+            <p class="notice">3：forwards情况下，动画播放完，元素样式会保留在最后一帧</p>
+            <p class="notice">4：backwards,如果没有delay,效果=none，加上delay之后，可以看出等待阶段，他已经应用了第一帧</p>
+        </div>
+
+
+        <div class="empty-box">
+            <span class="corner-tag">none</span>
+            <div class="case wide ani-left-2-ease-in count-1  delay-1 fill-mode-none">
+                <span>animation-fill-mode: none;delay:2s,count:1</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+        <div class="empty-box">
+            <span class="corner-tag">forward</span>
+            <div class="case wide ani-left-2-ease-in count-1  delay-1 fill-mode-forward">
+                <span>animation-fill-mode: forwards;delay:2s,count:1</span>
+                <!--<span class="top-inner-tag">1s linear</span>-->
+            </div>
+        </div>
+
+        <div class="empty-box">
+            <span class="corner-tag">backward</span>
+            <div class="case wide ani-left-2-ease-in count-1 delay-1 fill-mode-backward">
+                <span>animation-fill-mode: backwards;delay:2s,count:1</span>
                 <!--<span class="top-inner-tag">1s linear</span>-->
             </div>
         </div>
