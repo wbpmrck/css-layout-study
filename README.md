@@ -22,7 +22,7 @@ study cases for css layout.
 
 ## C
 * "clear-fix"(float) : https://wbpmrck.github.io/css-layout-study/learn/float-containing.html
-* "canvas": https://wbpmrck.github.io/css-layout-study/learn/canvas/index.html
+* "canvas":(not finished) https://wbpmrck.github.io/css-layout-study/learn/canvas/index.html
 
 ## F
 * flex layout basics : https://wbpmrck.github.io/css-layout-study/learn/flex.html
