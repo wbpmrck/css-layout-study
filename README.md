@@ -6,7 +6,16 @@ study cases for css layout.
 * canvas
 * ...
 
+
+# tricks
+> tricks就是一些特殊的布局技巧，或者有趣有用的小知识点集合
+
+[click here to tricks page](./tricks)
+
+
 # demo page(order by alphabet):
+
+> 下面是学习基础布局知识的一些样例
 
 ## A
 * anchor : https://wbpmrck.github.io/css-layout-study/learn/anchor.html
