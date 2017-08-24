@@ -28,7 +28,7 @@ some useful skills to implement special effects/features.
 
 ## code preview
 
-- (ing)[iframe-html5-blob-code-view](https://wbpmrck.github.io/css-layout-study/tricks/iframe-html5-blob-code-view/demo.html)
+- [iframe-html5-blob-code-view](https://wbpmrck.github.io/css-layout-study/tricks/iframe-html5-blob-code-view/demo.html)
 
     > iframe和HTML5 blob实现JS,CSS,HTML直接当前页预览
 
