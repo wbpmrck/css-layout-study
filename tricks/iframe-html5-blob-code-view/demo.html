@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>iframe-html5-blob-code-view</title>
+</head>
+<body>
+
+<style>
+    textarea{
+        width: 300px;
+        height: 600px;
+
+    }
+</style>
+
+<span>请输入html+css</span>
+<textarea id="input" type="text" rows="20" ></textarea>
+<button id="view">点击查看</button>
+<button id="getInner">点击获取内部iframe的全局变量值</button>
+
+<script>
+
+    var btn = document.getElementById("view");
+    btn.addEventListener("click",function () {
+       showCode();
+    });
+    var btn2 = document.getElementById("getInner");
+    btn2.addEventListener("click",function () {
+       var innerIframe = document.getElementsByTagName("iframe")[0];
+       alert("innerIframe.window.in="+innerIframe.contentWindow.in);
+    });
+    function showCode(){
+        // 1. 创建<iframe>元素
+        var iframe = document.createElement('iframe');
+        var code= document.getElementById("input").value;
+        // 2. 将CSS，HTML字符串转换为Blob对象
+        var blob = new Blob([code], {
+            'type': 'text/html'
+        });
+        // 3. 使用URL.createObjectURL()方法将...
+        iframe.src = URL.createObjectURL(blob);
+
+//        iframe.style="position:absolute;top:20px;width:300px;height:300px;";
+        iframe.style="position:absolute;top:20px;width:600px;height:99vh";
+
+        document.body.appendChild(iframe);
+    }
+</script>
+
+</body>
+</html>
