@@ -28,6 +28,7 @@ study cases for css layout.
 * border: https://wbpmrck.github.io/css-layout-study/learn/border.html
 * box-shadow: https://wbpmrck.github.io/css-layout-study/learn/box-shadow.html
 * box-sizing: https://wbpmrck.github.io/css-layout-study/learn/box-sizing.html
+* BFC: https://wbpmrck.github.io/css-layout-study/learn/bfc.html
 
 ## C
 * "clear-fix"(float) : https://wbpmrck.github.io/css-layout-study/learn/float-containing.html

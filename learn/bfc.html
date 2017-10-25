@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示BFC的原理</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+
+
+<style>
+
+    .demo{
+        position: relative;
+        padding: 20px;
+        border: dashed 2px #6B6B6B;
+
+        margin: 30px 0px;
+    }
+    #demo1 p{
+        display: inline;
+        background-color: #ffe400;
+
+        border: solid 4px #0a6cd6;
+    }
+    #demo1 span{
+        display: block;
+        background-color: #E31687;
+        border: solid 2px #01b876;
+
+    }
+
+    #demo2 span{
+        color: #a22715;
+    }
+
+    #demo3 span{
+        display: inline-block;
+        color: #a22715;
+    }
+
+    .content{
+        width: 48%;
+    }
+
+    #demo4{
+        color: #0a6cd6;
+    }
+
+    #demo4 em{
+        color: #E31687;
+    }
+
+    /*案例描述部分*/
+    .remark{
+        position: absolute;
+        left: 50%;
+        width: 50%;
+        max-height: 90%;
+        overflow: scroll;
+        padding: 20px;
+        top:10px;
+        color:#79ff75;
+        background-color: black;
+        border-radius: 3px;
+    }
+    /*案例描述中的注意事项*/
+    .remark .notice{
+        color: #E31687;
+        font-style: italic;
+
+        margin-top: 5px;
+    }
+</style>
+
+<div id="demo1" class="demo">
+    <div class="content">
+        <P>
+            This is anonymous text before the SPAN.
+            <SPAN>This is the content of SPAN.</SPAN>
+            This is anonymous text after the SPAN.
+        </P>
+    </div>
+    <div class="remark">
+        P元素包含一个匿名文本的chunk(C1)后面跟着一个块级元素和另一个匿名文本的chunk(C2)。<br/>
+        产生的盒将会是一个代表BODY的块盒，包含一个环绕着C1的匿名块盒，SPAN块盒和另一个环绕着C2的匿名块盒 <br/>
+        设置在让匿名块盒生成的元素上的属性仍然会应用于该元素（生成的）盒和内容。例如，如果一个border被设置在上例中的P元素上，border将会绘制在C1（在行结束的位置打开）和C2（在行开始的位置打开）周围
+
+    </div>
+</div>
+
+<div id="demo2" class="demo">
+    <div class="content">
+        span 里的文本 <span>可以
+   分成多行因为</span>它是个行内盒。
+    </div>
+    <div class="remark">
+        "可以分成多行因为"这几个字，默认是inline的，所以参与IFC(行内格式化上下文),所以是一个行内盒<br/>
+        当宽度缩小的时候，可以看到文本被换行
+
+    </div>
+</div>
+
+<div id="demo3" class="demo">
+    <div class="content">
+        span 里的文本 <span>不能分成多行
+   因为它</span> 是个行内块盒（原子行内级盒：atomic inline-level boxes）。
+    </div>
+    <div class="remark">
+        "不能分成多行因为它"这几个字，display设置了inline-block,所以他是一个"原子行内级盒"<br/>
+        这种盒子不参与IFC,所以被当做一个"原子"看待，要么在上面一行，要么放在下面一行
+
+    </div>
+</div>
+
+<div id="demo4" class="demo">
+    <div class="content">
+        <p>我是不在inline元素内的裸文本1 <em>我在em标签内</em> 我是不在inline元素内的裸文本2</p>
+    </div>
+    <div class="remark">
+       外层p生成一个块盒<br/>
+        因为p内部并没有一个block-level元素，只有一个em元素，和2段裸文本。所以p会先为em生成一个行内盒，<br/>
+        然后再为2段文本各自生成一个"匿名行内盒"，他们都参与IFC，所以宽度变小的时候，他们可以换行 <br/>
+        可以看到，"匿名行内盒"无法被css选择器选中，但是他们可以继承父亲的样式(比如这里的字体色)
+
+    </div>
+</div>
+
+</body>
+</html>
