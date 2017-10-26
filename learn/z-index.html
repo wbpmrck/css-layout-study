@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>演示 z-index 的工作原理</title>
+    <link rel="stylesheet" href="css/reset.css">
+</head>
+<body>
+
+
+<style>
+
+    .demo{
+        position: relative;
+        padding: 20px;
+        border: dashed 2px #6B6B6B;
+
+        margin: 30px 0px;
+    }
+    .content{
+        width: 48%;
+    }
+
+
+    /*案例描述部分*/
+    .remark{
+        position: absolute;
+        left: 50%;
+        width: 50%;
+        max-height: 90%;
+        overflow: scroll;
+        padding: 20px;
+        top:10px;
+        color:#79ff75;
+        background-color: black;
+        line-height:1.3;
+        border-radius: 3px;
+    }
+    /*案例描述中的注意事项*/
+    .remark .notice{
+        color: #E31687;
+        font-style: italic;
+
+        margin-top: 5px;
+    }
+</style>
+
+<style>
+    .content{
+        color: #000;
+    }
+    .tip{
+        position: absolute;
+        top:-10px;
+        left:10%;
+
+        border-radius: 5px;
+        background-color: #000;
+        color:#fff;
+        width: 150px;
+    }
+    .s-block{
+        position: absolute;
+
+        left: 30px;
+        top:30px;
+        width: 100px;
+        height: 100px;
+
+        border: dashed 2px black;
+    }
+    .m-block{
+        position: absolute;
+
+        left: 160px;
+        top:110px;
+        width: 120px;
+        height: 120px;
+
+        border: dashed 2px black;
+    }
+    .l-block{
+        position: absolute;
+
+        left: -140px;
+        top:-10px;
+        width: 120px;
+        height: 120px;
+
+        border: dashed 2px black;
+    }
+    .color1{
+        background-color:#E31687;
+    }
+    .color2{
+        background-color:#00ffff;
+    }
+    .color3{
+        background-color:#01b876;
+    }
+    .color4{
+        background-color:#12ff2a;
+    }
+
+    .img{
+        position: absolute;
+        top:500px;
+    }
+    .guifan{
+        border: dashed 2px #12ff2a;
+        padding: 20px;
+    }
+    img{
+        width: 500px;
+        height: auto;
+    }
+</style>
+
+<div id="demo1" class="demo">
+    <div class="content" style="height: 900px">
+
+        <div class="s-block color1" style="z-index: 1">
+            <div class="tip">父亲1，z-index=1</div>
+
+            <div class="s-block color3" style="z-index: 20">
+                <div class="tip">孩子1，z-index=20</div>
+            </div>
+        </div>
+
+        <div class="m-block color2" >
+            <div class="tip">父亲2，z-index=auto(无)</div>
+
+
+            <div class="l-block color4" style="z-index: 4">
+                <div class="tip">孩子2,z-index=4</div>
+            </div>
+        </div>
+
+        <div class="img">
+
+            <div class="guifan">
+
+                <p>在每个堆叠上下文中，下列层按从后向前的顺序绘制：
+
+                </p>
+                <ol>
+                    <li>元素的background和border生成的堆叠上下文
+
+                    </li><li>堆叠层级为负数的子级堆叠上下文（最负的优先）
+
+                </li><li>流内的，非内联级，未定位的（non-positioned ）后代
+
+                </li><li>未定位的浮动（元素）
+
+                </li><li>流内的，内联级，未定位的后代，包括inline table和inline block
+
+                </li><li>堆叠层级为0的子级堆叠上下文，以及堆叠层级为0的定位的后代
+
+                </li><li>堆叠层级为正数的子级堆叠上下文（最小的优先）
+                </li></ol>
+            </div>
+
+
+            <p>下面是默认情况下的堆叠上下文 (优先级代表的绘制顺序,先绘制的，会被后绘制的覆盖）</p>
+            <img src="./img/z-index-1.png">
+            <p>如果修改父亲1的z-index = 5,则堆叠上下文改为: (优先级代表的绘制顺序,先绘制的，会被后绘制的覆盖）</p>
+            <img src="./img/z-index-2.png">
+        </div>
+    </div>
+    <div class="remark">
+        z-index并不是简单的越大越靠前（靠近用户）<br/>
+        这个例子，DOM结构上可以看到，content这个div下面，有2个同级div，他们的z-index不一样。一个是有值，一个是auto <br/>
+        对于auto的div,并没有生成新的堆叠上下文，所以浏览器会继续查找他的孩子，发现孩子2有z-index,为他创建一个堆叠上下文(z=4) <br/>
+
+        因为孩子2的z-index > 父亲1的（因为他们在堆叠上下文中属于一个层级），所以孩子2会显示在前面。 <br/>
+        如果想要孩子1显示在孩子2前面。无论怎么修改孩子1的z-index都是没有效果的，必须： <br/>
+        修改孩子1的父亲1.z-index > 4才可以
+
+    </div>
+</div>
+
+</body>
+</html>

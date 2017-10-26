@@ -66,3 +66,6 @@ study cases for css layout.
 
 ## V
 * vertical-align: https://wbpmrck.github.io/css-layout-study/learn/vertical-align.html
+
+## Z
+* z-index: https://wbpmrck.github.io/css-layout-study/learn/z-index.html
