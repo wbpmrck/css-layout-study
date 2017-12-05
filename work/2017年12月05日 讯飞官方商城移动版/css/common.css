@@ -1,0 +1,12 @@
+.v-middle-abs {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%); }
+
+.all-middle-abs {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%); }

@@ -1,0 +1,466 @@
+@charset "UTF-8";
+.v-middle-abs {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  transform: translateY(-50%); }
+
+.all-middle-abs {
+  position: absolute;
+  display: inline-block;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%); }
+
+body {
+  background-color: #f5f5f5; }
+
+::-webkit-scrollbar {
+  width: 0px; }
+
+div {
+  -webkit-tap-highlight-color: transparent; }
+
+#main {
+  position: relative; }
+
+#top-bar {
+  position: relative;
+  z-index: 22;
+  height: 1.28rem;
+  background-color: #282828; }
+  #top-bar #logo {
+    display: inline-block;
+    width: 3.57333rem;
+    height: 1.28rem;
+    background: url("../image/img_logo_h5@2x.png");
+    background-size: cover;
+    left: 0.42667rem;
+    background-size: contain;
+    background-repeat: no-repeat; }
+  #top-bar #menu-btn {
+    width: 0.58667rem;
+    height: 0.42667rem;
+    background: url("../image/but_menu_nor@2x.png");
+    background-size: cover;
+    right: 0.42667rem; }
+
+#banner .swiper-slide {
+  height: 4.53333rem; }
+  #banner .swiper-slide img {
+    width: 100%;
+    height: 100%; }
+
+#banner .swiper-pagination {
+  bottom: 0px; }
+
+#banner .swiper-pagination-bullet {
+  width: 0.64rem;
+  height: 2px;
+  opacity: 0.15;
+  border-radius: 0;
+  background-color: #000000;
+  margin-left: 0.02667rem;
+  margin-right: 0.02667rem; }
+
+#banner .swiper-pagination-bullet-active {
+  opacity: 1; }
+
+#recommend-product {
+  margin-top: 0.08rem;
+  height: 6.48rem;
+  display: flex;
+  font-size: 0; }
+  #recommend-product .splitter {
+    display: inline-block;
+    width: 0.08rem;
+    height: 6.48rem;
+    background-color: #f5f5f5; }
+  #recommend-product .rec-col {
+    position: relative;
+    display: flex;
+    flex: 1;
+    height: 6.48rem;
+    background-color: #fff;
+    font-family: PingFangSC; }
+    #recommend-product .rec-col .text-area {
+      z-index: 1;
+      position: absolute;
+      top: 0.52rem;
+      left: 0.50667rem;
+      width: 90%;
+      text-align: left; }
+    #recommend-product .rec-col .title1 {
+      font-size: 0.53333rem; }
+    #recommend-product .rec-col .desc {
+      margin-top: 0.24rem;
+      width: 80%;
+      font-size: 0.32rem; }
+      #recommend-product .rec-col .desc .desc-line {
+        line-height: 1.33;
+        opacity: 0.7; }
+    #recommend-product .rec-col .cover {
+      position: absolute;
+      z-index: 0;
+      top: 2.28rem;
+      left: 0.37333rem;
+      width: 4.18667rem;
+      height: 3.86667rem; }
+      #recommend-product .rec-col .cover img {
+        width: 100%;
+        height: auto; }
+  #recommend-product .col-flex-container {
+    flex-direction: column; }
+    #recommend-product .col-flex-container .splitter2 {
+      height: 0.08rem;
+      background-color: #f5f5f5; }
+    #recommend-product .col-flex-container .rec-item {
+      flex: 1;
+      position: relative; }
+      #recommend-product .col-flex-container .rec-item .text-area {
+        z-index: 1;
+        position: absolute;
+        top: 0.50667rem;
+        left: 0.50667rem;
+        width: 90%;
+        text-align: left; }
+        #recommend-product .col-flex-container .rec-item .text-area .title2 {
+          font-size: 0.45333rem; }
+        #recommend-product .col-flex-container .rec-item .text-area .desc2 {
+          margin-top: 0.16rem;
+          width: 80%;
+          font-size: 0.29333rem; }
+          #recommend-product .col-flex-container .rec-item .text-area .desc2 .desc-line {
+            line-height: 1.33;
+            opacity: 0.7; }
+      #recommend-product .col-flex-container .rec-item .cover2 {
+        position: absolute;
+        z-index: 0;
+        height: 100%;
+        right: 0; }
+        #recommend-product .col-flex-container .rec-item .cover2 img {
+          width: 3.34667rem;
+          height: 3.2rem; }
+
+.category-container {
+  padding-top: 0.62667rem;
+  padding-left: 0.42667rem;
+  padding-right: 0.42667rem;
+  font-family: PingFangSC; }
+  .category-container .title-en {
+    width: 80%;
+    height: 0.24rem;
+    font-weight: 100;
+    text-align: left;
+    font-size: 0.24rem;
+    font-weight: 100;
+    color: #7a7a7a; }
+  .category-container .title-zh-cn {
+    width: 80%;
+    margin-top: 0.10667rem;
+    height: 0.45333rem;
+    font-size: 0.48rem;
+    font-weight: 300; }
+
+#hardware .title-zh-cn {
+  width: auto;
+  display: inline-block;
+  vertical-align: middle; }
+
+#hardware .more {
+  display: inline-block;
+  text-align: center;
+  float: right;
+  vertical-align: middle;
+  font-size: 0.29333rem;
+  width: 1.6rem;
+  height: 0.64rem;
+  line-height: 0.64rem;
+  border-radius: 0.32rem;
+  background-color: #f5f5f5;
+  color: #888a8e;
+  border: solid 1px #e0e0e0; }
+
+#hardware .top-prod {
+  overflow: hidden;
+  margin-top: 0.41333rem;
+  height: 4.26667rem;
+  background: url("../image/img_hardware_fanyiij@2x.png");
+  background-size: cover; }
+  #hardware .top-prod .text-area {
+    margin-left: 0.66667rem;
+    padding-top: 0.62667rem; }
+    #hardware .top-prod .text-area .title1 {
+      font-size: 0.58667rem;
+      font-weight: 500; }
+    #hardware .top-prod .text-area .title2 {
+      margin-top: 0.30667rem;
+      font-size: 0.32rem; }
+    #hardware .top-prod .text-area .desc {
+      margin-top: 0.08rem;
+      font-size: 0.26667rem;
+      color: #787878; }
+
+#hardware .middle-line {
+  background-color: #ffffff;
+  margin-top: 0.08rem;
+  height: 4.53333rem;
+  display: flex; }
+  #hardware .middle-line .splitter {
+    display: inline-block;
+    width: 0.08rem;
+    height: 4.53333rem;
+    background-color: #f5f5f5; }
+  #hardware .middle-line .middle-line-item {
+    flex: 1;
+    height: 100%;
+    display: block;
+    width: 0%;
+    position: relative; }
+    #hardware .middle-line .middle-line-item .text-area {
+      z-index: 1;
+      padding-top: 0.50667rem;
+      text-align: center; }
+      #hardware .middle-line .middle-line-item .text-area .title {
+        font-size: 0.48rem; }
+      #hardware .middle-line .middle-line-item .text-area .desc {
+        margin-top: 0.18667rem;
+        font-size: 0.32rem;
+        color: #787878; }
+    #hardware .middle-line .middle-line-item .cover {
+      margin-top: 0.24rem;
+      position: absolute;
+      z-index: 0;
+      width: 100%;
+      bottom: 0; }
+      #hardware .middle-line .middle-line-item .cover img {
+        width: 4.53333rem;
+        height: 2.82667rem; }
+
+#hardware .bottom-prod {
+  overflow: hidden;
+  margin-top: 0.08rem;
+  height: 4.53333rem;
+  background-color: #ffffff;
+  position: relative; }
+  #hardware .bottom-prod .text-area {
+    margin-left: 0.76rem;
+    margin-top: 1.58667rem;
+    z-index: 1; }
+    #hardware .bottom-prod .text-area .title {
+      font-size: 0.58667rem; }
+    #hardware .bottom-prod .text-area .desc {
+      margin-top: 0.17333rem;
+      font-size: 0.32rem;
+      opacity: 0.6;
+      color: #787878; }
+  #hardware .bottom-prod .cover {
+    position: absolute;
+    right: 0.85333rem;
+    top: 0;
+    z-index: 0;
+    height: 100%; }
+    #hardware .bottom-prod .cover img {
+      width: auto;
+      height: 100%; }
+  #hardware .bottom-prod .newest {
+    position: absolute;
+    right: 0.14667rem;
+    top: 0.17333rem;
+    width: 0.64rem;
+    height: 0.64rem;
+    background-color: #ff9000;
+    background: url("../image/img_new@2x.png");
+    background-size: cover; }
+
+.software-list .title-zh-cn {
+  margin-bottom: 0.38667rem; }
+
+.software-list .middle-line {
+  margin-top: 0.08rem;
+  height: 4.32rem;
+  display: flex; }
+  .software-list .middle-line .splitter {
+    display: inline-block;
+    width: 0.08rem;
+    height: 4.32rem;
+    background-color: #f5f5f5; }
+  .software-list .middle-line .middle-line-item {
+    flex: 1;
+    background-color: #fff;
+    position: relative;
+    flex-basis: 0;
+    height: 100%;
+    width: 100%; }
+    .software-list .middle-line .middle-line-item .cover {
+      z-index: 0;
+      width: 100%; }
+      .software-list .middle-line .middle-line-item .cover img {
+        width: 100%;
+        height: auto; }
+    .software-list .middle-line .middle-line-item .text-area {
+      z-index: 1;
+      margin-top: 0.02667rem;
+      text-align: center; }
+      .software-list .middle-line .middle-line-item .text-area .title {
+        font-size: 0.37333rem; }
+    .software-list .middle-line .middle-line-item .download {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 0.4rem;
+      width: 2rem;
+      height: 0.69333rem;
+      border-radius: 0.34667rem;
+      border: solid  #e5e5e5;
+      border-width: 2px; }
+    .software-list .middle-line .middle-line-item .download:active {
+      background-image: linear-gradient(30deg, #0097ee, #00d2ff);
+      border: none; }
+    .software-list .middle-line .middle-line-item .download:before {
+      content: "免费下载";
+      display: inline-block;
+      position: absolute;
+      text-align: center;
+      width: 90%;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      color: #0087ef;
+      font-family: MicrosoftYaHei;
+      font-size: 0.32rem; }
+    .software-list .middle-line .middle-line-item .download:active:before {
+      color: #fff; }
+
+#bottom-bar {
+  margin-top: 0.42667rem;
+  position: relative;
+  background-color: #fff; }
+  #bottom-bar .text-area {
+    width: 90%;
+    margin-top: 0.41333rem;
+    margin-left: 0.42667rem;
+    margin-bottom: 0.36rem;
+    display: inline-block; }
+    #bottom-bar .text-area .title {
+      width: 100%;
+      font-size: 0.32rem;
+      margin-bottom: 0.18667rem; }
+    #bottom-bar .text-area .desc {
+      width: 100%;
+      color: #787878;
+      opacity: 0.6;
+      margin-top: 0.13333rem;
+      font-size: 0.24rem; }
+  #bottom-bar .service {
+    margin-top: 0.45333rem;
+    margin-bottom: 0.41333rem; }
+    #bottom-bar .service .service-phone {
+      font-size: 0.42667rem;
+      color: #ff9000; }
+
+#back-top {
+  display: none;
+  position: fixed;
+  right: 0;
+  background: url("../image/but_back_top@2x.png");
+  background-size: cover;
+  bottom: 2.32rem;
+  width: 1.06667rem;
+  height: 1.17333rem; }
+
+#back-top.show {
+  display: block; }
+
+#drop-down {
+  display: flex;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  box-sizing: border-box;
+  flex-direction: column;
+  visibility: hidden;
+  position: absolute;
+  top: 0;
+  padding-top: 1.28rem;
+  z-index: 10;
+  width: 100%;
+  height: 100%; }
+  #drop-down .item {
+    box-sizing: border-box;
+    z-index: 1;
+    display: flex;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom-style: solid;
+    border-bottom-color: #282828;
+    border-bottom-width: 0.01333rem;
+    height: 1.17333rem;
+    padding-left: 0.44rem;
+    padding-right: 0.42667rem;
+    width: 100%;
+    background-color: #141414; }
+    #drop-down .item .text {
+      color: #fff;
+      font-size: 0.42667rem;
+      line-height: 1.17333rem;
+      height: 1.17333rem; }
+    #drop-down .item .btn {
+      background: url("../image/img_arrow@2x.png");
+      background-size: cover;
+      width: 0.2rem;
+      height: 0.32rem; }
+  #drop-down .mask {
+    flex: 1;
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-color: #141414; }
+
+#drop-down.show {
+  visibility: visible; }
+
+#wechat {
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  z-index: 10;
+  width: 100%;
+  height: 100%;
+  font-family: PingFangSC;
+  font-size: 0.4rem; }
+  #wechat .text {
+    position: relative;
+    box-sizing: border-box;
+    width: 100%;
+    padding-left: 0.42667rem;
+    padding-top: 0.37333rem;
+    padding-bottom: 0.48rem;
+    background-color: #fff; }
+    #wechat .text .middle {
+      margin-top: 0.16rem;
+      margin-bottom: 0.16rem; }
+    #wechat .text .arrow {
+      display: inline-block;
+      position: absolute;
+      top: 0.18667rem;
+      right: 0.61333rem;
+      width: 0.78667rem;
+      height: 0.96rem;
+      background: url("../image/arrow@2x.png");
+      background-size: cover; }
+  #wechat .notice {
+    color: #e70c1d; }
+  #wechat .mask {
+    z-index: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.6;
+    background-color: #141414; }
+
+#wechat.show {
+  visibility: visible; }
