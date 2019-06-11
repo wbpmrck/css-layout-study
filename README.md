@@ -38,6 +38,7 @@ study cases for css layout.
 * flex layout basics : https://wbpmrck.github.io/css-layout-study/learn/flex.html
 * float: https://wbpmrck.github.io/css-layout-study/learn/float.html
 * font: https://wbpmrck.github.io/css-layout-study/learn/font.html
+* filter: https://wbpmrck.github.io/css-layout-study/learn/filter.html
 * font-custmize: https://wbpmrck.github.io/css-layout-study/learn/font-custmize.html
 
 ## I
