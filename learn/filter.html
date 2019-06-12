@@ -32,6 +32,26 @@
                 -webkit-filter: invert(100%)
             }
         }
+
+        @keyframes ani-saturate {
+            0% {
+                -webkit-filter: saturate(0%)
+            }
+
+            100% {
+                -webkit-filter: saturate(200%)
+            }
+        }
+
+        @keyframes ani-sepia {
+            0% {
+                -webkit-filter: sepia(0%)
+            }
+
+            100% {
+                -webkit-filter: sepia(100%)
+            }
+        }
     </style>
 </head>
 
@@ -178,6 +198,47 @@
                 转化图像的透明程度。值定义转换的比例。值为0%则是完全透明，值为100%则图像无变化。值在0%和100%之间，则是效果的线性乘子，也相当于图像样本乘以数量。 若值未设置，值默认是1。
                 <br>
                 该函数与已有的opacity属性很相似，不同之处在于通过filter，一些浏览器为了提升性能会提供硬件加速。
+            </div>
+        </div>
+
+        <div class="demo-mini">
+            <img class="img" src="./img/pencil.jpg" alt="img" style="animation: ani-saturate 5s linear 0s infinite ;">
+            <div class="css-content">
+                animation: ani-saturate 5s linear 0s infinite ; <br>
+                @keyframes ani-saturate {<br>
+                0% {<br>
+                -webkit-filter: saturate(0%)<br>
+                }<br>
+
+                100% {<br>
+                -webkit-filter: saturate(200%)<br>
+                }<br>
+                }
+            </div>
+            <div class="remark">
+                【饱和度】
+                转换图像饱和度。值定义转换的比例。值为0%则是完全不饱和，值为100%则图像无变化。其他值，则是效果的线性乘子。超过100%的值是允许的，则有更高的饱和度。 若值未设置，值默认是1。
+            </div>
+        </div>
+
+
+        <div class="demo-mini">
+            <img class="img" src="./img/pencil.jpg" alt="img" style="animation: ani-sepia 5s linear 0s infinite ;">
+            <div class="css-content">
+                animation: ani-sepia 5s linear 0s infinite ; <br>
+                @keyframes ani-sepia {<br>
+                0% {<br>
+                -webkit-filter: sepia(0%)<br>
+                }<br>
+
+                100% {<br>
+                -webkit-filter: sepia(100%)<br>
+                }<br>
+                }
+            </div>
+            <div class="remark">
+                【褐色】
+                将图像转换为深褐色。值定义转换的比例。值为100%则完全是深褐色的，值为0%图像无变化。值在0%到100%之间，则是效果的线性乘子。若未设置，值默认是0。
             </div>
         </div>
 
